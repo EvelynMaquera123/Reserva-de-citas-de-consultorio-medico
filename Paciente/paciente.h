@@ -11,10 +11,11 @@ class Paciente{
 	string direccion[20];	
 	
 	public();
-	
+	void registrarPaciente();
 	void solicitarCita();
     void cancelarCita();
 	void operacion();
+	void actualizarPacientes();
 	
 };
 
