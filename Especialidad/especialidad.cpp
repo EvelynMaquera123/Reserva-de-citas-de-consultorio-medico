@@ -21,9 +21,9 @@ void Especialidad::crearEspecialidad(){
 //Eliminamos especialidad segun su ID
 void Especialidad::eliminarEspecialidad(){
     cout << "Ingrese ID de especialidad a eliminar";
-    cin >> auxID;
-	for(int i=0; i<100; i++){
-        if(auxID == e->idEspecialidad){
+    cin >> auxID; // id auxiliar 
+	for(int i=0; i<100; i++){ // recorremos todos los registros
+        if(auxID == e->idEspecialidad){ // si encuentra el id ingresado con el existente se elimina
             cout<<":::Datos a Eliminar:::"<<endl;
             cout << "========================" << endl;
             cout<<"ID: "<<e[i].idEspecialidad<<endl;
