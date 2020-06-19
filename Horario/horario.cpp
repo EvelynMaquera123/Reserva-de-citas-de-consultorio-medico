@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include "horario.h"
 //Contrcutor que llama al contructor de la clase padre.
@@ -16,6 +15,4 @@ void Horario::mostrarDatos()//Mostramos todos los datos del horario
     cout<<"Codigo del doctor:"<<codigo_doctor<<endl;
     cout<<"Fecha:"<<ends;
     cout << fecha.a�o<<"/"<<fecha.mes<<"/"<<fecha.dia<<endl;
-    
-   
 }

@@ -35,6 +35,6 @@ void Doctor::crearHorario()
   cin>>anio;
   //Creamos el objeto horario y le pasamos los dayos recogidos mas el atributo codigo
    Horario temp(anio,mes,dia,codigo);
-   //
-   horarios.push_front(temp);
+   //Encolamos el horario en la lista de horarios correspondientes al doctor
+   horarios.push_back(temp);
 }
