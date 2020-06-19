@@ -2,6 +2,7 @@
 
 class Especialidad{
 	private:
+		int idEspecialidad;
 		std::string nombre;
 		std::string descripcion;
 	public:
