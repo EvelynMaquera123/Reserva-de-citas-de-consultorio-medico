@@ -1,6 +1,10 @@
 #include "cita.h"
 #include <iostream>
-Cita::Cita(Doctor doctoraux, Paciente pacienteaux, Fecha fechaaux ,Especialidad especialidadaux,bool estadoaux);//Constructor
+
+Cita::Cita(){
+	
+}
+Cita::Cita(Doctor doctoraux, Paciente pacienteaux, Fecha fechaaux ,Especialidad especialidadaux,bool estadoaux)//Constructor
 {
 	doctor= doctoraux;
 	paciente= pacienteaux;
@@ -8,6 +12,7 @@ Cita::Cita(Doctor doctoraux, Paciente pacienteaux, Fecha fechaaux ,Especialidad 
 	especialidad= especialidadaux;
 	estado= estadoaux;
 }
+
 void mostrarCita(){
 	cout<<"Datos del Doctor: "<<doctor.nombre<<doctor.apellidoPaterno<<doctor.apellidoMaterno<<endl;
 	cout<<"Datos del Paciente: "<<paciente.nombre<<paciente.apellidoPaterno<<paciente.apellidoMaterno<<endl;

@@ -10,8 +10,6 @@ void cancelarCita(paciente[]);
 void actualizarPacientes(paciente[]);
 void operacion(paciente[]);
 
-	
-
 void menu(void){  //CREAMOS UN MENU PARA LA GESTION DE LOS PACIENTES
 
     cout<<"\n\t\t[    REGISTRO DE PACIENTES    ]\n";
@@ -72,7 +70,7 @@ void paciente::cancelarCita(paciente pacientes[5]){  //SI EL USUARIO DESEA CANCE
 
                 delete(q);
 
-                cout<<"\n\n\CITA ELIMINADO...!!!!!\n";
+                cout<<"\n\nCITA ELIMINADO...!!!!!\n";
 
                 return;
 

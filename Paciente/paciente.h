@@ -10,7 +10,7 @@ class Paciente{
 	char telefono[10];
 	string direccion[20];	
 	
-	public();
+	public:
 	void registrarPaciente();
 	void solicitarCita();
     void cancelarCita();
