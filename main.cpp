@@ -11,7 +11,7 @@ int main(){
 	int opc; //opcion del menu
 	
 	do{	
-		cout<< "    *************************************************"<<endl;
+		//cout<< "    *************************************************"<<endl;
 		cout<< "    *   Welcome to the Appointment Booking System   *"<<endl;
 		cout<< "    *************************************************"<<endl;
 		cout<< "\n";
