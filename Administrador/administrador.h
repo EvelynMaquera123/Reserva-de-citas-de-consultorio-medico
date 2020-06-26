@@ -3,7 +3,7 @@
 #pragma once
 
 class Administrador{
-    private:
+    protected:
         std::string usuario;
         std::string contrasenia;
     public:

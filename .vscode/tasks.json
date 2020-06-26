@@ -4,17 +4,23 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "echo",
+            "label": "g++.exe build active file",
             "type": "shell",
-            "command": "g++",
+            "command": "E:\\MinGW\\bin\\g++.exe",
             "args": [
                 "-g",
-                "main.cpp"
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
+            "options": {
+                "cwd": "E:\\MinGW\\bin"
+            },
+            "problemMatcher":[
+                "$gcc"
+            ],
+            "group": "build"
+            
         }
     ]
 }
