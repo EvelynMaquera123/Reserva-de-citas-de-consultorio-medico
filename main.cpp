@@ -1,13 +1,15 @@
 #include<iostream>
 #include<conio.h>
-#include "doctor.h"
-#include "especialidad.h"
-#include "paciente.h"
-#include "cita.h"
+//#include "doctor.h"
+//#include "especialidad.h"
+//#include "paciente.h"
+//#include "cita.h"
+#include <Administrador/administrador.h>
 using namespace std;
 
 int main(){
 	
+	Administrador *a = new Administrador;
 	int opc; //opcion del menu
 	
 	do{	
@@ -29,6 +31,9 @@ int main(){
 		cin>>opc;
 		switch(opc){
 			case 1:
+				a->crearLogin();
+				a->ingresoExitoso();
+				getch();
 			break;
 			case 2:
 			break;
