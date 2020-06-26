@@ -1,5 +1,6 @@
 #include "doctor.h"
 #include <iostream>
+//creamos el constructor teniendo como parametros todos los atributos de persona y de doctor
 Doctor::Doctor(char* nombr,char* apellidoP, char* apellidoM, Fecha fec,double peso,double estatura, char* sex, char* telef,char* direccion,string cod, Especialidad es,list<Horario> ho)
 {
   Persona( nombr,apellidoP, apellidoM, fec, peso,estatura, sex, telef,direccion);
@@ -8,6 +9,10 @@ Doctor::Doctor(char* nombr,char* apellidoP, char* apellidoM, Fecha fec,double pe
   especialidad=es;
   for(std::list<Horario>::iterator it = ho.begin();it != ho.end();++it)//Hacemos un for para iterar en cada uno de los objetos de la lista de horarios que le creamos
         horarios.push_back(*it);//Enrolamos cada horario en la lista a la lista del doctor
+ }
+ Doctor::Doctor()
+ {
+
  }
 void Doctor:: mostrarDatos()
 {
@@ -37,4 +42,74 @@ void Doctor::crearHorario()
    Horario temp(anio,mes,dia,codigo);
    //Encolamos el horario en la lista de horarios correspondientes al doctor
    horarios.push_back(temp);
+}
+void Doctor::crearDoctor()
+{
+  char res;
+   //Variables de la biblioteca fstream para el manejo de archivos
+    ofstream escritura;
+    ifstream consulta;
+
+    do{
+    escritura.open("doctores.txt", ios::out | ios::app);//crea y escribe, si ya tiene texto une al final del archivo
+    consulta.open("doctores.txt", ios::in);//solamente consulta o lee usando la variable sobre el archivo físico alumnos.txt
+    //Verificamos si el archivo ha podido ser habierto con normalidad
+    if (escritura.is_open() && consulta.is_open()){
+
+
+            bool repetido=false;
+            string codaux;
+            cout<<"\n";
+            cout<<"\tIngresa el codigo del doctor:    ";
+            getline(cin,codaux);
+            
+            ///A continuación se aplica el tipo de lectura de archivos secuencial
+            consulta>>codigo;
+            while (!consulta.eof()){
+                //Si encontramos el codigo del doctor , significa que ya esta registrado , asi que no podemos volverlo a insertar
+                if (codaux.compare(codigo)==0){
+                    cout<<"\t\tYa tenemos un doctor registrado con ese codigo...\n";
+                    repetido=true;
+                    break;
+                }
+                consulta>>codigo;
+            }
+           //En caso el doctor no se haya encontrado significa que no exite , asi que podemos proceder a insertarlo
+            if (repetido==false){
+                Doctor temp;
+                cout<<"\tIngresa el nombre del alumno: ";
+                cin>>temp.nombre;
+                cout<<"\tIngresa el apellido Paterno: ";
+                cin>>temp.apellidoPaterno;
+                cout<<"\tIngresa el apellido materno: ";
+                cin>>temp.apellidoMaterno;
+                cout<<"\tIngresa el sexo: ";
+                cin>>temp.sexo;
+                cout<<"\tIngresa la edad : ";
+                cin>>temp.edad;
+                cout<<"\tIngresa el telefono: ";
+                cin>>temp.telefono;
+                Especialidad es;
+                es.crearEspecialidad();
+                temp.codigo=codaux;
+                temp.especialidad=es;
+                //ESCRIBIENDO LOS DATOS CAPTURADOS POR EL USUARIO EN EL ARCHIVO
+                escritura<<temp.codigo<<" "<<temp.nombre<<" "<<temp.apellidoPaterno<<" "<<temp.apellidoMaterno<<" "<<temp.sexo<<" "<<temp.edad<<" "<<temp.telefono<<endl;
+                cout<<"\n\tRegistro agregado...\n";
+               
+            }
+            //Preguntamos al usuario si desea ingresar otro 
+            cout<<"\n\tDeseas ingresar otro doctor? (S/N): ";
+            cin>>res;
+    //Si el archivo no se ha podido abrir enviamos un mensaje de error
+    }else{
+        cout<<"El archivo no se pudo abrir \n";
+    }
+    //Cerramos la conceccion de escritura y de lectura con el archivo
+    escritura.close();
+    consulta.close();
+    //Esta accion se repetira siempre que el usuario  presione s o S cuando se le pregunte si quiere ingresar otro doctor
+    }while (res=='S' || res=='s');
+
+
 }
