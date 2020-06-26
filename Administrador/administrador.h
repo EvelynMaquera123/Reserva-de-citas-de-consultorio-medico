@@ -2,8 +2,8 @@
 
 class Administrador{
     protected:
-        char usuario[20];
-        char contrasenia[20];
+        std::string usuario;
+        std::string contrasenia;
     public:
         Administrador();
         void crearLogin();

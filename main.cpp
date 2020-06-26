@@ -4,11 +4,10 @@
 //#include "especialidad.h"
 //#include "paciente.h"
 //#include "cita.h"
-#include "administrador.h"
+#include "Administrador/administrador.h"
 using namespace std;
 
-int main(){
-	
+int main(){	
 	Administrador *a = new Administrador;
 	int opc; //opcion del menu
 	
@@ -32,7 +31,7 @@ int main(){
 		switch(opc){
 			case 1:
 				a->crearLogin();
-				a->ingresoExitoso();
+				// a->ingresoExitoso();
 				getch();
 			break;
 			case 2:

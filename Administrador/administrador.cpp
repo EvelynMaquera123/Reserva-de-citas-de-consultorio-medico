@@ -5,6 +5,8 @@
 
 using namespace std;
 
+Administrador *a = new Administrador;
+
 Administrador::Administrador()
 {
 }
@@ -12,20 +14,17 @@ Administrador::Administrador()
 void Administrador::crearLogin()
 {
     cout << "\t Ingrese Usuario: ";
-    cin >> usuario;
+    cin >> a->usuario;
     cout << "\t Ingrese Contrasenia: ";
-    cin >> contrasenia;
-}
+    cin >> a->contrasenia;
 
-void Administrador::ingresoExitoso()
-{
-    char usu[] = "administrador";
-    char con[] = "123456789";
+    std::string usu = "administrador";
+    std::string con = "123456789";
     int opc;
 
-    if (usuario == usu && contrasenia == con)
+    if (a->usuario == usu && a->contrasenia == con)
     {
-        cout << "Ingreso Exitoso...!!!" << endl;
+        cout << "\tIngreso Exitoso...!!!" << endl;
         getch();
         do
         {
@@ -35,10 +34,10 @@ void Administrador::ingresoExitoso()
             cout << "\n";
             getch();
             system("cls");
-            cout << " Ingrese una opcion del menu(1-5)" << endl;
-            cout << " 1. Agregar Nueva Especialidad" << endl;
-            cout << " 2. Agregar Nuevo Doctor" << endl;
-            cout << " 3. Salir" << endl;
+            cout << "\t Ingrese una opcion del menu(1-5)" << endl;
+            cout << "\t 1. Agregar Nueva Especialidad" << endl;
+            cout << "\t 2. Agregar Nuevo Doctor" << endl;
+            cout << "\t 3. Salir" << endl;
             cin >> opc;
             switch (opc)
             {
@@ -51,9 +50,14 @@ void Administrador::ingresoExitoso()
             case 3:
                 break;
             default:
-                cout << "Opcion Incorrecta...!!! Try Again..." << endl;
+                cout << "\tOpcion Incorrecta...!!! Try Again..." << endl;
                 break;
             }
         } while (opc != 3);
     }
+}
+
+void Administrador::ingresoExitoso()
+{
+    
 }

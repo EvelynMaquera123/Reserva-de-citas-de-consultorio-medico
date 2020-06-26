@@ -1,4 +1,5 @@
 #include "Persona.h"
+#include <string.h>
 #include <iostream>
 using std::cout;
 
@@ -30,24 +31,45 @@ Persona::Persona() {
 char* Persona::getNombre(void)
 {
 	return nombre;
-}char* Persona::getApellidoPaterno(void)
+}
+char* Persona::getApellidoPaterno(void)
 {
 	return apellidoPaterno;
-}char* Persona::getApellidoMaterno(void)
+}
+char* Persona::getApellidoMaterno(void)
 {
 	return apellidoMaterno;
-}int Persona::setEdad() {	this->edad = 2020 - fechaNacimiento.año;	return edad;}char* Persona::getSexo(void)
+}
+int Persona::setEdad() {
+	this->edad = 2020 - fechaNacimiento.aï¿½o;
+	return edad;
+}
+char* Persona::getSexo(void)
 {
 	return apellidoMaterno;
-}char* Persona::getTelefono(void)
+}
+char* Persona::getTelefono(void)
 {
 	return apellidoMaterno;
-}char* Persona::getDireccion(void)
+}
+char* Persona::getDireccion(void)
 {
 	return direccion;
-}double Persona::getPeso(void)
+}
+double Persona::getPeso(void)
 {
 	return peso;
-}void Persona::mostrarDatos() 
+}
+void Persona::mostrarDatos() 
 {
-	//Datos personales	cout << "Nombre: " << nombre <<"Apellido Paterno: "<< apellidoPaterno<<"Apellido Materno: "<<apellidoMaterno<<endl;	cout << "Fecha Nacimiento: " <<fechaNacimiento.año<<"/"<<fechaNacimiento.mes<<"/"<<fechaNacimiento.dia<<endl;	cout << "Peso: " << peso <<endl;	cout << "Edad: " << edad << endl;	cout << "Estatura: " << estatura << endl;	cout << "Sexo: "<<sexo << endl;	cout << "Peso: " << telefono<< endl;	cout << "Peso: " << direccion << endl;}
+	//Datos personales
+
+	cout << "Nombre: " << nombre <<"Apellido Paterno: "<< apellidoPaterno<<"Apellido Materno: "<<apellidoMaterno<<endl;
+	cout << "Fecha Nacimiento: " <<fechaNacimiento.aï¿½o<<"/"<<fechaNacimiento.mes<<"/"<<fechaNacimiento.dia<<endl;
+	cout << "Peso: " << peso <<endl;
+	cout << "Edad: " << edad << endl;
+	cout << "Estatura: " << estatura << endl;
+	cout << "Sexo: "<<sexo << endl;
+	cout << "Peso: " << telefono<< endl;
+	cout << "Peso: " << direccion << endl;
+}
