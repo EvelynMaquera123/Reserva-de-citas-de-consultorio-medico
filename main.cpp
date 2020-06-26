@@ -4,7 +4,7 @@
 //#include "especialidad.h"
 //#include "paciente.h"
 //#include "cita.h"
-#include "Administrador/administrador.h"
+#include "administrador.h"
 using namespace std;
 
 int main(){
