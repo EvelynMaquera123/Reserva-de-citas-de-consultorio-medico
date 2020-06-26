@@ -1,22 +1,22 @@
 #include<iostream>
 #include "paciente.h"
 using namespace std;
-//struct Paciente pacientes;
-//Le pasamos los valores de nuestros parametros  exculisivos de Doctor
+
+//Le pasamos los valores de nuestros parametros  exculisivos de Paciente
 Paciente::Paciente(char* nombr,char* apellidoP, char* apellidoM, Fecha fec,double peso,double estatura, char* sex, char* telef,char* direccion,string cod,list<Persona> pe)
 {
   Persona( nombr,apellidoP, apellidoM, fec, peso,estatura, sex, telef,direccion);
     //Le pasamos los valores de nuestros parametros  exculisivos de Paciente
   codigo=cod;
 
-  for(std::list<Persona>::iterator it = pe.begin();it != pe.end();++it)//Hacemos un for para iterar en cada uno de los objetos de la lista de horarios que le creamos
+  for(std::list<Persona>::iterator it = pe.begin();it != pe.end();++it)//Hacemos un for para iterar en cada uno de los objetos de la lista de pacientes que le creamos
         pacientes.push_back(*it);//Enrolamos cada Persona en la lista a la lista del Administrador
  }
  Paciente::Paciente()
  {
  }	
 void Paciente::registrarPaciente(){
-    
+
 }
 void Paciente::mostrarDatosPaciente() 
 {
@@ -49,7 +49,7 @@ void Paciente::solicitarCita(){   //METODO EN EL CUAL EL USUARIO SOLICITA UNA CI
 	}
 void Paciente::cancelarCita(){ //metodo para cancelar cita del paciente
 }
-void Paciente::operacion(){ //metodo para 
+void Paciente::operacion(){ //metodo para gestionar las operaciones del paciente
 }
 
 
