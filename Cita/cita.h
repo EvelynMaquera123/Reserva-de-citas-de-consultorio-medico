@@ -1,7 +1,7 @@
-#include "doctor.h"
-#include "paciente.h"
-#include "especialidad.h"
-#include "fecha.h"
+#include "../Doctor/doctor.h"
+#include "../Paciente/paciente.h"
+#include "../Especialidad/especialidad.h"
+#include "../Fecha/fecha.h"
 using namespace std;
 
 class Cita{
