@@ -19,8 +19,8 @@ void Administrador::crearLogin()
 
 void Administrador::ingresoExitoso()
 {
-    std::string usu = 'administrador';
-    std::string con = '123456789';
+    std::string usu = "administrador";
+    std::string con = "123456789";
     int opc;
 
     if (usuario == usu && contrasenia == con)
@@ -40,7 +40,7 @@ void Administrador::ingresoExitoso()
             cout << " 2. Agregar Nuevo Doctor" << endl;
             cout << " 3. Salir" << endl;
             cin >> opc;
-            switch (expression)
+            switch (opc)
             {
             case 1:
                 /* code */
