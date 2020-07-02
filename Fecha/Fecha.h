@@ -2,11 +2,11 @@
 #include "Hora.h"
 class Fecha {
 public:
-	int año;
+	int anio;
 	int mes;
 	int dia;
 	Hora *hora;
 public:
-	Fecha(int año,int dia,int mes);
+	Fecha(int anio,int dia,int mes);
 	Fecha();
 };

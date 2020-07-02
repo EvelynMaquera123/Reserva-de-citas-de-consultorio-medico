@@ -3,12 +3,16 @@
 //#include "doctor.h"
 //#include "especialidad.h"
 //#include "paciente.h"
-//#include "cita.h"
+
+#include "cita.h"
+#include <list>
 #include "Administrador/administrador.h"
 using namespace std;
 
 int main(){	
 	Administrador *a = new Administrador;
+	//Cita cts[200];
+	list<Paciente> ps;
 	int opc; //opcion del menu
 	
 	do{	
@@ -30,11 +34,19 @@ int main(){
 		cin>>opc;
 		switch(opc){
 			case 1:
-				a->crearLogin();
+			{
+                a->crearLogin();
 				// a->ingresoExitoso();
 				getch();
+			}
+				
 			break;
+			    
 			case 2:
+			{
+                 
+			}
+
 			break;
 			case 3:
 			break;

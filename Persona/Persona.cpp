@@ -41,7 +41,7 @@ char* Persona::getApellidoMaterno(void)
 	return apellidoMaterno;
 }
 int Persona::setEdad() {
-	this->edad = 2020 - fechaNacimiento.a�o;
+	this->edad = 2020 - fechaNacimiento.anio;
 	return edad;
 }
 char* Persona::getSexo(void)
@@ -65,7 +65,7 @@ void Persona::mostrarDatos()
 	//Datos personales
 
 	cout << "Nombre: " << nombre <<"Apellido Paterno: "<< apellidoPaterno<<"Apellido Materno: "<<apellidoMaterno<<endl;
-	cout << "Fecha Nacimiento: " <<fechaNacimiento.a�o<<"/"<<fechaNacimiento.mes<<"/"<<fechaNacimiento.dia<<endl;
+	cout << "Fecha Nacimiento: " <<fechaNacimiento.anio<<"/"<<fechaNacimiento.mes<<"/"<<fechaNacimiento.dia<<endl;
 	cout << "Peso: " << peso <<endl;
 	cout << "Edad: " << edad << endl;
 	cout << "Estatura: " << estatura << endl;

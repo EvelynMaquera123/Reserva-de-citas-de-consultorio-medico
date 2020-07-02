@@ -42,5 +42,5 @@ void Especialidad::eliminarEspecialidad(){
     }
 }
 //Destructor
-Especialidad::~Especialidad(){
+Especialidad::Especialidad(){
 }

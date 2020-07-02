@@ -1,10 +1,7 @@
 #include "cita.h"
+#include "doctor.h"
 #include <iostream>
-<<<<<<< Updated upstream
-/* ddvv este es un comentarioo*/
-=======
-/* ddvv*/
->>>>>>> Stashed changes
+
 Cita::Cita(){
 	
 }
@@ -19,7 +16,7 @@ Cita::Cita(Doctor doctoraux, Paciente pacienteaux, Fecha fechaaux ,Especialidad 
 }
 
 void mostrarCita(){
-	cout << "Datos del Doctor: " << doctor.nombre << doctor.apellidoPaterno << doctor.apellidoMaterno << endl;
+	cout << "Datos del Doctor: " << doctor.nombre << doctor.apellidoPaterno << persona.doctor.apellidoMaterno << endl;
 	cout << "Datos del Paciente: " << paciente.nombre << paciente.apellidoPaterno << paciente.apellidoMaterno << endl;
 	cout << "Especialidad: " << especialidad.nombre << endl;
 	//cout<<"Fecha: "<<fecha.mostrarFecha<<endl;

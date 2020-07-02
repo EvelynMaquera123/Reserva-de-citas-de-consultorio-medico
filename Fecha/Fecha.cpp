@@ -3,7 +3,7 @@
 #include <iostream>
 using std::cout;
 Fecha::Fecha(int anio,int mes,int dia) {
-	this->año = anio;
+	this->anio = anio;
 	this->mes = mes;
 	this->dia = dia;
 	
