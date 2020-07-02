@@ -1,12 +1,21 @@
 #include "cita.h"
 #include <iostream>
-
-Cita::Cita(Doctor doctoraux, Paciente pacienteaux, Fecha fechaaux, Especialidad especialidadaux, bool estadoaux){//Constructor
-	doctor = doctoraux;
-	paciente = pacienteaux;
-	fecha = fechaaux;
-	especialidad = especialidadaux;
-	estado = estadoaux;
+<<<<<<< Updated upstream
+/* ddvv este es un comentarioo*/
+=======
+/* ddvv*/
+>>>>>>> Stashed changes
+Cita::Cita(){
+	
+}
+Cita::Cita(Doctor doctoraux, Paciente pacienteaux, Fecha fechaaux ,Especialidad especialidadaux,bool estadoaux)//Constructor
+{
+	
+	doctor= doctoraux;
+	paciente= pacienteaux;
+	fecha= fechaaux;
+	especialidad= especialidadaux;
+	estado= estadoaux;
 }
 
 void mostrarCita(){
