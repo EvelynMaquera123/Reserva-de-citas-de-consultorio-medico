@@ -136,9 +136,11 @@ a->contrasenia=contra;
                    cout<<"Ingrese "<<endl;
                 */
          for(std::list<Doctor>::iterator it = doc.begin() ; it != doc.end() ; ++it){ 
+             /*
                      for(std::list<list<Horario>>::iterator its = horarios.begin() ; its != horarios.end() ; ++its){
 
                      }
+                     */
          }
                     break;
 
