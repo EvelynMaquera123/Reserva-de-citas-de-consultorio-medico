@@ -17,7 +17,8 @@ using namespace std;
 Administrador *a = new Administrador;
 list<Paciente> ps;
 list<Doctor> doc;
-
+const int diaActual=3;
+const int horaActual=8;
 void Sistema::login()
 {
     string usu;
@@ -147,8 +148,15 @@ void Sistema::login()
                */
 
 
-
-              
+       std::cout << "DOCTORES DISPONIBLES PARA EL DÍA Y HORA ACTUAL:" ;
+                   for(std::list<Doctor>::iterator it = doc.begin() ; it != doc.end() ; ++it){ 
+                             list<Horario> aHorarios = it->obtenerHorarios();
+                     for(list<Horario>::iterator its = aHorarios.begin() ; its != aHorarios.end() ; ++its){
+                               if(its->getDia()==diaActual &&  its->getHora()>horaActual ){
+                                  its->mostrarDatos();
+                               }
+                      }
+                   }  
         
                     break;
 
@@ -158,7 +166,7 @@ void Sistema::login()
             { 
                 /* code */
               
-
+                 
                 break;
              }
                 

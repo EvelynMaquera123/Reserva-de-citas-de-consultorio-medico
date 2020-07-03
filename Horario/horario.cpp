@@ -5,10 +5,13 @@ Horario::Horario()
 
 }
 //Contrcutor que llama al contructor de la clase padre.
-Horario::Horario(int anio,int mes,int dia,string cod)
+Horario::Horario(int anio,int mes,int dia,string cod , int hor)
 { 
     Fecha(anio,mes,dia);
     codigo_doctor=cod;
+    hora=hor;
+     
+
 }
 void Horario::modificar()//Con este metodo modifica la fecha del horario
 {
@@ -21,10 +24,22 @@ void Horario::mostrarDatos()//Mostramos todos los datos del horario
     cout<<"Codigo del doctor:"<<codigo_doctor<<endl;
     cout<<"Fecha:"<<ends;
     cout << fecha.anio<<"/"<<fecha.mes<<"/"<<fecha.dia<<endl;
+    cout<<"Año:"<<ends;
+    cout<<hora;
 }
 
-
-
+int Horario::getAnio(){
+    return fecha.anio;
+}
+int Horario::getMes(){
+    return fecha.mes;
+}
+int Horario::getDia(){
+    return fecha.dia;
+}
+int Horario::getHora(){
+    return hora;
+}
 
 void Horario::crearHorario()
 {
