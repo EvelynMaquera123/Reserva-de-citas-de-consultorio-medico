@@ -42,7 +42,7 @@ Especialidad Doctor:: obtenerEspecialidad(){
 void Doctor::crearHorario()
 {
   //Pedimos la fecha del horario de trabajo
-  int anio,mes,dia;
+  int anio,mes,dia,hora;
   cout<<"Ingrese la fecha del horario de trabajo"<<endl;
   cout<<"Dia: "<<ends;
   cin>>dia;
@@ -50,8 +50,10 @@ void Doctor::crearHorario()
   cin>>mes;
   cout<<"Anio: "<<ends;
   cin>>anio;
+  cout<<"Ingrese la hora del horario de trabajo"<<endl;
+  cin>>hora;
   //Creamos el objeto horario y le pasamos los dayos recogidos mas el atributo codigo
-   Horario temp(anio,mes,dia,codigo);
+   Horario temp(anio,mes,dia,codigo,hora);
    //Encolamos el horario en la lista de horarios correspondientes al doctor
    horarios.push_back(temp);
 }

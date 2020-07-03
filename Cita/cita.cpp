@@ -31,7 +31,8 @@ void Cita:: revisarHorario(Fecha aux) //Con este metodo se podra cambiar el hora
 {
 	fecha = aux;
 }
-void Cita ::reservarCita(bool aux) //Con este metodo se cambiara el estado de la cita
+void Cita ::cambiarEstadoDeCita(bool aux) //Con este metodo se cambiara el estado de la cita
 {
 	estado = aux;
 }
+
