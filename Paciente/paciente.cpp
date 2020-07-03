@@ -19,6 +19,7 @@ Paciente::Paciente(char* nombr,char* apellidoP, char* apellidoM, Fecha fec,doubl
 
  Paciente::Paciente()
  {
+   
  }	
 void Paciente::registrarPaciente(){
 

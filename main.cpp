@@ -14,7 +14,7 @@ int main(){
 	Administrador *a = new Administrador;
 	//Cita cts[200];
 	Sistema obj;
-	list<Paciente> ps;
+	list<Paciente> ps;	
 	int opc; //opcion del menu
 	
 	do{	
@@ -26,7 +26,8 @@ int main(){
 		system("cls");
 		cout<< " Ingrese una opcion del menu(1-5)"<<endl;
 		cout<< " 1. Ingresar al sistema"<<endl;//loguéa
-		cout<< " 2. Registrarse"<<endl;//aquí envía datos
+		cout<< " 2. Registrarse como paciente"<<endl;//aquí envía datos
+		cout<< " 3.-Registrarse como doctor"<<endl;
 		cout<< " 3. mostrar todas las Especialidades"<<endl;	 
 		cout<< " 4. mostrar todos los horarios de todos los doctores "<<endl; 	
 		cout<< " 5. Salir"<<endl;
@@ -48,12 +49,17 @@ int main(){
 			    
 			case 2:
 			{
-                 a->registrar();
+                 a->registrarApaciente();
 				 break;
 			}
 
+            case 3:
+			{
+				a->registrarAdoctor();
+				break;
+			}
 			
-			case 3:
+			case 4:
 			{
       				list<Doctor> doc;
                   list<Doctor>::iterator p=doc.begin();
@@ -66,7 +72,7 @@ int main(){
               break;
 			}
 		
-		    case 4:
+		    case 5:
 			{
 				list<Doctor> doc;
                  for(std::list<Doctor>::iterator it = doc.begin() ; it != doc.end() ; ++it){ 
@@ -78,15 +84,15 @@ int main(){
                      for(list<Horario>::iterator its = aHorarios.begin() ; its != aHorarios.end() ; ++its){
                                 its->mostrarDatos();
                      }
-                     
-         }
+                          
+                   }
 				break;
 			}
 			default:
 				cout<< " Opcion Incorrecta!!! Try again..."<<endl;
 			break;	
 		}
-	}while(opc != 3);
+	}while(opc != 5);
 	
 	return 0;
 }

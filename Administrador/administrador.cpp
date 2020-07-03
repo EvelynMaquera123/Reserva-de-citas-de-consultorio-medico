@@ -20,6 +20,7 @@ Administrador::Administrador()
 }
 
 
+
 void Administrador::registrarApaciente()
 {
 
