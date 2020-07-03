@@ -120,34 +120,6 @@ void Sistema::login()
     std::time_t end_time = std::chrono::system_clock::to_time_t(end);
 */
 
-    std::cout << "DOCTORES DISPONIBLES :" ;
-
-            /*
-                   cout<<"Ingrese nombre"<<endl;
-                   cout<<"Ingrese apellido paterno"<<endl;
-                   cout<<"Ingrese apellido materno"<<endl;
-                   cout<<"Ingrese peso"<<endl;
-                   cout<<"Ingrese estatura"<<endl;
-                   cout<<"Ingrese sexo"<<endl;
-                   cout<<"Ingrese "<<endl;
-            */
-
-               // este for recorres los doctores
-               /*
-                for(std::list<Doctor>::iterator it = doc.begin() ; it != doc.end() ; ++it){ 
-             
-             // aqui obtenemos todos los horarios del doctor 
-             list<Horario> aHorarios = it->obtenerHorarios();
-
-                    // aqui recorremos los horaios del doctor... 
-                     for(list<Horario>::iterator its = aHorarios.begin() ; its != aHorarios.end() ; ++its){
-                                its->mostrarDatos();
-                     }
-                     
-         }
-               */
-
-
        std::cout << "DOCTORES DISPONIBLES PARA EL DÍA Y HORA ACTUAL:" ;
                    for(std::list<Doctor>::iterator it = doc.begin() ; it != doc.end() ; ++it){ 
                              list<Horario> aHorarios = it->obtenerHorarios();
