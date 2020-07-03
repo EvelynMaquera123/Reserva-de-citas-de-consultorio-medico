@@ -8,6 +8,7 @@
 #include "especialidad.h"
 #include "doctor.h"
 #include "paciente.h"
+#include "cita.h"
 #include <iostream>
 #include <chrono>
 #include <ctime> 
@@ -137,7 +138,18 @@ void Sistema::login()
             case 2:
             { 
                 /* code */
-              
+                string paciente;
+                string doctor;
+                string fecha;
+                
+      cout<<"ingrse su nombre";
+      cout<<"Ingrese el doctor";
+      cout<<"Ingrese la fecha";
+      cout<<"La especialidad ";
+      cout<<"La hora";
+
+
+            //  Cita cts=new Cita();
                  
                 break;
              }
