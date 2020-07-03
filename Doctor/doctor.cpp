@@ -35,6 +35,10 @@ list<Horario> Doctor:: obtenerHorarios(){
 
 }
 
+Especialidad Doctor:: obtenerEspecialidad(){
+    return especialidad;
+}
+
 void Doctor::crearHorario()
 {
   //Pedimos la fecha del horario de trabajo

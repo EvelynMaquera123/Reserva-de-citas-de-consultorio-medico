@@ -27,8 +27,7 @@ int main(){
 		cout<< " Ingrese una opcion del menu(1-5)"<<endl;
 		cout<< " 1. Ingresar al sistema"<<endl;//loguéa
 		cout<< " 2. Registrarse"<<endl;//aquí envía datos
-		cout<< " 3. mostrar todas Especialidades"<<endl;
-	 
+		cout<< " 3. mostrar todas las Especialidades"<<endl;	 
 		cout<< " 4. mostrar todos los horarios de todos los doctores "<<endl; 	
 		cout<< " 5. Salir"<<endl;
 	
@@ -49,14 +48,20 @@ int main(){
 			    
 			case 2:
 			{
-                 
+                 a->registrar();
 				 break;
 			}
 
 			
 			case 3:
 			{
-
+      				list<Doctor> doc;
+                  list<Doctor>::iterator p=doc.begin();
+				  while(p!=doc.end()){
+                    p->obtenerEspecialidad();
+					p++;
+				  }
+                    
                
               break;
 			}

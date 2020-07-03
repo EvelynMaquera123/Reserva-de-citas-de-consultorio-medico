@@ -28,4 +28,6 @@ class Doctor: public Persona
         
 
          list<Horario> obtenerHorarios();
-};
+         Especialidad obtenerEspecialidad();
+         
+         };

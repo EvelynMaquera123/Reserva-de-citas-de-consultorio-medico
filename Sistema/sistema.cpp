@@ -44,7 +44,7 @@ void Sistema::login()
             cout << "\n";
             getch();
             system("cls");
-            cout << "\t Ingrese una opcion del menu(1-5)" << endl;
+            cout << "\t Ingrese una opcion del menu(1-3)" << endl;
             cout << "\t 1. Agregar Nueva Especialidad" << endl;
             cout << "\t 2. Agregar Nuevo Doctor" << endl;
             cout << "\t 3. Salir" << endl;
@@ -119,7 +119,7 @@ void Sistema::login()
     std::time_t end_time = std::chrono::system_clock::to_time_t(end);
 */
 
-    std::cout << "HORARIOS DISPONIBLES POR ESPECIALIDAD:" ;
+    std::cout << "DOCTORES DISPONIBLES :" ;
 
             /*
                    cout<<"Ingrese nombre"<<endl;
@@ -145,6 +145,10 @@ void Sistema::login()
                      
          }
                */
+
+
+
+              
         
                     break;
 

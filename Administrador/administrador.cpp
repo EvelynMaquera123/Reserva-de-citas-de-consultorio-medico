@@ -19,31 +19,35 @@ Administrador::Administrador()
 
 }
 
-void Administrador::registrar()
+
+void Administrador::registrarApaciente()
 {
-char nom,apellP,apellM,tele;
-double pes,est;
-char sex;
-    cout<<"Ingrese nombre"<<endl;
-    cin>>nom;
-    cout<<"Ingrese apellido paterno"<<endl;
-    cin>>apellP;
-    cout<<"Ingrese apellido materno"<<endl;
-    cin>>apellM; 
-    cout<<"Ingrese peso"<<endl;
-    cin>>pes;
-    cout<<"Ingrese estatura"<<endl;
-     cin>>est; 
-     cout<<"Ingrese sexo"<<endl;
-     
-    cout<<"Ingrese telefono"<<endl;
-     
-    cout<<"Ingrese dirección"<<endl;
 
-    cout<<"password"<<endl;
-    
 
-            Paciente* obj=new Paciente();
+Paciente pc;
+        cout<< "    *************************************************"<<endl;
+		cout<< "    *   REGISTRARSE   COMO PACIENTE                  *"<<endl;
+		cout<< "    *************************************************"<<endl;
+
+pc.registrarPaciente();
+
+cout<< "Sus datos fueron éxitosamente registrados";
+
+pc.mostrarDatosPaciente();
+
+
+}
+
+void Adiministrador::registrarAdoctor()
+{
+
+        cout<< "    *************************************************"<<endl;
+		cout<< "    *   REGISTRARSE   COMO DOCTOR                  *"<<endl;
+		cout<< "    *************************************************"<<endl;
+
+Doctor obj;
+obj.crearDoctor();
+cout<< "Sus datos fueron éxitosamente registrados";
 
 }
   
