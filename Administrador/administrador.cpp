@@ -15,7 +15,7 @@ using namespace std;
 Administrador::Administrador()
 {
      usuario = "administrador";
-     contrasenia = "123456789";
+     contrasenia = "1234567";
 
 }
 

@@ -11,7 +11,8 @@ using namespace std;
 
 class Paciente: public Persona{
 	public:
-	//list<Persona> pacientes;//Creamos una lista de pacientes ya que no sabemos con exactitud cuantos tendremos
+	list<Persona> pacientes;//Creamos una lista de pacientes ya que no sabemos con exactitud cuantos tendremos
+	std::string codigo;
 	string usuario;
 	string password;
 	int codigo;
