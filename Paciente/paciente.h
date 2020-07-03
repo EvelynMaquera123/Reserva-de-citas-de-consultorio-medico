@@ -10,12 +10,13 @@
 using namespace std;
 
 class Paciente: public Persona{
-	private:
-	std::string codigo;
-	std::list<Persona> pacientes;//Creamos una lista de pacientes ya que no sabemos con exactitud cuantos tendremos
+	public:
+	//list<Persona> pacientes;//Creamos una lista de pacientes ya que no sabemos con exactitud cuantos tendremos
+	string usuario;
+	string password;
 	public:
 	Paciente(); //constructor donde tenemos que pasar los atributos
-	Paciente(char* nombr,char* apellidoP, char* apellidoM, Fecha fec,double peso,double estatura, char* sex, char* telef,char* direccion,string codidgo,list<Persona> pe);
+	Paciente(char* nombr,char* apellidoP, char* apellidoM, Fecha fec,double peso,double estatura, char* sex, char* telef,char* direccion,string password);
 
 	void registrarPaciente(); //Registrar datos del paciente
 	void mostrarDatosPaciente(); //mostrar los datos del paciente
