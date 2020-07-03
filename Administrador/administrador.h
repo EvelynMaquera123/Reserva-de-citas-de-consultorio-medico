@@ -1,11 +1,11 @@
 #pragma once
 
 class Administrador{
-    protected:
+    public:
         string usuario;
         string contrasenia;
     public:
         Administrador();
-        void crearLogin();
-        void ingresoExitoso();
+       void registrar();
+       
 };

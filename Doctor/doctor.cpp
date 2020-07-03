@@ -1,4 +1,5 @@
 #include "doctor.h"
+#include "horario.h"
 #include <iostream>
 //creamos el constructor teniendo como parametros todos los atributos de persona y de doctor
 Doctor::Doctor(char* nombr,char* apellidoP, char* apellidoM, Fecha fec,double peso,double estatura, char* sex, char* telef,char* direccion,string cod, Especialidad es,list<Horario> ho)
@@ -27,6 +28,13 @@ void Doctor:: mostrarDatos()
    for( auto item : horarios )//Usamos un foreach para recorrer toda la lista de horarios 
     item.mostrarDatos();//Llamamos al metodo de la clase horario 
 }
+
+list<Horario> Doctor:: obtenerHorarios(){
+     // es un simple return o get para q  otra clase pueda acceder xq horarios es privado
+ return  horarios;
+
+}
+
 void Doctor::crearHorario()
 {
   //Pedimos la fecha del horario de trabajo

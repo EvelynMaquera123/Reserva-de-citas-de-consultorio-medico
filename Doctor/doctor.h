@@ -16,7 +16,7 @@ class Doctor: public Persona
         std::string codigo;
         Especialidad especialidad;
         std::list<Horario> horarios;//Creamos una lista de horarios ya que no sabemos con exactitud cuantos tendremos
-        
+
     public:
        Doctor();
      //Constructor le tenemos que pasar todos los parametros de personas , para poder usar el constructor de persona
@@ -25,4 +25,7 @@ class Doctor: public Persona
         void consultarHorarios();//Mostraremos los horarios correspondientes al doctor
         void crearHorario();//Crearemos un nuevo horario para este doctor
         void crearDoctor();//Con este metodo insertaremos un nuevo doctor y lo añadiremos al fichero
+        
+
+         list<Horario> obtenerHorarios();
 };

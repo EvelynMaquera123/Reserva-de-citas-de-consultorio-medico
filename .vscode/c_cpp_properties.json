@@ -3,32 +3,35 @@
         {
             "name": "Win32",
             "includePath": [
-<<<<<<< HEAD
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/Doctor",
                 "${workspaceFolder}/Cita",
-                "${workspaceFolder}/Paciente"
-=======
-                "${workspaceFolder}/**"
->>>>>>> edfbd2a0586c2225ab17ee4950489d2a69400496
+                "${workspaceFolder}/Paciente",
+                "${workspaceFolder}/Horario",
+                "${workspaceFolder}/Sistema",
+                "${workspaceFolder}/Especialidad",
+                "${workspaceFolder}/Administrador"
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE"
             ],
-<<<<<<< HEAD
             "windowsSdkVersion": "10.0.17763.0",
             "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x64/cl.exe",
             "cStandard": "c11",
             "cppStandard": "c++17",
-            "intelliSenseMode": "msvc-x64"
-=======
-            "compilerPath": "D:\\Program Files (x86)\\Dev-Cpp\\MinGW32\\bin\\gcc.exe",
-            "cStandard": "c99",
-            "cppStandard": "c++11",
-            "intelliSenseMode": "clang-x86"
->>>>>>> edfbd2a0586c2225ab17ee4950489d2a69400496
+            "intelliSenseMode": "msvc-x64",
+            "compilerArgs": [],
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/**",
+                    "${workspaceFolder}/Doctor",
+                    "${workspaceFolder}/Cita",
+                    "${workspaceFolder}/Paciente"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            }
         }
     ],
     "version": 4

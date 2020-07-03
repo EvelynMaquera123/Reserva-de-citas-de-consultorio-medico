@@ -14,12 +14,18 @@ void Horario::modificar()//Con este metodo modifica la fecha del horario
 {
     //¡CUIDADO ZONA EN CONSTRUCCION!
 }
+
+
 void Horario::mostrarDatos()//Mostramos todos los datos del horario
 {
     cout<<"Codigo del doctor:"<<codigo_doctor<<endl;
     cout<<"Fecha:"<<ends;
-    //cout << fecha.a�o<<"/"<<fecha.mes<<"/"<<fecha.dia<<endl;
+    cout << fecha.anio<<"/"<<fecha.mes<<"/"<<fecha.dia<<endl;
 }
+
+
+
+
 void Horario::crearHorario()
 {
 
@@ -64,12 +70,12 @@ void Horario::crearHorario()
                 cout<<"Ingrese el mes: "<<endl;
                 cin>>fec.mes;
                 cout<<"Ingrese el año: "<<endl;
-                cin>>fec.a�o;
+                cin>>fec.anio;
                 temp.codigo_doctor=codaux;
                 temp.fecha=fec;
 
                 //ESCRIBIENDO LOS DATOS CAPTURADOS POR EL USUARIO EN EL ARCHIVO
-                escritura<<temp.codigo_doctor<<" "<<temp.fecha.dia<<" "<<temp.fecha.mes<<" "<<temp.fecha.a�o<<endl;
+                escritura<<temp.codigo_doctor<<" "<<temp.fecha.dia<<" "<<temp.fecha.mes<<" "<<temp.fecha.anio<<endl;
                 cout<<"\n\tRegistro agregado...\n";
                
             }

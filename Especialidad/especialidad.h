@@ -11,4 +11,5 @@ public:
 	void crearEspecialidad();	 //Crear una nueva especialidad
 	void eliminarEspecialidad(); //Eliminar una especialidad
 	Especialidad();			 //Destructor
+	void getEspecialidad();
 };

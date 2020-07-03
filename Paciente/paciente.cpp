@@ -3,12 +3,13 @@
 using namespace std;
 
 //Le pasamos los valores de nuestros parametros  exculisivos de Paciente
-Paciente::Paciente(char* nombr,char* apellidoP, char* apellidoM, Fecha fec,double peso,double estatura, char* sex, char* telef,char* direccion,string pass)
+Paciente::Paciente(char* nombr,char* apellidoP, char* apellidoM, Fecha fec,double peso,double estatura, char* sex, char* telef,char* direccion,string pass,int cod)
 {
   Persona( nombr,apellidoP, apellidoM, fec, peso,estatura, sex, telef,direccion);
     //Le pasamos los valores de nuestros parametros  exculisivos de Paciente
   password=pass;
   usuario=nombr;
+  codigo=cod;
   /* 
   for(std::list<Persona>::iterator it = pe.begin();it != pe.end();++it)//Hacemos un for para iterar en cada uno de los objetos de la lista de pacientes que le creamos
         pacientes.push_back(*it);//Enrolamos cada Persona en la lista a la lista del Administrador
