@@ -18,6 +18,9 @@ void Especialidad::crearEspecialidad(){
     cout << "Ingrese breve descripcion: ";
     cin >> e->descripcion;
 }
+void Especialidad::getEspecialidad(){
+    cout<< nombre;
+}
 //Eliminamos especialidad segun su ID
 void Especialidad::eliminarEspecialidad(){
     cout << "Ingrese ID de especialidad a eliminar";
