@@ -68,8 +68,10 @@ void Doctor::crearDoctor()
     //Verificamos si el archivo ha podido ser habierto con normalidad
     if (escritura.is_open() && consulta.is_open()){
 
-
+            char nombre[25],paterno[25],materno[25];
+            int edad,telefono;
             bool repetido=false;
+       //en esta variable se guardara el posible codigo del doctor 
             string codaux;
             cout<<"\n";
             cout<<"\tIngresa el codigo del doctor:    ";
@@ -80,6 +82,15 @@ void Doctor::crearDoctor()
             while (!consulta.eof()){
                 //Si encontramos el codigo del doctor , significa que ya esta registrado , asi que no podemos volverlo a insertar
                 if (codaux.compare(codigo)==0){
+                  //Entrara a esta parte si el codigo que ha ingresado se ha encontrado en el fichero asi que mostrara los datos del doctor con ese codigo y preguntara si desea ingresar otro
+                        cout<<"\n";
+                        cout<<"\tCodigo:    "<<codigo<<endl;
+                        cout<<"\tNombre:   "<<nombre<<endl;
+                        cout<<"\tPrimer apellido: "<<paterno<<endl;
+                        cout<<"\tSegundo apellido:    "<<materno<<endl;
+                        cout<<"\tEdad:     "<<edad<<endl;
+                        cout<<"\tTelefono:     "<<telefono<<endl;
+                        cout<<"\t________________________________\n\n";
                     cout<<"\t\tYa tenemos un doctor registrado con ese codigo...\n";
                     repetido=true;
                     break;
@@ -89,7 +100,7 @@ void Doctor::crearDoctor()
            //En caso el doctor no se haya encontrado significa que no exite , asi que podemos proceder a insertarlo
             if (repetido==false){
                 Doctor temp;
-                cout<<"\tIngresa el nombre del alumno: ";
+                cout<<"\tIngresa el nombre del doctor: ";
                 cin>>temp.nombre;
                 cout<<"\tIngresa el apellido Paterno: ";
                 cin>>temp.apellidoPaterno;
