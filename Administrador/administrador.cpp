@@ -39,7 +39,7 @@ pc.mostrarDatosPaciente();
 
 }
 
-void Adiministrador::registrarAdoctor()
+void Administrador::registrarAdoctor()
 {
 
         cout<< "    *************************************************"<<endl;

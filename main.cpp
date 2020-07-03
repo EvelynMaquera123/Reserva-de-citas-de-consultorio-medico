@@ -1,12 +1,8 @@
 #include<iostream>
 #include<conio.h>
-//#include "doctor.h"
-//#include "especialidad.h"
-//#include "paciente.h"
-
-#include "cita.h"
+#include "Cita/cita.cpp" //cita.h
 #include <list>
-#include "sistema.h"
+#include "Sistema/sistema.cpp" //sistema.h
 #include "Administrador/administrador.h"
 using namespace std;
 
