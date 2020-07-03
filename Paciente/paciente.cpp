@@ -22,7 +22,7 @@ void Paciente::registrarPaciente(){
 
   {
   char res;
-   //Variables de la biblioteca fstream para el manejo de archivos
+  
     ofstream escritura;
     ifstream consulta;
 
@@ -50,7 +50,7 @@ void Paciente::registrarPaciente(){
                 }
                 consulta>>codigo;
             }
-           //En caso el doctor no se haya encontrado significa que no exite , asi que podemos proceder a insertarlo
+           //En caso que el paciente no se haya encontrado significa que no exite , asi que podemos proceder a insertarlo
             if (repetido==false){
                 Paciente paciente;
 
@@ -84,7 +84,7 @@ void Paciente::registrarPaciente(){
     //Cerramos la conceccion de escritura y de lectura con el archivo
     escritura.close();
     consulta.close();
-    //Esta accion se repetira siempre que el usuario  presione s o S cuando se le pregunte si quiere ingresar otro doctor
+    //Esta accion se repetira siempre que el usuario  presione s o S cuando se le pregunte si quiere ingresar otro paciente
     }while (res=='S' || res=='s');
 
 
@@ -109,21 +109,6 @@ void Paciente::mostrarDatosPaciente()
 	cout << "Peso: " << direccion << endl;
 }
 
-/*
-void menu(void){  //CREAMOS UN MENU PARA LA GESTION DE LOS PACIENTES
-
-    cout<<"\n\t\t[    REGISTRO DE PACIENTES    ]\n";
-    cout<<"\t\t----------------------------\n\n";
-    cout<<" 1. SOLICITAR CITA "<<endl;
-    cout<<" 2. CANCELAR CITA "<<endl;
-    cout<<" 3. ACTUALIZAR PACIENTES "<<endl;
-    cout<<" 5. OPERACIONES          "<<endl;
-    cout<<" 6. SALIR                                       "<<endl;
-
-    cout<<"\n Ingrese opcion : ";
-}
-//desarrollar los metodos
-*/ 
 void Paciente::solicitarCita(){   //METODO EN EL CUAL EL USUARIO SOLICITA UNA CITA
 	}
 void Paciente::cancelarCita(){ //metodo para cancelar cita del paciente
