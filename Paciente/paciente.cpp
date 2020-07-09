@@ -22,10 +22,8 @@ Paciente::Paciente(char* nombr,char* apellidoP, char* apellidoM, Fecha fec,doubl
    
  }	
 void Paciente::registrarPaciente(){
-
-  {
-  char res;
-  
+{
+    char res;
     ofstream escritura;
     ifstream consulta;
 

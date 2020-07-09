@@ -60,6 +60,7 @@ double Persona::getPeso(void)
 {
 	return peso;
 }
+
 void Persona::mostrarDatos() 
 {
 	//Datos personales

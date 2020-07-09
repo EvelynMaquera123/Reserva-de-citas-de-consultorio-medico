@@ -1,6 +1,7 @@
 #include "doctor.h"
 #include "horario.h"
 #include <iostream>
+
 //creamos el constructor teniendo como parametros todos los atributos de persona y de doctor
 Doctor::Doctor(char* nombr,char* apellidoP, char* apellidoM, Fecha fec,double peso,double estatura, char* sex, char* telef,char* direccion,string cod, Especialidad es,list<Horario> ho)
 {
@@ -135,6 +136,5 @@ void Doctor::crearDoctor()
     consulta.close();
     //Esta accion se repetira siempre que el usuario  presione s o S cuando se le pregunte si quiere ingresar otro doctor
     }while (res=='S' || res=='s');
-
 
 }

@@ -11,7 +11,6 @@
 
 using namespace std;
 
-
 Administrador::Administrador()
 {
      usuario = "administrador";
@@ -23,8 +22,6 @@ Administrador::Administrador()
 
 void Administrador::registrarApaciente()
 {
-
-
 Paciente pc;
         cout<< "    *************************************************"<<endl;
 		cout<< "    *   REGISTRARSE   COMO PACIENTE                  *"<<endl;
@@ -35,7 +32,6 @@ pc.registrarPaciente();
 cout<< "Sus datos fueron éxitosamente registrados";
 
 pc.mostrarDatosPaciente();
-
 
 }
 

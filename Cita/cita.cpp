@@ -13,8 +13,8 @@ Cita::Cita(Doctor doctoraux, Paciente pacienteaux, Fecha fechaaux ,Especialidad 
 	fecha= fechaaux;
 	especialidad= especialidadaux;
 	estado= estadoaux;
-	
 }
+
 //Se muestran los datos de la cita
 void Cita:: mostrarCita(){
 	cout << "Datos del Doctor: " << endl;
