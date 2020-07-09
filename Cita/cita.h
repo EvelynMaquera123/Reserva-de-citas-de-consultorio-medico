@@ -1,23 +1,35 @@
 #include "../Doctor/doctor.h"
 #include "../Paciente/paciente.h"
 #include "../Especialidad/especialidad.h"
-#include "../Fecha/fecha.h"
+#include "../Fecha/Fecha.h"
+#include "../Fecha/Hora.h"
+#include<iostream>
+#include<string>
 using namespace std;
 
 class Cita
 {
-	Doctor doctor;
-	Paciente paciente;
-	Fecha fecha;
-	Especialidad especialidad;
+	int IDpaciente;
+	string nomPaciente;
+	int IDespecialidad;
+	string nomEspecialidad;
+	int IDdoctor;
+	string nomDoctor;
+	Fecha fechaE;
+	Hora horaE;
+	int numCita;
 	bool estado;
+
 public:
 	Cita();	
-	Cita(Doctor doctoraux, Paciente pacienteaux, Fecha fechaaux, Especialidad especialidadaux, bool estadoaux); //Constructor
-	void mostrarCita();																							//Con este metodo se muestras algunos datos spbre la cita
-	void revisarHorario(Fecha aux);																				//Con este metodo se podra cambiar el horario de la cita
-	void cambiarEstadoDeCita(bool aux);																				//Con este metodo se cambiara el estado de la cita
 
-    void reservarCita();
-
+//Estos Metodos se usar para llenar los datos de la Cita
+	void elegirPaciente();	
+	void elegirEspecialidad();	
+	void elegirDoctor();	
+	void elegirFecha();
+	void cambiarEstado(bool aux);
+//Metodos para administrar la Cita
+	void mostrarCita();		
+ 	 void guardarCita();
 };
