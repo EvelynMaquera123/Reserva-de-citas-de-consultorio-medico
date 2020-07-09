@@ -3,6 +3,10 @@
 #include "Cita/cita.h" //cita.h
 #include "Paciente/paciente.h"
 #include <list>
+#include "administrador.h"
+#include "especialidad.h"
+#include "doctor.h"
+#include "paciente.h"
 #include "Sistema/sistema.h" //sistema.h
 #include "Administrador/administrador.h"
 using namespace std;
@@ -11,8 +15,11 @@ int main()
 {
 	Administrador *a = new Administrador;
 	//Cita cts[200];
-	Sistema obj;
+	Administrador obj;
 	list<Paciente> ps;
+	list<Doctor> doc;
+	const int diaActual = 3;
+const int horaActual = 8;
 	int opc; //opcion del menu
 
 	do
@@ -24,11 +31,13 @@ int main()
 		getch();
 		system("cls");
 		cout << " Ingrese una opcion del menu(1-5)" << endl;
-		cout << " 1. Ingresar al sistema" << endl;		 //loguéa
-		cout << " 2. Registrarse como paciente" << endl; //aquí envía datos
-		cout << " 3.-Registrarse como doctor" << endl;
-		cout << " 3. Mostrar todas las Especialidades" << endl;
+		cout << " 1. Ingresar como administrador" << endl;		 
+		cout << " 2. Mostrar todas las Especialidades" << endl;
+		cout << " 3.- Mostrar todos los horarios disponibles para el dia de hoy"<<endl;
 		cout << " 4. Mostrar todos los horarios de todos los doctores " << endl;
+		cout << "5. Registrar paciente"<<endl;
+		cout << " 6. Reservar cita"<<endl;
+	
 		cout << " 5. Salir" << endl;
 
 		cin >> opc;
@@ -36,7 +45,7 @@ int main()
 		{
 		case 1:
 		{
-			//;
+		
 			// a->ingresoExitoso();
 			obj.login();
 			getch();
@@ -45,18 +54,9 @@ int main()
 
 		case 2:
 		{
-			a->registrarApaciente();
-			break;
-		}
+		//	a->registrarApaciente();
+		
 
-		case 3:
-		{
-			a->registrarAdoctor();
-			break;
-		}
-
-		case 4:
-		{
 			list<Doctor> doc;
 			list<Doctor>::iterator p = doc.begin();
 			while (p != doc.end())
@@ -65,12 +65,32 @@ int main()
 				p++;
 			}
 
+		
 			break;
 		}
 
-		case 5:
+		case 3:
 		{
-			list<Doctor> doc;
+		//	a->registrarAdoctor(); 
+		 std::cout << "DOCTORES DISPONIBLES PARA EL DÍA Y HORA ACTUAL:";
+                for (std::list<Doctor>::iterator it = doc.begin(); it != doc.end(); ++it)
+                {
+                    list<Horario> aHorarios = it->obtenerHorarios();
+                    for (list<Horario>::iterator its = aHorarios.begin(); its != aHorarios.end(); ++its)
+                    {
+                        if (its->getDia() == diaActual && its->getHora() > horaActual)
+                        {
+                            its->mostrarDatos();
+                        }
+                    }
+                }
+
+			break;
+		}
+
+		case 4:
+		{
+            	list<Doctor> doc;
 			for (std::list<Doctor>::iterator it = doc.begin(); it != doc.end(); ++it)
 			{
 
@@ -84,6 +104,28 @@ int main()
 				}
 			}
 			break;
+		}
+
+		case 5:
+		{
+		    Paciente pc;
+        cout<< "    *************************************************"<<endl;
+		cout<< "    *   REGISTRARSE   COMO PACIENTE                  *"<<endl;
+		cout<< "    *************************************************"<<endl;
+
+pc.registrarPaciente();
+
+cout<< "Sus datos fueron éxitosamente registrados";
+
+pc.mostrarDatosPaciente();
+
+
+			break;
+		}
+
+		case 6:
+		{
+			
 		}
 		default:
 			cout << " Opcion Incorrecta!!! Try again..." << endl;
