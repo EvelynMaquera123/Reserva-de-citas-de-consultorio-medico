@@ -8,4 +8,5 @@ class Administrador{
         Administrador();
        void registrarApaciente();
        void registrarAdoctor();
+       void login();
 };
