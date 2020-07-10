@@ -29,6 +29,19 @@ int main()
 		cout << " 5. Mostrar Doctores " << endl;
 		cout << " 6. Mostrar Horarios" << endl;
 		cout << " 7. Salir" << endl;
+<<<<<<< HEAD
+=======
+=======
+		cout << " 1. Ingresar como administrador" << endl;		 
+		cout << " 2. Mostrar todas las Especialidades" << endl;
+		cout << " 3. Mostrar todos los horarios disponibles para el dia de hoy"<<endl;
+		cout << " 4. Mostrar todos los horarios de todos los doctores " << endl;
+		cout << " 5. Registrar paciente"<<endl;
+		cout << " 6. Reservar cita"<<endl;
+	
+		cout << " 5. Salir" << endl;
+>>>>>>> 32460518a44d47ea7690f3bea2ad173773e8a76b
+>>>>>>> aa208e612af5117704a2b22cd4b321f6c22879a6
 
 		cin >> opc;
 		switch (opc)
@@ -113,7 +126,7 @@ pc.mostrarDatosPaciente();
 
 		case 6:
 		{
-			
+
 		}
 		default:
 			cout << " Opcion Incorrecta!!! Try again..." << endl;
