@@ -4,27 +4,27 @@
 using namespace std;
 class Persona {
   protected:
-	 char* nombre;
-	 char* apellidoPaterno;
-	 char* apellidoMaterno;
+	 string nombre;
+	  string apellidoPaterno;
+	 string apellidoMaterno;
 	 Fecha fechaNacimiento;
 	 double peso;
 	 int edad;
 	 double estatura;
-	char *sexo;
-	char *telefono;
-	char *direccion;
+	char sexo;
+	string telefono;
+	string direccion;
   public:
-	Persona(char* nombre,char* apellidoP, char* apellidoM, Fecha fec,double peso,double estatura,  char* sexo, char* telefono, char* direccion);
+	Persona(string nombre,string apellidoP, string apellidoM, Fecha fec,double peso,double estatura,  char sexo, string telefono, string direccion);
 	Persona();
-	char* getNombre(void);
+	string getNombre(void);
 	int setEdad(void);
-	char* getApellidoPaterno(void);
-	char* getApellidoMaterno(void);
+	string getApellidoPaterno(void);
+	string getApellidoMaterno(void);
 
-	char* getSexo(void);
-	char* getTelefono(void);
-	char* getDireccion(void);
+	char getSexo(void);
+	string getTelefono(void);
+	string getDireccion(void);
 	double getPeso(void);
 	void mostrarDatos();
 };

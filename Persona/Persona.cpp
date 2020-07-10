@@ -3,40 +3,38 @@
 #include <iostream>
 using std::cout;
 
-Persona::Persona(char* nombr,char* apellidoP, char* apellidoM, Fecha fec,double peso,double estatura, char* sex, char* telef,char* direccion)
+Persona::Persona(string nombr,string apellidoP, string apellidoM, Fecha fec,double peso,double estatura, char sex, string telef,string dire)
 {
-
+/*
 	nombre = new char[strlen(nombr) + 1];
 	strcpy_s(nombre, strlen(nombr) + 1, nombr);
+*/ 
+   this->nombre =nombr;
+	this->apellidoPaterno = apellidoP;
 
-	this->apellidoPaterno = new char[strlen(apellidoP) + 1];
-	strcpy_s(apellidoPaterno, strlen(apellidoP) + 1, apellidoP);
-
-	this->apellidoMaterno = new char[strlen(apellidoM) + 1];
-	strcpy_s(apellidoMaterno, strlen(apellidoM) + 1, apellidoM);
+	this->apellidoMaterno = apellidoM;
 
 	Fecha fec = fec;
 	this->estatura = estatura;
 	this->peso = peso;
 
-	this->sexo = new char[strlen(sex) + 1];
-	strcpy_s(sexo, strlen(sex) + 1, sex);
+	this->sexo = sex;
 
-	this->telefono = new char[strlen(telef) + 1];
-	strcpy_s(telefono, strlen(telef) + 1, telef);
+	this->telefono = telef;
+	this->direccion=dire;
 }
 Persona::Persona() {
 
 }
-char* Persona::getNombre(void)
+string Persona::getNombre(void)
 {
 	return nombre;
 }
-char* Persona::getApellidoPaterno(void)
+string Persona::getApellidoPaterno(void)
 {
 	return apellidoPaterno;
 }
-char* Persona::getApellidoMaterno(void)
+string Persona::getApellidoMaterno(void)
 {
 	return apellidoMaterno;
 }
@@ -44,15 +42,15 @@ int Persona::setEdad() {
 	this->edad = 2020 - fechaNacimiento.anio;
 	return edad;
 }
-char* Persona::getSexo(void)
+char Persona::getSexo(void)
 {
-	return apellidoMaterno;
+	return sexo;
 }
-char* Persona::getTelefono(void)
+string Persona::getTelefono(void)
 {
-	return apellidoMaterno;
+	return telefono;
 }
-char* Persona::getDireccion(void)
+string Persona::getDireccion(void)
 {
 	return direccion;
 }
