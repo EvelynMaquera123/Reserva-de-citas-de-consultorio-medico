@@ -9,8 +9,6 @@ using namespace std;
 int main()
 {
 	Administrador *a = new Administrador;
-	//Cita cts[200];
-	//list<Paciente> ps;
 	int opc; //opcion del menu
 
 	do
@@ -29,26 +27,11 @@ int main()
 		cout << " 5. Mostrar Doctores " << endl;
 		cout << " 6. Mostrar Horarios" << endl;
 		cout << " 7. Salir" << endl;
-<<<<<<< HEAD
-=======
-=======
-		cout << " 1. Ingresar como administrador" << endl;		 
-		cout << " 2. Mostrar todas las Especialidades" << endl;
-		cout << " 3. Mostrar todos los horarios disponibles para el dia de hoy"<<endl;
-		cout << " 4. Mostrar todos los horarios de todos los doctores " << endl;
-		cout << " 5. Registrar paciente"<<endl;
-		cout << " 6. Reservar cita"<<endl;
-	
-		cout << " 5. Salir" << endl;
->>>>>>> 32460518a44d47ea7690f3bea2ad173773e8a76b
->>>>>>> aa208e612af5117704a2b22cd4b321f6c22879a6
-
 		cin >> opc;
 		switch (opc)
 		{
 		case 1:
 		{
-			// a->ingresoExitoso();
 			a->login();
 			getch();
 			break;
@@ -79,7 +62,7 @@ int main()
 			break;
 		}
 
-		case 3:
+		case 5:
 		{
 			/*
 			list<Doctor> doc;
@@ -102,11 +85,7 @@ int main()
 			break;
 		}
 
-		case 7:{
-			break;
-		}
-
-		case 5:
+		case 7:
 		{
 			/*
 		    Paciente pc;
@@ -124,15 +103,11 @@ pc.mostrarDatosPaciente();
 			break;
 		}
 
-		case 6:
-		{
-
-		}
 		default:
 			cout << " Opcion Incorrecta!!! Try again..." << endl;
 			break;
 		}
-	} while (opc != 5);
+	} while (opc != 7);
 
 	return 0;
 }
