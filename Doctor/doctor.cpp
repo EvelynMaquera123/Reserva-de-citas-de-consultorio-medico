@@ -1,4 +1,5 @@
 #include "doctor.h"
+#include <fstream>
 #include <iostream>
 
 //creamos el constructor teniendo como parametros todos los atributos de persona y de doctor
