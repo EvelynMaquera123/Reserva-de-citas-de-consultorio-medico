@@ -1,9 +1,9 @@
 #include <iostream>
 #include <conio.h>
-#include "Cita/cita.h" //cita.h
-#include "Paciente/paciente.h"
+//#include "Cita/cita.h"
+//#include "Paciente/paciente.h"
 #include <list>
-#include "Sistema/sistema.h" //sistema.h
+#include "Sistema/sistema.h" 
 #include "Administrador/administrador.h"
 using namespace std;
 
@@ -12,7 +12,7 @@ int main()
 	Administrador *a = new Administrador;
 	//Cita cts[200];
 	Sistema obj;
-	list<Paciente> ps;
+	//list<Paciente> ps;
 	int opc; //opcion del menu
 
 	do
@@ -24,19 +24,19 @@ int main()
 		getch();
 		system("cls");
 		cout << " Ingrese una opcion del menu(1-5)" << endl;
-		cout << " 1. Ingresar al sistema" << endl;		 //loguéa
-		cout << " 2. Registrarse como paciente" << endl; //aquí envía datos
-		cout << " 3.-Registrarse como doctor" << endl;
-		cout << " 3. Mostrar todas las Especialidades" << endl;
-		cout << " 4. Mostrar todos los horarios de todos los doctores " << endl;
-		cout << " 5. Salir" << endl;
+		cout << " 1. Administrador" << endl;
+		cout << " 2. Reservar Cita" << endl; 
+		cout << " 3. Registrar Paciente" << endl;
+		cout << " 4. Mostrar Especialidades" << endl;
+		cout << " 5. Mostrar Doctores " << endl;
+		cout << " 6. Mostrar Horarios" << endl;
+		cout << " 7. Salir" << endl;
 
 		cin >> opc;
 		switch (opc)
 		{
 		case 1:
 		{
-			//;
 			// a->ingresoExitoso();
 			obj.login();
 			getch();
@@ -45,18 +45,18 @@ int main()
 
 		case 2:
 		{
-			a->registrarApaciente();
+			//a->registrarApaciente();
 			break;
 		}
 
 		case 3:
 		{
-			a->registrarAdoctor();
+			//a->registrarAdoctor();
 			break;
 		}
 
 		case 4:
-		{
+		{/*
 			list<Doctor> doc;
 			list<Doctor>::iterator p = doc.begin();
 			while (p != doc.end())
@@ -64,12 +64,13 @@ int main()
 				p->obtenerEspecialidad();
 				p++;
 			}
-
+		*/
 			break;
 		}
 
 		case 5:
 		{
+			/*
 			list<Doctor> doc;
 			for (std::list<Doctor>::iterator it = doc.begin(); it != doc.end(); ++it)
 			{
@@ -82,7 +83,15 @@ int main()
 				{
 					its->mostrarDatos();
 				}
-			}
+			}*/
+			break;
+		}
+
+		case 6:{
+			break;
+		}
+
+		case 7:{
 			break;
 		}
 		default:

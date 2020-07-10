@@ -6,6 +6,5 @@ class Administrador{
         string contrasenia;
     public:
         Administrador();
-       void registrarApaciente();
-       void registrarAdoctor();
+        void login();
 };

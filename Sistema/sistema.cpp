@@ -1,14 +1,15 @@
+/*
 #include <iostream>
 #include <sistema.h>
 #include <string>
 #include <iostream>
 #include <string>
 #include <conio.h>
-#include "administrador.h"
-#include "especialidad.h"
-#include "doctor.h"
-#include "paciente.h"
-#include "cita.h"
+#include "Administrador/administrador.h"
+//#include "especialidad.h"
+//#include "doctor.h"
+//#include "paciente.h"
+//#include "cita.h"
 #include <iostream>
 #include <chrono>
 #include <ctime>
@@ -16,8 +17,8 @@
 using namespace std;
 
 Administrador *a = new Administrador;
-list<Paciente> ps;
-list<Doctor> doc;
+//list<Paciente> ps;
+//list<Doctor> doc;
 const int diaActual = 3;
 const int horaActual = 8;
 
@@ -55,17 +56,17 @@ void Sistema::login()
             {
             case 1:
             {
-
+            /*
                 Especialidad obj;
-                obj.crearEspecialidad();
+                obj.crearEspecialidad(); 
                 break;
             }
 
             case 2:
             {
-                /* code */
+                /* 
                 Doctor obj;
-                obj.crearDoctor();
+                obj.crearDoctor(); 
                 break;
             }
 
@@ -81,7 +82,7 @@ void Sistema::login()
             }
         } while (opc != 3);
     }
-
+    
     // si es paciente
     for (std::list<Paciente>::iterator it = ps.begin(); it != ps.end(); ++it)
     {
@@ -111,13 +112,13 @@ void Sistema::login()
             case 1:
             {
 
-                /* obtener hora y fecha actual ----------------------------- 
+                 obtener hora y fecha actual ----------------------------- 
       auto start = std::chrono::system_clock::now();
     // Some computation here
     auto end = std::chrono::system_clock::now();
     std::chrono::duration<double> elapsed_seconds = end-start;
     std::time_t end_time = std::chrono::system_clock::to_time_t(end);
-*/
+
 
                 std::cout << "DOCTORES DISPONIBLES PARA EL DÍA Y HORA ACTUAL:";
                 for (std::list<Doctor>::iterator it = doc.begin(); it != doc.end(); ++it)
@@ -137,7 +138,7 @@ void Sistema::login()
 
             case 2:
             {
-                /* code */
+                
                 string paciente;
                 string doctor;
                 string fecha;
@@ -164,4 +165,6 @@ void Sistema::login()
                 break;
             }
         } while (opc != 3);
-    }
+    } 
+}
+*/
