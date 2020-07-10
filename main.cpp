@@ -1,13 +1,17 @@
 #include <iostream>
 #include <conio.h>
-#include "Cita/cita.h" //cita.h
-#include "Paciente/paciente.h"
+//#include "Cita/cita.h"
+//#include "Paciente/paciente.h"
 #include <list>
+<<<<<<< HEAD
+#include "Sistema/sistema.h" 
+=======
 #include "administrador.h"
 #include "especialidad.h"
 #include "doctor.h"
 #include "paciente.h"
 #include "Sistema/sistema.h" //sistema.h
+>>>>>>> 32460518a44d47ea7690f3bea2ad173773e8a76b
 #include "Administrador/administrador.h"
 using namespace std;
 
@@ -15,11 +19,16 @@ int main()
 {
 	Administrador *a = new Administrador;
 	//Cita cts[200];
+<<<<<<< HEAD
+	Sistema obj;
+	//list<Paciente> ps;
+=======
 	Administrador obj;
 	list<Paciente> ps;
 	list<Doctor> doc;
 	const int diaActual = 3;
 const int horaActual = 8;
+>>>>>>> 32460518a44d47ea7690f3bea2ad173773e8a76b
 	int opc; //opcion del menu
 
 	do
@@ -31,6 +40,15 @@ const int horaActual = 8;
 		getch();
 		system("cls");
 		cout << " Ingrese una opcion del menu(1-5)" << endl;
+<<<<<<< HEAD
+		cout << " 1. Administrador" << endl;
+		cout << " 2. Reservar Cita" << endl; 
+		cout << " 3. Registrar Paciente" << endl;
+		cout << " 4. Mostrar Especialidades" << endl;
+		cout << " 5. Mostrar Doctores " << endl;
+		cout << " 6. Mostrar Horarios" << endl;
+		cout << " 7. Salir" << endl;
+=======
 		cout << " 1. Ingresar como administrador" << endl;		 
 		cout << " 2. Mostrar todas las Especialidades" << endl;
 		cout << " 3. Mostrar todos los horarios disponibles para el dia de hoy"<<endl;
@@ -39,13 +57,17 @@ const int horaActual = 8;
 		cout << " 6. Reservar cita"<<endl;
 	
 		cout << " 5. Salir" << endl;
+>>>>>>> 32460518a44d47ea7690f3bea2ad173773e8a76b
 
 		cin >> opc;
 		switch (opc)
 		{
 		case 1:
 		{
+<<<<<<< HEAD
+=======
 		
+>>>>>>> 32460518a44d47ea7690f3bea2ad173773e8a76b
 			// a->ingresoExitoso();
 			obj.login();
 			getch();
@@ -54,9 +76,24 @@ const int horaActual = 8;
 
 		case 2:
 		{
+<<<<<<< HEAD
+			//a->registrarApaciente();
+			break;
+		}
+
+		case 3:
+		{
+			//a->registrarAdoctor();
+			break;
+		}
+
+		case 4:
+		{/*
+=======
 		//	a->registrarApaciente();
 		
 
+>>>>>>> 32460518a44d47ea7690f3bea2ad173773e8a76b
 			list<Doctor> doc;
 			list<Doctor>::iterator p = doc.begin();
 			while (p != doc.end())
@@ -64,13 +101,21 @@ const int horaActual = 8;
 				p->obtenerEspecialidad();
 				p++;
 			}
+<<<<<<< HEAD
+		*/
+=======
 
 		
+>>>>>>> 32460518a44d47ea7690f3bea2ad173773e8a76b
 			break;
 		}
 
 		case 3:
 		{
+<<<<<<< HEAD
+			/*
+			list<Doctor> doc;
+=======
 		//	a->registrarAdoctor(); 
 		 std::cout << "DOCTORES DISPONIBLES PARA EL DÍA Y HORA ACTUAL:";
                 for (std::list<Doctor>::iterator it = doc.begin(); it != doc.end(); ++it)
@@ -91,6 +136,7 @@ const int horaActual = 8;
 		case 4:
 		{
             	list<Doctor> doc;
+>>>>>>> 32460518a44d47ea7690f3bea2ad173773e8a76b
 			for (std::list<Doctor>::iterator it = doc.begin(); it != doc.end(); ++it)
 			{
 
@@ -102,7 +148,15 @@ const int horaActual = 8;
 				{
 					its->mostrarDatos();
 				}
-			}
+			}*/
+			break;
+		}
+
+		case 6:{
+			break;
+		}
+
+		case 7:{
 			break;
 		}
 
