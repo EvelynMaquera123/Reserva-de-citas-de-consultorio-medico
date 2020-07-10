@@ -2,9 +2,6 @@
 #include <string>
 #include <conio.h>
 #include "administrador.h"
-//#include "especialidad.h"
-//#include "doctor.h"
-//#include "paciente.h"
 #include <iostream>
 #include <chrono>
 #include <ctime>
