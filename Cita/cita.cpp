@@ -8,26 +8,34 @@
 Cita::Cita(){
 
 }
-
+//Metodo que buscara al paciente por el Dni
+//no acabado
 void Cita::elegirPaciente(){
     
-	cout << "ingrese Datos del Paciente: " << endl;
-		cin>>nomPaciente; 
-    cout << "ingrese Datos del Paciente: " << endl;
+	cout << "ingrese DNi Paciente: " << endl;
+		cin>>IDpaciente; 
+    cout << "ingrese NOmbre del Paciente: " << endl;
 		cin>>nomPaciente;
 	}	
+//Metodo que mostrara las especialidades y se guardara la elegida
+//no acabado
+
 void Cita::elegirEspecialidad(){
     cout << "ingrese Datos del Especialidad " << endl;
 		cin>>IDespecialidad; 
     cout << "ingrese Datos del Especialidad: " << endl;
 		cin>>nomEspecialidad;
 	}
+//Metodo que mostrara los doctores deacuerdo a la especialidad elegida
+//no acabado	
 void Cita::elegirDoctor(){
     cout << "ingrese Datos del Doctor " << endl;
 		cin>>IDdoctor; 
     cout << "ingrese Datos del Doctor: " << endl;
 		cin>>nomDoctor;
 	}	
+//Metodo que mostrara los horarios del doctor elegido ,se guardara la fecha y hora elegida
+//no acabado	
 void Cita::elegirFecha(){
     cout << "ingrese Fecha " << endl;
 		cin>>fechaE.anio; 
@@ -36,6 +44,7 @@ void Cita::elegirFecha(){
         cin>>horaE.hora;
         cin>>horaE.minutos;
 	}
+//Metodo que cambia el estado de la cita,false en caso que se cancele	
 void Cita::cambiarEstado(bool aux){
     estado=aux;
 	}
@@ -58,7 +67,7 @@ void Cita:: mostrarCita(){
 	cout <<" Numero de Cita: " << endl;
 		cout<<numCita<< endl;
 	}
-
+//Metodo que guarda en un archivo los datos mas importantes de la cita
 void Cita:: guardarCita(){
 
 	 	ofstream escritura;
