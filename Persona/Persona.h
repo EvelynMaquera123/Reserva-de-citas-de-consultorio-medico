@@ -1,5 +1,5 @@
 #pragma once
-#include "Fecha.h"
+#include "../Fecha/Fecha.h"
 #include <string>
 using namespace std;
 class Persona {

@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskName": "tarea-Reserva-de-citas-de-consultorio-medico",
+      "appliesTo": "/",
+      "type": "launch"
+    }
+  ]
+}

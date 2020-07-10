@@ -8,3 +8,10 @@ Fecha::Fecha(int anio,int mes,int dia) {
 	this->dia = dia;
 	
 }
+
+Fecha::Fecha() {
+	this->anio = 0;
+	this->mes = 0;
+	this->dia = 0;
+	
+}

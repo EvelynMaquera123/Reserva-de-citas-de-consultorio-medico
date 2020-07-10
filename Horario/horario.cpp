@@ -1,5 +1,8 @@
 #include <iostream>
+#include <string>
 #include "horario.h"
+#include <fstream> //es para los archivos
+using namespace std;
 Horario::Horario()
 {
 
@@ -14,7 +17,7 @@ void Horario::modificar()//Con este metodo modifica la fecha del horario
 
 void Horario::mostrarDatos()//Mostramos todos los datos del horario
 {
-    cout<<"Codigo del doctor:"<<codigo_doctor<<endl;
+    cout<<"Codigo del doctor:"<<this->codigo_doctor<<endl;
     cout<<"Fecha:"<<ends;
     cout << fecha.anio<<"/"<<fecha.mes<<"/"<<fecha.dia<<endl;
     cout<<"Hora de entrada:"<<ends;
@@ -26,8 +29,8 @@ void Horario::mostrarDatos()//Mostramos todos los datos del horario
 Horario Horario::crearHorario(string codaux)
 {
    //Variables de la biblioteca fstream para el manejo de archivos
-    ofstream escritura;
-    escritura.open("horarios.txt", ios::out | ios::app);//crea y escribe, si ya tiene texto une al final del archivo
+  //  ofstream escritura;
+  ///  escritura.open("horarios.txt", ios::out | ios::app);//crea y escribe, si ya tiene texto une al final del archivo
     //Verificamos si el archivo ha podido ser habierto con normalidad
     
            //En caso el doctor no se haya encontrado significa que no exite , asi que podemos proceder a insertarlo
@@ -42,12 +45,12 @@ Horario Horario::crearHorario(string codaux)
                 cin>>fec.anio;
                 temp.codigo_doctor=codaux;
                 temp.fecha=fec;
-
+				//la biblioteca ofstream falta
                 //ESCRIBIENDO LOS DATOS CAPTURADOS POR EL USUARIO EN EL ARCHIVO
-                escritura<<codaux<<" "<<temp.fecha.dia<<" "<<temp.fecha.mes<<" "<<temp.fecha.anio<<endl;
+             //   escritura<<codaux<<" "<<temp.fecha.dia<<" "<<temp.fecha.mes<<" "<<temp.fecha.anio<<endl;
                 cout<<"\n\tRegistro agregado...\n";
     //Cerramos la conceccion de escritura y de lectura con el archivo
-    escritura.close();
+   // escritura.close();
     //Devolvemos el horario creado
     return temp;
    

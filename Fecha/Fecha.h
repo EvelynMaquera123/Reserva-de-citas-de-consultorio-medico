@@ -8,5 +8,6 @@ public:
 	Hora *hora;
 public:
 	Fecha(int anio,int dia,int mes);
-	Fecha();
+	Fecha();// esto para q es???
+	// tienes dos constructores pero el segundo no lo implementas 
 };

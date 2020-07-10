@@ -5,20 +5,21 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "../Persona/Persona.cpp"
+#include "../Persona/Persona.h"
 #include <list>
 using namespace std;
 
 class Paciente: public Persona{
 	public:
+	///estooooooooo le quito?  
 	list<Persona> pacientes;//Creamos una lista de pacientes ya que no sabemos con exactitud cuantos tendremos
-	std::string codigo;
+	//std::string codigo;//hay 2codigos 
 	string usuario;
 	string password;
 	int codigo;
 	public:
 	Paciente(); //constructor donde tenemos que pasar los atributos
-	Paciente(char* nombr,char* apellidoP, char* apellidoM, Fecha fec,double peso,double estatura, char* sex, char* telef,char* direccion,string password,int cod);
+	Paciente(string nombr,string apellidoP, string apellidoM, Fecha fec,double peso,double estatura, char sex, string telef,string direccion,string password,int cod);
 
 	void registrarPaciente(); //Registrar datos del paciente
 	void mostrarDatosPaciente(); //mostrar los datos del paciente

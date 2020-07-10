@@ -8,9 +8,9 @@
                 "${workspaceFolder}/Cita",
                 "${workspaceFolder}/Paciente",
                 "${workspaceFolder}/Horario",
-                "${workspaceFolder}/Sistema",
                 "${workspaceFolder}/Especialidad",
-                "${workspaceFolder}/Administrador"
+                "${workspaceFolder}/Administrador",
+                "${workspaceFolder}/Fecha"
             ],
             "defines": [
                 "_DEBUG",
@@ -28,7 +28,8 @@
                     "${workspaceFolder}/**",
                     "${workspaceFolder}/Doctor",
                     "${workspaceFolder}/Cita",
-                    "${workspaceFolder}/Paciente"
+                    "${workspaceFolder}/Paciente",
+                    "${workspaceFolder}/Especialidad"
                 ],
                 "limitSymbolsToIncludedHeaders": true
             }

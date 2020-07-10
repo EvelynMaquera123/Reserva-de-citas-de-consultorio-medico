@@ -3,11 +3,12 @@
 #include "especialidad.h"
 
 using namespace std;
-
-Especialidad *e = new Especialidad[100];
 int auxID, cont;
+Especialidad *e = new Especialidad[100];
+
 //constructor
 Especialidad::Especialidad(){
+
 }
 //Creamos especialidad con su nombre y descripción
 void Especialidad::crearEspecialidad(){
@@ -23,6 +24,7 @@ string Especialidad::getEspecialidad(){
 }
 //Eliminamos especialidad segun su ID
 void Especialidad::eliminarEspecialidad(){
+ 
     cout << "Ingrese ID de especialidad a eliminar";
     cin >> auxID; // id auxiliar 
 	for(int i=0; i<100; i++){ // recorremos todos los registros
@@ -45,5 +47,7 @@ void Especialidad::eliminarEspecialidad(){
     }
 }
 //Destructor
-Especialidad::Especialidad(){
+/*
+Especialidad::~Especialidad(){
 }
+*/

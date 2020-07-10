@@ -4,7 +4,10 @@
 #include <cstdlib>
 #include <iostream>
 #include <fstream>
+#include <string>
 #include <windows.h>
+using namespace std;
+
 Cita::Cita(){
 
 }
@@ -69,7 +72,7 @@ void Cita:: mostrarCita(){
 	}
 //Metodo que guarda en un archivo los datos mas importantes de la cita
 void Cita:: guardarCita(){
-
+/*/
 	 	ofstream escritura;
     	ifstream consulta;
 
@@ -88,4 +91,7 @@ void Cita:: guardarCita(){
     escritura.close();
     consulta.close();
 
+
+	ya revisas como guardar en un archivo...
+	*/
 }

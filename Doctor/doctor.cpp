@@ -1,5 +1,5 @@
 #include "doctor.h"
-#include "horario.h"
+#include "../Horario/horario.h"
 #include <iostream>
 
 //creamos el constructor teniendo como parametros todos los atributos de persona y de doctor
@@ -11,14 +11,17 @@ Doctor::Doctor(string nombr,string apellidoP, string apellidoM, Fecha fec,double
   especialidad=es;
  
  }
+ 
  Doctor::Doctor()
  {
 
  }
+
+
 void Doctor:: mostrarDatos()
 {
     //Llamaremos al contructor de la clase madre persona para que muestre sus datos
-   Persona::mostrarDatos;
+   Persona::mostrarDatos();
     cout<<"Codigo del doctor:"<<codigo<<endl;
    //Mostraremos el nombre de la especialidad
    cout<<"Especialidad: "<<ends;

@@ -8,7 +8,8 @@ using namespace std;
 
 int main()
 {
-	Administrador *a = new Administrador;
+	
+	Administrador *a = new Administrador();
 	int opc; //opcion del menu
 
 	do
@@ -17,7 +18,8 @@ int main()
 		cout << "    *   Welcome to the Appointment Booking System   *" << endl;
 		cout << "    *************************************************" << endl;
 		cout << "\n";
-		getch();
+		//getch();
+		//esperame voy a tare mi cargador 
 		system("cls");
 		cout << " Ingrese una opcion del menu(1-5)" << endl;
 		cout << " 1. Administrador" << endl;
@@ -33,7 +35,7 @@ int main()
 		case 1:
 		{
 			a->login();
-			getch();
+			//getch();
 			break;
 		}
 
@@ -108,6 +110,6 @@ pc.mostrarDatosPaciente();
 			break;
 		}
 	} while (opc != 7);
-
+ 
 	return 0;
 }

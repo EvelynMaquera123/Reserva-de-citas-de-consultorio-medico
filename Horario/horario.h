@@ -1,11 +1,13 @@
-#include "../Fecha/Fecha.cpp"
+#include "../Fecha/Fecha.h"
+#include <string>
 using namespace std;
+#pragma once
 class Horario
 {
 private:
     string codigo_doctor; //Usamos esta clave para identificar al doctor ya que es unica
     Fecha fecha;
-    Hora inicio,inicio;
+    Hora inicio;
     int maximoCitas;
 public:
      Horario();//Constructor basico

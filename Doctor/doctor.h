@@ -4,9 +4,9 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "../Especialidad/especialidad.cpp"
-#include "../Horario/horario.cpp"
-#include "../Persona/Persona.cpp"
+#include "../Especialidad/especialidad.h"
+#include "../Horario/horario.h"
+#include "../Persona/Persona.h"
 #include <list>
 using namespace std;
 class Doctor: public Persona

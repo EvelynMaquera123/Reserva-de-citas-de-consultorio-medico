@@ -13,8 +13,8 @@ Persona::Persona(string nombr,string apellidoP, string apellidoM, Fecha fec,doub
 	this->apellidoPaterno = apellidoP;
 
 	this->apellidoMaterno = apellidoM;
-
-	Fecha fec = fec;
+	// 
+	this->fechaNacimiento = fec;
 	this->estatura = estatura;
 	this->peso = peso;
 
