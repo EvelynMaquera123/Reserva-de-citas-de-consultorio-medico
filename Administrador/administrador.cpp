@@ -39,7 +39,7 @@ void Administrador::login()
             cout << "    *****************************" << endl;
             cout << "\n";
            // getch();
-            //system("cls"); esta linea le ingresa un valor numerioc x eso se loueo ya esta 
+          //  system("cls"); esta linea le ingresa un valor numerioc x eso se loueo ya esta 
 			// con eso ejecutas modo debug 
 			// con clic izq pones punto de interrupcion 
 			// clic derecho sobre el proyecto para compilar 
