@@ -1,5 +1,5 @@
 #pragma once
-#include "Hora.h"
+#include "Hora.cpp"
 class Fecha {
 public:
 	int anio;

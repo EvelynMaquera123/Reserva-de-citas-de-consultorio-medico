@@ -5,8 +5,8 @@
 #include <iostream>
 #include <chrono>
 #include <ctime>
-#include "../Especialidad/especialidad.h"
-#include "../Doctor/doctor.h"// dos puntos significa q salga de su directorio 
+//#include "../Especialidad/especialidad.h"
+//#include "../Doctor/doctor.h"// dos puntos significa q salga de su directorio 
 
 using namespace std;
 
@@ -54,8 +54,8 @@ void Administrador::login()
             case 1:
             {
                 
-                Especialidad obj;
-                obj.crearEspecialidad();
+                //Especialidad obj;
+                //obj.crearEspecialidad();
                 break;
             }
 

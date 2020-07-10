@@ -1,5 +1,4 @@
 #include "doctor.h"
-#include "../Horario/horario.h"
 #include <iostream>
 
 //creamos el constructor teniendo como parametros todos los atributos de persona y de doctor
@@ -7,49 +6,21 @@ Doctor::Doctor(string nombr,string apellidoP, string apellidoM, Fecha fec,double
 {
   Persona( nombr,apellidoP, apellidoM, fec, peso,estatura, sex, telef,direccion);
     //Le pasamos los valores de nuestros parametros  exculisivos de Doctor
-  codigo=cod;
-  especialidad=es;
+  this->codigo=cod;
+  this->especialidad=es;
  
  }
- 
  Doctor::Doctor()
  {
 
  }
-
-
-void Doctor:: mostrarDatos()
-{
-    //Llamaremos al contructor de la clase madre persona para que muestre sus datos
-   Persona::mostrarDatos();
-    cout<<"Codigo del doctor:"<<codigo<<endl;
-   //Mostraremos el nombre de la especialidad
-   cout<<"Especialidad: "<<ends;
-   //especialidad.getNombre()<<endl;->Esta parte aun falta construir en la clase especialidad
-   //Mostreremos los horarios de atencion del doctor en la ultima semana
-   cout<<"Fechas de horarios de atencion en la ultima semana"<<endl;
-  
-}
-
-
-
-Especialidad Doctor:: obtenerEspecialidad(){
-    return especialidad;
-}
-
-void Doctor::crearHorario()
-{
-
-  
-  
-}
 void Doctor::crearDoctor()
 {
  char res;
    //Variables de la biblioteca fstream para el manejo de archivos
     ofstream escritura;
     ifstream consulta;
-      cin.ignore();
+    cin.ignore();
     
     do{
     escritura.open("doctores.txt", ios::out | ios::app);//crea y escribe, si ya tiene texto une al final del archivo
@@ -129,30 +100,30 @@ void Doctor::crearDoctor()
 }
 void Doctor::listarDoctores()
 {
-    ifstream consulta;
-    cin.ignore();
-    consulta.open("doctores.txt", ios::in);//solamente consulta o lee usando la variable sobre el archivo físico alumnos.txt
+    ifstream lectura;
+     char nombre[25],paterno[25],materno[25];
+     int edad,telefono;
+    lectura.open("doctores.txt",ios::out | ios::in);//solamente consulta o lee usando la variable sobre el archivo físico alumnos.txt
     //Preguntamos si la conexion esta abierta
-    if(consulta.is_open()){
-        //Creamos variables que nos permitira  almacenar los datos de cada fila del fichero
-        char nombre[25],paterno[25],materno[25];
-        int edad,telefono,codigo;
-        bool repetido=false;
-        while (!consulta.eof())//Mientras haya maas filas en el fichero
-        {
-            consulta>>codigo>>nombre>>paterno>>materno>>edad>>telefono;
+    if(lectura.is_open()){
+        lectura>>codigo;
+        while (!lectura.eof()){//Mientras haya maas filas en el fichero
+            lectura>>nombre>>paterno>>materno>>edad>>telefono;
             cout<<"\n";
-                        cout<<"\tCodigo:    "<<codigo<<endl;
-                        cout<<"\tNombre:   "<<nombre<<endl;
-                        cout<<"\tPrimer apellido: "<<paterno<<endl;
-                        cout<<"\tSegundo apellido:    "<<materno<<endl;
-                        cout<<"\tEdad:     "<<edad<<endl;
-                        cout<<"\tTelefono:     "<<telefono<<endl;
-                        cout<<"\t________________________________\n\n";
+            cout<<"\tCodigo:           "<<codigo<<endl;
+            cout<<"\tNombre:           "<<nombre<<endl;
+            cout<<"\tPrimer apellido:  "<<paterno<<endl;
+            cout<<"\tSegundo apellido: "<<materno<<endl;
+            cout<<"\tEdad:             "<<edad<<endl;
+            cout<<"\tTelefono:         "<<telefono<<endl;
+            lectura>>codigo;
+            cout<<"\t________________________________\n";
+            cin.ignore();
             /* code */
         }
     }
     else{
-        cout<<"No se ha podido abrir el fichero de manera correcta"<<endl;
+        cout<<"No se ha podido abrir el fichero de manera correcta\n"<<endl;
     }
+    lectura.close();
 }

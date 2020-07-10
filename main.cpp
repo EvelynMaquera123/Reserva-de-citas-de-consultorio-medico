@@ -3,7 +3,7 @@
 //#include "Cita/cita.h"
 //#include "Paciente/paciente.h"
 #include <list>
-#include "Administrador/administrador.h"
+#include "Administrador/administrador.cpp"
 using namespace std;
 
 int main()
@@ -11,9 +11,9 @@ int main()
 	
 	Administrador *a = new Administrador();
 	int opc; //opcion del menu
-
 	do
 	{
+		cin.ignore();
 		cout << "    *************************************************" << endl;
 		cout << "    *   Welcome to the Appointment Booking System   *" << endl;
 		cout << "    *************************************************" << endl;
@@ -66,6 +66,7 @@ int main()
 
 		case 5:
 		{
+			
 			/*
 			list<Doctor> doc;
 			for (std::list<Doctor>::iterator it = doc.begin(); it != doc.end(); ++it)
@@ -80,6 +81,8 @@ int main()
 					its->mostrarDatos();
 				}
 			}*/
+			Doctor temp;
+			temp.listarDoctores();
 			break;
 		}
 
@@ -109,7 +112,6 @@ pc.mostrarDatosPaciente();
 			cout << " Opcion Incorrecta!!! Try again..." << endl;
 			break;
 		}
-	} while (opc != 7);
- 
+	} while (opc != 7); 
 	return 0;
 }

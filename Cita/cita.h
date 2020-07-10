@@ -1,8 +1,8 @@
-#include "../Doctor/doctor.h"
-#include "../Paciente/paciente.h"
-#include "../Especialidad/especialidad.h"
-#include "../Fecha/Fecha.h"
-#include "../Fecha/Hora.h"
+#include "../Doctor/doctor.cpp"
+//#include "../Paciente/paciente.cpp"
+//#include "../Especialidad/especialidad.h"
+//#include "../Fecha/Fecha.h"
+//#include "../Fecha/Hora.h"
 #include<iostream>
 #include<string>
 using namespace std;
