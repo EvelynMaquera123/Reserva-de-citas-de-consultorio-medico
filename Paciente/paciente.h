@@ -6,27 +6,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../Persona/Persona.h"
-#include <list>
 using namespace std;
 
 class Paciente: public Persona{
-	public:
-	///estooooooooo le quito?  
-	list<Persona> pacientes;//Creamos una lista de pacientes ya que no sabemos con exactitud cuantos tendremos
-	//std::string codigo;//hay 2codigos 
+public:
 	string usuario;
 	string password;
 	int codigo;
-	public:
+public:
 	Paciente(); //constructor donde tenemos que pasar los atributos
 	Paciente(string nombr,string apellidoP, string apellidoM, Fecha fec,double peso,double estatura, char sex, string telef,string direccion,string password,int cod);
-
+	
 	void registrarPaciente(); //Registrar datos del paciente
 	void mostrarDatosPaciente(); //mostrar los datos del paciente
 	void solicitarCita();  //solicitar datos del paciente
-    void cancelarCita();   //cancelar cita del paciente
+	void cancelarCita();   //cancelar cita del paciente
 	void operacion();    //Operaciones 
 	void actualizarPacientes(); //actualizar datos del paciente
-	
 };
-

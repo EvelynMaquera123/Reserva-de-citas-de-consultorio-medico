@@ -1,12 +1,16 @@
-#include<string>
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <cstdlib>
+#include <iostream>
+#include <fstream>
+#include <string>
 #pragma once
 using namespace std;
 class Especialidad{
 private:
-	int idEspecialidad = 0;
-	string nombre = "";
-	string descripcion= "";
+	int idEspecialidad;
+	string nombre;
+	string descripcion;
 public:
 	Especialidad();				 //Constructor
 	void crearEspecialidad();	 //Crear una nueva especialidad

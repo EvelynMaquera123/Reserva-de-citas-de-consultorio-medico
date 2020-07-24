@@ -1,10 +1,7 @@
-#include "../Doctor/doctor.cpp"
-//#include "../Paciente/paciente.cpp"
-//#include "../Especialidad/especialidad.h"
-//#include "../Fecha/Fecha.h"
-//#include "../Fecha/Hora.h"
-#include<iostream>
-#include<string>
+#include "../Fecha/Fecha.h"
+#include "../Fecha/Hora.h"
+#include <iostream>
+#include <string>
 using namespace std;
 
 class Cita
@@ -21,15 +18,15 @@ class Cita
 	bool estado;
 
 public:
-	Cita();	
+	Cita();
 
-//Estos Metodos se usar para llenar los datos de la Cita
-	void elegirPaciente();	
-	void elegirEspecialidad();	
-	void elegirDoctor();	
-	void elegirFecha();
+	//Estos Metodos se usar para llenar los datos de la Cita
+	int elegirPaciente();
+	int elegirEspecialidad();
+	int elegirDoctor();
+	int elegirFecha();
 	void cambiarEstado(bool aux);
-//Metodos para administrar la Cita
-	void mostrarCita();		
- 	 void guardarCita();
+	//Metodos para administrar la Cita
+	void mostrarCita();
+	void guardarCita();
 };

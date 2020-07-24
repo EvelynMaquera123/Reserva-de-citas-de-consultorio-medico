@@ -6,7 +6,7 @@
 #include <chrono>
 #include <ctime>
 //#include "../Especialidad/especialidad.h"
-//#include "../Doctor/doctor.h"// dos puntos significa q salga de su directorio 
+//#include "../Doctor/doctor.h"// dos puntos significa q salga de su directorio
 
 using namespace std;
 
@@ -31,18 +31,18 @@ void Administrador::login()
     {
         cout << "\tIngreso Exitoso...!!!" << endl;
 
-       // getch();
+        // getch();
         do
         {
             cout << "    *****************************" << endl;
             cout << "    *   Welcome Administrator   *" << endl;
             cout << "    *****************************" << endl;
             cout << "\n";
-           // getch();
-          //  system("cls"); esta linea le ingresa un valor numerioc x eso se loueo ya esta 
-			// con eso ejecutas modo debug 
-			// con clic izq pones punto de interrupcion 
-			// clic derecho sobre el proyecto para compilar 
+            // getch();
+            //  system("cls"); esta linea le ingresa un valor numerioc x eso se loueo ya esta
+            // con eso ejecutas modo debug
+            // con clic izq pones punto de interrupcion
+            // clic derecho sobre el proyecto para compilar
             cout << "\t Ingrese una opcion del menu(1-3)" << endl;
             cout << "\t 1. Agregar Nueva Especialidad" << endl;
             cout << "\t 2. Agregar Nuevo Doctor" << endl;
@@ -53,17 +53,13 @@ void Administrador::login()
             {
             case 1:
             {
-                
-                //Especialidad obj;
-                //obj.crearEspecialidad();
+
                 break;
             }
 
             case 2:
             {
-            
-                Doctor obj;
-                obj.crearDoctor(); 
+
                 break;
             }
 
@@ -80,33 +76,3 @@ void Administrador::login()
         } while (opc != 3);
     }
 }
-/*
-void Administrador::registrarApaciente()
-{
-    Paciente pc;
-    cout << "    *************************************************" << endl;
-    cout << "    *   REGISTRARSE   COMO PACIENTE                  *" << endl;
-    cout << "    *************************************************" << endl;
-
-    pc.registrarPaciente();
-
-    cout << "Sus datos fueron éxitosamente registrados";
-
-    pc.mostrarDatosPaciente();
-}
-
-
-Administrador::Administrador()
-{
-     usuario = "administrador";
-     contrasenia = "1234567";
-
-    cout << "    *************************************************" << endl;
-    cout << "    *   REGISTRARSE   COMO DOCTOR                  *" << endl;
-    cout << "    *************************************************" << endl;
-
-    Doctor obj;
-    obj.crearDoctor();
-    cout << "Sus datos fueron éxitosamente registrados";
-}
-*/
