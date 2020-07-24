@@ -1,6 +1,7 @@
 #include <iostream>
-#include "paciente.h"
 #include <string>
+#include "../Paciente/paciente.h"
+
 using namespace std;
 
 //Le pasamos los valores de nuestros parametros  exculisivos de Paciente

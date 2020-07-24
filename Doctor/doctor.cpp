@@ -1,4 +1,5 @@
 #include "doctor.h"
+#include "../Especialidad/especialidad.h"
 #include <fstream>
 #include <iostream>
 

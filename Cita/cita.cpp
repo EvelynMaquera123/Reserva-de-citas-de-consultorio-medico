@@ -368,9 +368,9 @@ void Cita:: guardarCita(){
 	
 	if (escritura.is_open() && consulta.is_open()){
 		
-		escritura<<IDpaciente<<" "<<nomPaciente<<" "<<IDdoctor<" ";
+		escritura<<IDpaciente<<" "<<nomPaciente<<" "<<IDdoctor<<" ";
 		escritura<<nomDoctor<<" "<<IDespecialidad<<" "<<nomEspecialidad<<" "<<fechaE.anio<<" ";
-		escritura<<fechaE.mes<<" "<<fechaE.dia<<" "<<horaE.hora<" ";
+		escritura<<fechaE.mes<<" "<<fechaE.dia<<" "<<horaE.hora<<" ";
 		escritura<<horaE.minutos<<" "<<estado<<" "<<numCita<<endl;
 		cout<<"\n\tCita agregado...\n";
 	}       

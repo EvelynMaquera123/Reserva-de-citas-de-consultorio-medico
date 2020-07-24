@@ -2,7 +2,7 @@
 #include <conio.h>
 //#include "Cita/cita.h"
 //#include "Paciente/paciente.h"
-#include "Administrador/administrador.cpp"
+#include "Administrador/administrador.h"
 using namespace std;
 
 int main()

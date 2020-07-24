@@ -6,7 +6,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../Persona/Persona.h"
-using namespace std;
 
 class Paciente: public Persona{
 public:

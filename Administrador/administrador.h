@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include "../Doctor/doctor.cpp"
+
 using namespace std;
 
 class Administrador
