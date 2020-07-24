@@ -13,7 +13,7 @@ int main()
 	int opc; //opcion del menu
 	do
 	{
-		cin.ignore();
+		//cin.ignore();
 		cout << "    *************************************************" << endl;
 		cout << "    *   Welcome to the Appointment Booking System   *" << endl;
 		cout << "    *************************************************" << endl;
