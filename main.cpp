@@ -13,13 +13,18 @@ int main()
 	int opc; //opcion del menu
 	do
 	{
+<<<<<<< HEAD
 		//cin.ignore();
+=======
+		
+>>>>>>> 18568ec18a351a72595a9446f69151738cf89f54
 		cout << "    *************************************************" << endl;
 		cout << "    *   Welcome to the Appointment Booking System   *" << endl;
 		cout << "    *************************************************" << endl;
 		cout << "\n";
 		//getch();
 		//esperame voy a tare mi cargador 
+		cin.ignore();
 		system("cls");
 		cout << " Ingrese una opcion del menu(1-5)" << endl;
 		cout << " 1. Administrador" << endl;
