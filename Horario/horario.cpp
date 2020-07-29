@@ -13,10 +13,10 @@ void Horario::modificar() //Con este metodo modifica la fecha del horario
 
 void Horario::mostrarDatos() //Mostramos todos los datos del horario
 {
-    cout << "Codigo del doctor:" << codigo_doctor << endl;
-    cout << "Fecha:" << ends;
-    cout << fecha.anio << "/" << fecha.mes << "/" << fecha.dia << endl;
-    cout << "Hora de entrada:" << ends;
+    cout << "\t Codigo del doctor:" << codigo_doctor << endl;
+    cout << "\t Fecha:" << ends;
+    cout << "\t " <<fecha.anio << "/" << fecha.mes << "/" << fecha.dia << endl;
+    cout << "\t Hora de entrada:" << ends;
 }
 
 void Horario::crearHorario()
@@ -28,7 +28,7 @@ void Horario::crearHorario()
     //Verificamos si el archivo ha podido ser habierto con normalidad
 
     //En caso el doctor no se haya encontrado significa que no exite , asi que podemos proceder a insertarlo
-    cout << "\n\tEliga un doctor : " << endl;
+    cout << "\n\t Eliga un doctor : " << endl;
     int aux;
     ifstream consulta;
     consulta.open("doctores.txt", ios::in); //solamente consulta o lee usando la variable sobre el archivo físico pacientes.txt
@@ -60,7 +60,7 @@ void Horario::crearHorario()
 
             cout << "\t" << cod << "\t" << Enombre << "\t" << EapellM << "\t" << EapellP << "  \t" << codesp << endl;
         }
-        cout << "\n\tEscoga un codigo de doctor: ";
+        cout << "\n\t Escoga un codigo de doctor: ";
         cin >> aux;
         //Si el archivo no se ha podido abrir enviamos un mensaje de error
     }
@@ -73,24 +73,24 @@ void Horario::crearHorario()
 
     Horario temp;
     Fecha fec;
-    cout << "Ingrese el dia: " << endl;
+    cout << "\t Ingrese el dia: " << endl;
     cin >> fec.dia;
-    cout << "Ingrese el mes: " << endl;
+    cout << "\t Ingrese el mes: " << endl;
     cin >> fec.mes;
-    cout << "Ingrese el año: " << endl;
+    cout << "\t Ingrese el año: " << endl;
     cin >> fec.anio;
-    cout << "Ingrese la hora: " << endl;
+    cout << "\t Ingrese la hora: " << endl;
     cin >> hor;
-    cout << "Ingrese minutos: " << endl;
+    cout << "\t Ingrese minutos: " << endl;
     cin >> min;
-    cout << "Ingrese cantidad de citas disponibles : " << endl;
+    cout << "\t Ingrese cantidad de citas disponibles : " << endl;
     cin >> maximoCitas;
     temp.codigo_doctor = aux;
     temp.fecha = fec;
 
     //ESCRIBIENDO LOS DATOS CAPTURADOS POR EL USUARIO EN EL ARCHIVO
     escritura << aux << " " << temp.fecha.dia << " " << temp.fecha.mes << " " << temp.fecha.anio << " " << hor << " " << min << " " << maximoCitas << endl;
-    cout << "\n\tRegistro agregado...\n";
+    cout << "\n\t Registro agregado...\n";
     //Cerramos la conceccion de escritura y de lectura con el archivo
     escritura.close();
     //Devolvemos el horario creado
@@ -115,10 +115,10 @@ void Horario::listarHorario(string codaux)
                 cin.ignore();
                 consulta >> dia >> mes >> anio;
                 cout << "\n";
-                cout << "\tCodigo: " << codigo << endl;
-                cout << "\tFecha: " << dia << "/" << mes << "/" << anio << endl;
+                cout << "\t Codigo: " << codigo << endl;
+                cout << "\t Fecha: " << dia << "/" << mes << "/" << anio << endl;
                 consulta >> codigo;
-                cout << "____________________________\n"
+                cout << "\t____________________________\n"
                      << endl;
             }
         }
@@ -147,10 +147,10 @@ bool Horario::buscarHorario(int codaux, int d, int m, int a)
             {
                 cin.ignore();
                 cout << "\n";
-                cout << "\tCodigo: " << codigo << endl;
-                cout << "\tFecha: " << dia << "/" << mes << "/" << anio << endl;
+                cout << "\t Codigo: " << codigo << endl;
+                cout << "\t Fecha: " << dia << "/" << mes << "/" << anio << endl;
                 consulta >> codigo >> dia >> mes >> anio;
-                cout << "____________________________\n"
+                cout << "\t____________________________\n"
                      << endl;
                 /* code */
                 repetido = true;
@@ -179,9 +179,9 @@ void Horario::eliminarHorario()
         char espacio = '/';
         int dia, mes, anio, hora, minutos, citas, dia1, mes1, anio1;
         cout << "\n";
-        cout << "\tIngresa el codigo del doctor cuyo horario quieres eliminar: ";
+        cout << "\t Ingresa el codigo del doctor cuyo horario quieres eliminar: ";
         cin >> auxclave;
-        cout << "\tIngresa la fecha exacta d/m/a: ";
+        cout << "\t Ingresa la fecha exacta d/m/a: ";
         cin >> dia1 >> espacio >> mes1 >> espacio >> anio1;
         ///De nuevo se aplica el tipo de lectura de archivos secuencial, esto quiere decir que lee campo por campo hasta
         ///hasta llegar al final del archivo gracias a la funciÃ³n .eof()
@@ -194,12 +194,12 @@ void Horario::eliminarHorario()
                 char opca;
                 encontrado = true;
                 cout << "\n";
-                cout << "\tCodigo del doctor:      " << clave << endl;
-                cout << "\tFecha:           		 " << dia << "/" << mes << "/" << anio << endl;
-                cout << "\tHora:  				 " << hora << ":" << minutos << endl;
-                cout << "\tNumero de Citas: 		 " << citas << endl;
+                cout << "\t Codigo del doctor:      " << clave << endl;
+                cout << "\t Fecha:           		 " << dia << "/" << mes << "/" << anio << endl;
+                cout << "\t Hora:  				 " << hora << ":" << minutos << endl;
+                cout << "\t Numero de Citas: 		 " << citas << endl;
                 cout << "\t________________________________\n\n";
-                cout << "\tRealmente deseas eliminar el registro actual (S/N)? ---> ";
+                cout << "\t Realmente deseas eliminar el registro actual (S/N)? ---> ";
                 cin >> opca;
 
                 if (opca == 'S' || opca == 's')

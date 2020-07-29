@@ -1,13 +1,23 @@
 #include <iostream>
 #include <conio.h>
-//#include "Cita/cita.h"
-//#include "Paciente/paciente.h"
+#include "Cita/cita.h"
+#include "Paciente/paciente.h"
 #include "Administrador/administrador.h"
+#include "Especialidad/especialidad.h"
+#include "Doctor/doctor.h"
+#include "Horario/horario.h"
+
 using namespace std;
 
 int main()
 {
 	Administrador *a = new Administrador();
+	Cita *c = new Cita();
+	Paciente *p = new Paciente();
+	Especialidad *e = new Especialidad();
+	Doctor *d = new Doctor();
+	Horario *h = new Horario();
+
 	int opc; //opcion del menu
 	do
 	{
@@ -38,26 +48,36 @@ int main()
 
 		case 2:
 		{
+			if(c->elegirPaciente()==0)
+			{
+				break;
+			}
+			c->crearCita();
 			break;
 		}
 
 		case 3:
 		{
+			p->registrarPaciente();
 			break;
 		}
 
 		case 4:
 		{
+			
 			break;
 		}
 
 		case 5:
 		{
-			
+			d->listarDoctores();
 			break;
 		}
 
-		case 6:{
+		case 6:
+		{
+			string codeaux;
+			h->listarHorario(codeaux);
 			break;
 		}
 

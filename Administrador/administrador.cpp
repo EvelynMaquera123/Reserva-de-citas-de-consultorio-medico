@@ -7,12 +7,14 @@
 #include <ctime>
 #include "../Especialidad/especialidad.h"
 #include "../Doctor/doctor.h"// dos puntos significa q salga de su directorio
+#include "../Horario/horario.h"
 
 using namespace std;
 
 Administrador *a = new Administrador();
 Especialidad *e = new Especialidad();
 Doctor *d = new Doctor();
+Horario *h = new Horario();
 
 Administrador::Administrador()
 {
@@ -31,21 +33,22 @@ void Administrador::login()
     int opc;
     if (a->usuario == usu && a->contrasenia == contra)
     {
-        cout << "\tIngreso Exitoso...!!!" << endl;
+        cout << "\t Ingreso Exitoso...!!!" << endl;
 
         // getch();
         do
         {
-            cout << "    *****************************" << endl;
-            cout << "    *   Welcome Administrator   *" << endl;
-            cout << "    *****************************" << endl;
+            cout << "\t *****************************" << endl;
+            cout << "\t *   Welcome Administrator   *" << endl;
+            cout << "\t *****************************" << endl;
             cout << "\n";
             // getch();
             //  system("cls"); 
             cout << "\t Ingrese una opcion del menu(1-3)" << endl;
             cout << "\t 1. Agregar Nueva Especialidad" << endl;
             cout << "\t 2. Agregar Nuevo Doctor" << endl;
-            cout << "\t 3. Salir" << endl;
+            cout << "\t 3. Agregar Nuevo Horario" <<endl;
+            cout << "\t 4. Salir" << endl;
             cin >> opc;
 
             switch (opc)
@@ -64,14 +67,18 @@ void Administrador::login()
 
             case 3:
             {
-
+                h->crearHorario();    
+                break;
+            }
+            case 4:
+            {
                 break;
             }
 
             default:
-                cout << "\tOpcion Incorrecta...!!! Try Again..." << endl;
+                cout << "\t Opcion Incorrecta...!!! Try Again..." << endl;
                 break;
             }
-        } while (opc != 3);
+        } while (opc != 4);
     }
 }

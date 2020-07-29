@@ -32,14 +32,14 @@ int Cita::elegirPaciente()
 		bool repetido = false;
 		int codaux;
 		cout << "\n";
-		cout << "\tIngresa el Dni del paciente a buscar:    ";
+		cout << "\t Ingresa el DNI del paciente a buscar:    ";
 
 		do
 		{
 			cin >> auxentrada;
 			codaux = atoi(auxentrada);
 			if (codaux == 0)
-				cout << "\t¡Incorrecto ingrese de nuevo...! ";
+				cout << "\t ¡Incorrecto ingrese de nuevo...! ";
 
 		} while (codaux == 0);
 
@@ -52,7 +52,7 @@ int Cita::elegirPaciente()
 			// compara dos string  no int
 			if (codaux == codigo)
 			{
-				cout << "\tPaciente Encontrado " << endl;
+				cout << "\t Paciente Encontrado " << endl;
 				consulta >> aux.nombre;
 				consulta >> aux.apellidoPaterno;
 				consulta >> aux.apellidoMaterno;
@@ -62,20 +62,19 @@ int Cita::elegirPaciente()
 				consulta >> aux.telefono;
 				consulta >> aux.direccion;
 				IDpaciente = codigo;
-				cout << "\tDni: " << IDpaciente << endl;
-				nomPaciente = aux.nombre + "_" + aux.apellidoPaterno + "_" + aux.apellidoMaterno;
-				cout << "\tNombre: " << nomPaciente << endl;
+				cout << "\t Dni: " << IDpaciente << endl;
+				nomPaciente = aux.nombre + " " + aux.apellidoPaterno + " " + aux.apellidoMaterno;
+				cout << "\t Nombre: " << nomPaciente << endl;
 				repetido = true;
 				break;
 			}
 			consulta >> salto >> salto >> salto >> salto >> salto >> salto >> salto >> salto;
-
 			consulta >> codigo;
 		}
 		//En caso que el paciente no se haya encontrado significa que no exite , asi que podemos proceder a insertarlo
 		if (repetido == false)
 		{
-			cout << "\tPaciente no encontrado " << endl;
+			cout << "\t Paciente no encontrado " << endl;
 			escritura.close();
 			consulta.close();
 			return 0;
@@ -96,7 +95,7 @@ int Cita::elegirPaciente()
 //Metodo que mostrara las especialidades y se guardara la elegida
 int Cita::elegirEspecialidad()
 {
-	cout << "Eliga una especialidad : " << endl;
+	cout << "\t Eliga una especialidad : " << endl;
 	char auxentrada[10];
 	int aux;
 	ifstream consulta;
@@ -122,13 +121,13 @@ int Cita::elegirEspecialidad()
 
 			cout << "\t" << cod << "\t" << Enombre << "  \t" << Edes << endl;
 		}
-		cout << "\n\tEscoga un codigo de especialidad : ";
+		cout << "\n\t Escoga un codigo de especialidad : ";
 		do
 		{
 			cin >> auxentrada;
 			aux = atoi(auxentrada);
 			if (aux == 0)
-				cout << "\t¡Incorrecto ingrese de nuevo...! : ";
+				cout << "\t ¡Incorrecto ingrese de nuevo...! : ";
 
 		} while (aux == 0);
 		//Si el archivo no se ha podido abrir enviamos un mensaje de error
@@ -171,8 +170,8 @@ int Cita::elegirEspecialidad()
 int Cita::elegirDoctor()
 {
 	char auxentrada[10];
-	cout << "\tEspecialidad Escogida : " << IDespecialidad << " - " << nomEspecialidad << "\n";
-	cout << "\n\tEliga un doctor : " << endl;
+	cout << "\t Especialidad Escogida : " << IDespecialidad << " - " << nomEspecialidad << "\n";
+	cout << "\n\t Eliga un doctor : " << endl;
 	int aux;
 	ifstream consulta;
 	consulta.open("doctores.txt", ios::in); //solamente consulta o lee usando la variable sobre el archivo físico pacientes.txt
@@ -205,14 +204,14 @@ int Cita::elegirDoctor()
 				cout << "\t" << cod << "\t" << Enombre << "\t" << EapellM << "\t" << EapellP << "  \t" << codesp << endl;
 			}
 		}
-		cout << "\n\tEscoga un codigo de doctor: ";
+		cout << "\n\t Escoga un codigo de doctor: ";
 
 		do
 		{
 			cin >> auxentrada;
 			aux = atoi(auxentrada);
 			if (aux == 0)
-				cout << "\t¡Incorrecto ingrese de nuevo...! : ";
+				cout << "\t ¡Incorrecto ingrese de nuevo...! : ";
 
 		} while (aux == 0);
 		//Si el archivo no se ha podido abrir enviamos un mensaje de error
@@ -253,11 +252,11 @@ int Cita::elegirDoctor()
 			if (codesp1 == IDespecialidad && cod1 == aux)
 			{
 				IDdoctor = cod1;
-				nomDoctor = Enombre1 + "_" + EapellM1 + "_" + EapellP1;
+				nomDoctor = Enombre1 + " " + EapellM1 + " " + EapellP1;
 				break;
 			}
 		}
-		cout << "\nDOctor elegido : " << IDdoctor << " " << nomDoctor << "\n";
+		cout << "\n\t Doctor elegido : " << IDdoctor << " " << nomDoctor << "\n";
 		//Si el archivo no se ha podido abrir enviamos un mensaje de error
 	}
 	else
@@ -273,7 +272,7 @@ int Cita::elegirDoctor()
 int Cita::elegirFecha()
 {
 	char auxentrada[10];
-	cout << "\n\tEliga un hora : " << endl;
+	cout << "\n\t Eliga un hora : " << endl;
 	int aux, i = 1;
 	ifstream consulta;
 	consulta.open("horarios.txt", ios::in); //solamente consulta o lee usando la variable sobre el archivo físico pacientes.txt
@@ -308,14 +307,14 @@ int Cita::elegirFecha()
 				i++;
 			}
 		}
-		cout << "\n\tEscoga un numero de la lista : ";
+		cout << "\n\t Escoga un numero de la lista : ";
 
 		do
 		{
 			cin >> auxentrada;
 			aux = atoi(auxentrada);
 			if (aux == 0)
-				cout << "\t¡Incorrecto ingrese de nuevo...! : ";
+				cout << "\t ¡Incorrecto ingrese de nuevo...! : ";
 
 		} while (aux == 0);
 	}
@@ -355,7 +354,7 @@ int Cita::elegirFecha()
 				consulta2 >> horaE.minutos;
 				consulta2 >> num;
 
-				cout << "\nFecha escogida : "
+				cout << "\n Fecha escogida : "
 					 << "\t" << cod << "\t" << fechaE.anio << "/" << fechaE.mes << "/" << fechaE.dia << "  \t" << horaE.hora << ":" << horaE.minutos << "  \t" << num << endl;
 				break;
 			}
@@ -412,7 +411,7 @@ void Cita::guardarCita()
 		escritura << nomDoctor << " " << IDespecialidad << " " << nomEspecialidad << " " << fechaE.anio << " ";
 		escritura << fechaE.mes << " " << fechaE.dia << " " << horaE.hora << " ";
 		escritura << horaE.minutos << " " << estado << " " << numCita << endl;
-		cout << "\n\tCita agregado...\n";
+		cout << "\n\tCita registrada...\n";
 	}
 	else
 	{
@@ -420,6 +419,23 @@ void Cita::guardarCita()
 	}
 	escritura.close();
 	consulta.close();
+}
+
+void Cita::crearCita()
+{
+	cout << "\t -------------------------------------\n";
+	cout << "\t Eligiendo especialidad: \n";
+	elegirEspecialidad();
+	cout << "\t -------------------------------------\n";
+	cout << "\t Escoga un doctor de la lista que tienen la especialidad escogida: \n";
+	elegirDoctor();
+	elegirFecha();
+
+	cambiarEstado(true);
+	cout << "\t -------------------------------------\n";
+	mostrarCita();
+
+	guardarCita();
 }
 
 void Cita::eliminarCita()
