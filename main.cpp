@@ -64,7 +64,7 @@ int main()
 
 		case 4:
 		{
-			
+			e->listarEspecialidad();
 			break;
 		}
 

@@ -38,7 +38,7 @@ void Paciente::registrarPaciente()
 			cin >> auxentrada;
 			codaux = atoi(auxentrada);
 			if (codaux == 0)
-				cout << "\t¡Incorrecto ingrese de nuevo...! : ";
+				cout << "\t Incorrecto ingrese de nuevo...! : ";
 
 		} while (codaux == 0);
 
@@ -63,21 +63,21 @@ void Paciente::registrarPaciente()
 			Paciente paciente;
 
 			paciente.codigo = codaux;
-			cout << "\tIngresa el nombre del paciente: ";
+			cout << "\t Ingresa el nombre del paciente: ";
 			cin >> paciente.nombre;
-			cout << "\tIngresa el apellido Paterno: ";
+			cout << "\t Ingresa el apellido Paterno: ";
 			cin >> paciente.apellidoPaterno;
-			cout << "\tIngresa el apellido Materno: ";
+			cout << "\t Ingresa el apellido Materno: ";
 			cin >> paciente.apellidoMaterno;
-			cout << "\tIngresa el su peso: ";
+			cout << "\t Ingresa el su peso: ";
 			cin >> paciente.peso;
-			cout << "\tIngresa el su edad: ";
+			cout << "\t Ingresa el su edad: ";
 			cin >> paciente.edad;
-			cout << "\tIngresa el su sexo: ";
+			cout << "\t Ingresa el su sexo: ";
 			cin >> paciente.sexo;
-			cout << "\tIngresa el telefono: ";
+			cout << "\t Ingresa el telefono: ";
 			cin >> paciente.telefono;
-			cout << "\tIngresa el direccion: ";
+			cout << "\t Ingresa el direccion: ";
 			cin >> paciente.direccion;
 			escritura << paciente.codigo << " " << paciente.nombre << " " << paciente.apellidoPaterno << " " << paciente.apellidoMaterno << " " << paciente.peso << " " << paciente.edad << " " << paciente.sexo << " " << paciente.telefono << " " << paciente.direccion << endl;
 			cout << "\n\tRegistro agregado...\n";
@@ -99,14 +99,14 @@ void Paciente::mostrarDatosPaciente()
 {
 	//Datos personales
 
-	cout << "Nombre: " << nombre << "Apellido Paterno: " << apellidoPaterno << "Apellido Materno: " << apellidoMaterno << endl;
-	cout << "Fecha Nacimiento: " << fechaNacimiento.anio << "/" << fechaNacimiento.mes << "/" << fechaNacimiento.dia << endl;
-	cout << "Peso: " << peso << endl;
-	cout << "Edad: " << edad << endl;
-	cout << "Estatura: " << estatura << endl;
-	cout << "Sexo: " << sexo << endl;
-	cout << "Peso: " << telefono << endl;
-	cout << "Peso: " << direccion << endl;
+	cout << "\t Nombre: " << nombre << "Apellido Paterno: " << apellidoPaterno << "Apellido Materno: " << apellidoMaterno << endl;
+	cout << "\t Fecha Nacimiento: " << fechaNacimiento.anio << "/" << fechaNacimiento.mes << "/" << fechaNacimiento.dia << endl;
+	cout << "\t Peso: " << peso << endl;
+	cout << "\t Edad: " << edad << endl;
+	cout << "\t Estatura: " << estatura << endl;
+	cout << "\t Sexo: " << sexo << endl;
+	cout << "\t Telefono: " << telefono << endl;
+	cout << "\t Direccion: " << direccion << endl;
 }
 
 void Paciente ::eliminarPaciente()
@@ -124,7 +124,7 @@ void Paciente ::eliminarPaciente()
 		char nombre[25], paterno[25], materno[25], sexo[2], direccion[25];
 		int edad, telefono, peso;
 		cout << "\n";
-		cout << "\tIngresa el dni del paciente que deseas eliminar: ";
+		cout << "\t Ingresa el dni del paciente que deseas eliminar: ";
 		cin >> auxclave;
 
 		///De nuevo se aplica el tipo de lectura de archivos secuencial, esto quiere decir que lee campo por campo hasta
@@ -138,17 +138,17 @@ void Paciente ::eliminarPaciente()
 				char opca;
 				encontrado = true;
 				cout << "\n";
-				cout << "\tDNI:              " << clave << endl;
-				cout << "\tNombre:           " << nombre << endl;
-				cout << "\tPrimer apellido:  " << paterno << endl;
-				cout << "\tSegundo apellido: " << materno << endl;
-				cout << "\tPeso:             " << peso << "kg" << endl;
-				cout << "\tEdad:             " << edad << endl;
-				cout << "\tSexo:             " << sexo << endl;
-				cout << "\tTelefono:         " << telefono << endl;
-				cout << "\tDireccion:        " << direccion << endl;
+				cout << "\t DNI:              " << clave << endl;
+				cout << "\t Nombre:           " << nombre << endl;
+				cout << "\t Primer apellido:  " << paterno << endl;
+				cout << "\t Segundo apellido: " << materno << endl;
+				cout << "\t Peso:             " << peso << "kg" << endl;
+				cout << "\t Edad:             " << edad << endl;
+				cout << "\t Sexo:             " << sexo << endl;
+				cout << "\t Telefono:         " << telefono << endl;
+				cout << "\t Direccion:        " << direccion << endl;
 				cout << "\t________________________________\n\n";
-				cout << "\tRealmente deseas eliminar el registro actual (S/N)? ---> ";
+				cout << "\t Realmente deseas eliminar el registro actual (S/N)? ---> ";
 				cin >> opca;
 
 				if (opca == 'S' || opca == 's')

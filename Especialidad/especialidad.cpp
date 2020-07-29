@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 #include "especialidad.h"
 
 using namespace std;
@@ -64,6 +65,34 @@ void Especialidad::crearEspecialidad()
     escritura.close();
     consulta.close();
     //Esta accion se repetira siempre que el usuario  presione s o S cuando se le pregunte si quiere ingresar otro paciente
+}
+
+void Especialidad::listarEspecialidad()
+{
+    ifstream lectura;
+    lectura.open("especialidades.txt", ios::out | ios::in); //solamente consulta o lee usando la variable sobre el archivo físico alumnos.txt
+    //Preguntamos si la conexion esta abierta
+    if (lectura.is_open())
+    {
+        lectura >> idEspecialidad;
+        while (!lectura.eof())
+        { //Mientras haya mas filas en el fichero
+            lectura >> nombre >> descripcion;
+            cout << "\n";
+            cout << "\t Codigo:           " << idEspecialidad << endl;
+            cout << "\t Nombre:           " << nombre << endl;
+            cout << "\t Descripcion:  " << descripcion << endl;
+            lectura >> idEspecialidad;
+            cout << "\t________________________________\n";
+            cin.ignore();
+        }
+    }
+    else
+    {
+        cout << "No se ha podido abrir el fichero de manera correcta\n"
+             << endl;
+    }
+    lectura.close();
 }
 
 string Especialidad::getEspecialidad()

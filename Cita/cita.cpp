@@ -110,7 +110,7 @@ int Cita::elegirEspecialidad()
 			 << "Codigo"
 			 << "\t"
 			 << "Nombre"
-			 << "  \t"
+			 << "\t"
 			 << "Descripcion" << endl;
 
 		while (!consulta.eof())
@@ -127,7 +127,7 @@ int Cita::elegirEspecialidad()
 			cin >> auxentrada;
 			aux = atoi(auxentrada);
 			if (aux == 0)
-				cout << "\t ¡Incorrecto ingrese de nuevo...! : ";
+				cout << "\t Incorrecto ingrese de nuevo...! : ";
 
 		} while (aux == 0);
 		//Si el archivo no se ha podido abrir enviamos un mensaje de error
@@ -452,11 +452,11 @@ void Cita::eliminarCita()
 		int dni, codigo, dia, mes, anio;
 		char separador = '/';
 		cout << "\n";
-		cout << "\tIngresa el DNI del paciente de la cita que deseas eliminar que deseas eliminar: ";
+		cout << "\t Ingresa el DNI del paciente de la cita que deseas eliminar que deseas eliminar: ";
 		cin >> dni;
-		cout << "\tIngresa el codigo del doctor de la cita deseas eliminar que deseas eliminar: ";
+		cout << "\t Ingresa el codigo del doctor de la cita deseas eliminar que deseas eliminar: ";
 		cin >> codigo;
-		cout << "\tIngresa la fecha de la cita deseas eliminar que deseas eliminar  d/m/a: ";
+		cout << "\t Ingresa la fecha de la cita deseas eliminar que deseas eliminar  d/m/a: ";
 		cin >> dia >> separador >> mes >> separador >> anio;
 
 		///De nuevo se aplica el tipo de lectura de archivos secuencial, esto quiere decir que lee campo por campo hasta
@@ -470,11 +470,11 @@ void Cita::eliminarCita()
 				char opca;
 				encontrado = true;
 				cout << "\n";
-				cout << "\tDNI Paciente         :  " << dni << endl;
-				cout << "\tCodigo Doctor        :  " << codigo << endl;
-				cout << "\tFecha                :  " << dia << "/" << mes << "/" << anio << endl;
+				cout << "\t DNI Paciente         :  " << dni << endl;
+				cout << "\t Codigo Doctor        :  " << codigo << endl;
+				cout << "\t Fecha                :  " << dia << "/" << mes << "/" << anio << endl;
 				cout << "\t________________________________\n\n";
-				cout << "\tRealmente deseas eliminar el registro actual (S/N)? ---> ";
+				cout << "\t Realmente deseas eliminar el registro actual (S/N)? ---> ";
 				cin >> opca;
 
 				if (opca == 'S' || opca == 's')

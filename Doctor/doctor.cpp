@@ -32,7 +32,7 @@ void Doctor::crearDoctor()
         int codaux, cod1;
 
         cout << "\n";
-        printf(" Ingrese el codigo del doctor: ");
+        printf("\t Ingrese el codigo del doctor: ");
         cin >> codaux;
 
         ///A continuación se aplica el tipo de lectura de archivos secuencial
@@ -54,22 +54,22 @@ void Doctor::crearDoctor()
         if (repetido == false)
         {
             codigo = codaux;
-            cout << "\tIngresa el nombre del doctor: ";
+            cout << "\t Ingresa el nombre del doctor: ";
             cin >> nombre;
-            cout << "\tIngresa el apellido Paterno: ";
+            cout << "\t Ingresa el apellido Paterno: ";
             cin >> apellidoPaterno;
-            cout << "\tIngresa el apellido materno: ";
+            cout << "\t Ingresa el apellido materno: ";
             cin >> apellidoMaterno;
-            cout << "\tIngresa la edad : ";
+            cout << "\t Ingresa la edad : ";
             cin >> edad;
-            cout << "\tIngresa el telefono: ";
+            cout << "\t Ingresa el telefono: ";
             cin >> telefono;
-            cout << "\tIngresa el codigo de especialidad: ";
+            cout << "\t Ingresa el codigo de especialidad: ";
             cin >> CODespecialidad;
 
             //ESCRIBIENDO LOS DATOS CAPTURADOS POR EL USUARIO EN EL ARCHIVO
             escritura << codaux << " " << nombre << " " << apellidoPaterno << " " << apellidoMaterno << " " << edad << " " << telefono << " " << CODespecialidad << endl;
-            cout << "\n\tDoctor agregado...\n";
+            cout << "\n\t Doctor agregado...\n";
         }
         //Si el archivo no se ha podido abrir enviamos un mensaje de error
     }
@@ -96,12 +96,12 @@ void Doctor::listarDoctores()
         { //Mientras haya maas filas en el fichero
             lectura >> nombre >> paterno >> materno >> edad >> telefono;
             cout << "\n";
-            cout << "\tCodigo:           " << codigo << endl;
-            cout << "\tNombre:           " << nombre << endl;
-            cout << "\tPrimer apellido:  " << paterno << endl;
-            cout << "\tSegundo apellido: " << materno << endl;
-            cout << "\tEdad:             " << edad << endl;
-            cout << "\tTelefono:         " << telefono << endl;
+            cout << "\t Codigo:           " << codigo << endl;
+            cout << "\t Nombre:           " << nombre << endl;
+            cout << "\t Primer apellido:  " << paterno << endl;
+            cout << "\t Segundo apellido: " << materno << endl;
+            cout << "\t Edad:             " << edad << endl;
+            cout << "\t Telefono:         " << telefono << endl;
             lectura >> codigo;
             cout << "\t________________________________\n";
             cin.ignore();
@@ -130,9 +130,8 @@ void Doctor::eliminarDoctor()
 		char nombre[25],paterno[25],materno[25];
 		int edad,telefono,especialidad;
         cout<<"\n";
-        cout<<"\tIngresa la clave del doctor que deseas eliminar: ";
+        cout<<"\t Ingresa la clave del doctor que deseas eliminar: ";
         cin>>auxclave;
-            
             ///De nuevo se aplica el tipo de lectura de archivos secuencial, esto quiere decir que lee campo por campo hasta
             ///hasta llegar al final del archivo gracias a la funcion .eof()
             lectura>>codigo;
@@ -142,15 +141,15 @@ void Doctor::eliminarDoctor()
 					    char opca;
                         encontrado=true;
 						cout<<"\n";
-						cout<<"\tCodigo:           "<<codigo<<endl;
-						cout<<"\tNombre:           "<<nombre<<endl;
-						cout<<"\tPrimer apellido:  "<<paterno<<endl;
-						cout<<"\tSegundo apellido: "<<materno<<endl;
-						cout<<"\tEdad:             "<<edad<<endl;
-						cout<<"\tTelefono:         "<<telefono<<endl;
-						cout<<"\tEspecialidad:     "<<especialidad<<endl;
+						cout<<"\t Codigo:           "<<codigo<<endl;
+						cout<<"\t Nombre:           "<<nombre<<endl;
+						cout<<"\t Primer apellido:  "<<paterno<<endl;
+						cout<<"\t Segundo apellido: "<<materno<<endl;
+						cout<<"\t Edad:             "<<edad<<endl;
+						cout<<"\t Telefono:         "<<telefono<<endl;
+						cout<<"\t Especialidad:     "<<especialidad<<endl;
 						cout<<"\t________________________________\n\n";
-						cout<<"\tRealmente deseas eliminar el registro actual (S/N)? ---> ";
+						cout<<"\t Realmente deseas eliminar el registro actual (S/N)? ---> ";
                         cin>>opca;
 
                         if (opca=='S' || opca=='s'){
