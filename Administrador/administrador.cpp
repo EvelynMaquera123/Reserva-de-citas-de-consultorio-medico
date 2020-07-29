@@ -16,8 +16,8 @@ Doctor *d = new Doctor();
 
 Administrador::Administrador()
 {
-    usuario = "administrador";
-    contrasenia = "1234567";
+    usuario = "admin";
+    contrasenia = "1234";
 }
 void Administrador::login()
 {
@@ -41,10 +41,7 @@ void Administrador::login()
             cout << "    *****************************" << endl;
             cout << "\n";
             // getch();
-            //  system("cls"); esta linea le ingresa un valor numerioc x eso se loueo ya esta
-            // con eso ejecutas modo debug
-            // con clic izq pones punto de interrupcion
-            // clic derecho sobre el proyecto para compilar
+            //  system("cls"); 
             cout << "\t Ingrese una opcion del menu(1-3)" << endl;
             cout << "\t 1. Agregar Nueva Especialidad" << endl;
             cout << "\t 2. Agregar Nuevo Doctor" << endl;

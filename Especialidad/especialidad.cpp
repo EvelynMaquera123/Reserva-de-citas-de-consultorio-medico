@@ -31,7 +31,6 @@ void Especialidad::crearEspecialidad()
         while (!consulta.eof())
         {
             //Si encontramos el codigo del paciente , significa que ya esta registrado , asi que no podemos volverlo a insertar
-            // compara dos string  no int
             if (codaux == codr)
             {
                 cout << "\t\tYa existe especialidad con ese Id...\n";
@@ -44,7 +43,6 @@ void Especialidad::crearEspecialidad()
         //En caso que el paciente no se haya encontrado significa que no exite , asi que podemos proceder a insertarlo
         if (creado == false)
         {
-
             idEspecialidad = codaux;
             cout << "\tIngresa el nombre de especialidad : ";
             cin >> nombre;

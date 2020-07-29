@@ -4,7 +4,7 @@
 #include <iostream>
 
 //creamos el constructor teniendo como parametros todos los atributos de persona y de doctor
-Doctor::Doctor(string nombr, string apellidoP, string apellidoM, Fecha fec, double peso, double estatura, char sex, string telef, string dire, string cod, int codES)
+Doctor::Doctor(string nombr, string apellidoP, string apellidoM, Fecha fec, double peso, double estatura, char sex, string telef, string dire, int cod, int codES)
 {
     Persona(nombr, apellidoP, apellidoM, fec, peso, estatura, sex, telef, direccion);
     //Le pasamos los valores de nuestros parametros  exculisivos de Doctor
@@ -53,24 +53,22 @@ void Doctor::crearDoctor()
         //En caso el doctor no se haya encontrado significa que no exite , asi que podemos proceder a insertarlo
         if (repetido == false)
         {
-            Doctor temp;
+            codigo = codaux;
             cout << "\tIngresa el nombre del doctor: ";
-            cin >> temp.nombre;
+            cin >> nombre;
             cout << "\tIngresa el apellido Paterno: ";
-            cin >> temp.apellidoPaterno;
+            cin >> apellidoPaterno;
             cout << "\tIngresa el apellido materno: ";
-            cin >> temp.apellidoMaterno;
+            cin >> apellidoMaterno;
             cout << "\tIngresa la edad : ";
-            cin >> temp.edad;
+            cin >> edad;
             cout << "\tIngresa el telefono: ";
-            cin >> temp.telefono;
+            cin >> telefono;
             cout << "\tIngresa el codigo de especialidad: ";
-            cin >> temp.CODespecialidad;
-            temp.codigo = codaux;
+            cin >> CODespecialidad;
 
-            //temp.especialidad=es;
             //ESCRIBIENDO LOS DATOS CAPTURADOS POR EL USUARIO EN EL ARCHIVO
-            escritura << codaux << " " << temp.nombre << " " << temp.apellidoPaterno << " " << temp.apellidoMaterno << " " << temp.edad << " " << temp.telefono << " " << temp.CODespecialidad << endl;
+            escritura << codaux << " " << nombre << " " << apellidoPaterno << " " << apellidoMaterno << " " << edad << " " << telefono << " " << CODespecialidad << endl;
             cout << "\n\tDoctor agregado...\n";
         }
         //Si el archivo no se ha podido abrir enviamos un mensaje de error
@@ -124,7 +122,7 @@ void Doctor::eliminarDoctor()
     ifstream lectura;
 
    	bool encontrado=false;
-    int auxclave,clave;
+    int auxclave;
     aux.open("auxiliar_doctores.txt", ios::out);
     lectura.open("doctores.txt", ios::in);
 
@@ -137,14 +135,14 @@ void Doctor::eliminarDoctor()
             
             ///De nuevo se aplica el tipo de lectura de archivos secuencial, esto quiere decir que lee campo por campo hasta
             ///hasta llegar al final del archivo gracias a la funcion .eof()
-            lectura>>clave;
+            lectura>>codigo;
             while (!lectura.eof()){
                 lectura>>nombre>>paterno>>materno>>edad>>telefono>>especialidad;
-                if (auxclave==clave){
+                if (auxclave == codigo){
 					    char opca;
                         encontrado=true;
 						cout<<"\n";
-						cout<<"\tCodigo:           "<<clave<<endl;
+						cout<<"\tCodigo:           "<<codigo<<endl;
 						cout<<"\tNombre:           "<<nombre<<endl;
 						cout<<"\tPrimer apellido:  "<<paterno<<endl;
 						cout<<"\tSegundo apellido: "<<materno<<endl;
@@ -158,13 +156,13 @@ void Doctor::eliminarDoctor()
                         if (opca=='S' || opca=='s'){
                             cout<<"\n\n\t\t\tRegistro eliminado...\n\n\t\t\a";
                         }else{
-                            aux<<clave<<" "<<nombre<<" "<<paterno<<" "<<materno<<" "<<edad<<" "<<telefono<<" "<<especialidad<<endl;
+                            aux<<codigo<<" "<<nombre<<" "<<paterno<<" "<<materno<<" "<<edad<<" "<<telefono<<" "<<especialidad<<endl;
                         }
 
                     }else{
-                       aux<<clave<<" "<<nombre<<" "<<paterno<<" "<<materno<<" "<<edad<<" "<<telefono<<" "<<especialidad<<endl;
+                       aux<<codigo<<" "<<nombre<<" "<<paterno<<" "<<materno<<" "<<edad<<" "<<telefono<<" "<<especialidad<<endl;
                     }
-                lectura>>clave;
+                lectura>>codigo;
             }
     }else{
         cout<<"\n\tEl archivo no se pudo abrir \n";
