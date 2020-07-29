@@ -183,7 +183,9 @@ void Paciente ::eliminarPaciente()
 	rename("auxiliar_pacientes.txt", "pacientes.txt");
 }
 
-bool Paciente::buscarPaciente(int dni){
+bool Paciente::buscarPaciente(int dni)
+{
+	return true;
 }
 
 void Paciente::solicitarCita()
