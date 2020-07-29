@@ -1,5 +1,6 @@
 #include <iostream>
 #include "horario.h"
+
 Horario::Horario()
 {
 }
@@ -44,16 +45,12 @@ void Horario::crearHorario()
          << "CodEspecialidad" << endl;
     if (consulta.is_open())
     {
-
         int cod, codesp;
-
         string Enombre, EapellM, EapellP, salto;
-
         ///A continuación se aplica el tipo de lectura de archivos secuencial
 
         while (!consulta.eof())
         {
-
             consulta >> cod;
             consulta >> Enombre;
             consulta >> EapellM;
@@ -63,10 +60,8 @@ void Horario::crearHorario()
 
             cout << "\t" << cod << "\t" << Enombre << "\t" << EapellM << "\t" << EapellP << "  \t" << codesp << endl;
         }
-
         cout << "\n\tEscoga un codigo de doctor: ";
         cin >> aux;
-
         //Si el archivo no se ha podido abrir enviamos un mensaje de error
     }
     else
@@ -125,7 +120,6 @@ void Horario::listarHorario(string codaux)
                 consulta >> codigo;
                 cout << "____________________________\n"
                      << endl;
-                /* code */
             }
         }
     }
@@ -133,4 +127,109 @@ void Horario::listarHorario(string codaux)
     {
         cout << "No se ha podido abrir el fichero de manera correcta" << endl;
     }
+}
+
+bool Horario::buscarHorario(int codaux, int d, int m, int a)
+{
+    ifstream consulta;
+    bool repetido = false;
+    consulta.open("horarios.txt", ios::in); //solamente consulta o lee usando la variable sobre el archivo fï¿½sico alumnos.txt
+    //Preguntamos si la conexion esta abierta
+    if (consulta.is_open())
+    {
+        //Creamos variables que nos permitira  almacenar los datos de cada fila del fichero
+        int codigo;
+        int anio, mes, dia;
+        consulta >> codigo >> dia >> mes >> anio;
+        while (!consulta.eof()) //Mientras haya maas filas en el fichero
+        {
+            if (codigo == codaux && dia == d && mes == m && anio == a)
+            {
+                cin.ignore();
+                cout << "\n";
+                cout << "\tCodigo: " << codigo << endl;
+                cout << "\tFecha: " << dia << "/" << mes << "/" << anio << endl;
+                consulta >> codigo >> dia >> mes >> anio;
+                cout << "____________________________\n"
+                     << endl;
+                /* code */
+                repetido = true;
+                break;
+            }
+        }
+    }
+    else
+    {
+        cout << "No se ha podido abrir el fichero de manera correcta" << endl;
+    }
+    return repetido;
+}
+
+void Horario::eliminarHorario()
+{
+    ofstream aux;
+    ifstream lectura;
+    bool encontrado = false;
+    int auxclave, clave;
+    aux.open("auxiliar_horarios.txt", ios::out);
+    lectura.open("horarios.txt", ios::in);
+    if (aux.is_open() && lectura.is_open())
+    {
+        cin.ignore();
+        char espacio = '/';
+        int dia, mes, anio, hora, minutos, citas, dia1, mes1, anio1;
+        cout << "\n";
+        cout << "\tIngresa el codigo del doctor cuyo horario quieres eliminar: ";
+        cin >> auxclave;
+        cout << "\tIngresa la fecha exacta d/m/a: ";
+        cin >> dia1 >> espacio >> mes1 >> espacio >> anio1;
+        ///De nuevo se aplica el tipo de lectura de archivos secuencial, esto quiere decir que lee campo por campo hasta
+        ///hasta llegar al final del archivo gracias a la funciÃ³n .eof()
+        lectura >> clave;
+        while (!lectura.eof())
+        {
+            lectura >> dia >> mes >> anio >> hora >> minutos >> citas;
+            if (auxclave == clave && dia1 == dia && mes1 == mes && anio == anio1)
+            {
+                char opca;
+                encontrado = true;
+                cout << "\n";
+                cout << "\tCodigo del doctor:      " << clave << endl;
+                cout << "\tFecha:           		 " << dia << "/" << mes << "/" << anio << endl;
+                cout << "\tHora:  				 " << hora << ":" << minutos << endl;
+                cout << "\tNumero de Citas: 		 " << citas << endl;
+                cout << "\t________________________________\n\n";
+                cout << "\tRealmente deseas eliminar el registro actual (S/N)? ---> ";
+                cin >> opca;
+
+                if (opca == 'S' || opca == 's')
+                {
+                    cout << "\n\n\t\t\tRegistro eliminado...\n\n\t\t\a";
+                }
+                else
+                {
+                    aux << clave << " " << dia << " " << mes << " " << anio << " " << hora << " " << minutos << " " << citas << endl;
+                }
+            }
+            else
+            {
+                aux << clave << " " << dia << " " << mes << " " << anio << " " << hora << " " << minutos << " " << citas << endl;
+            }
+            lectura >> clave;
+        }
+    }
+    else
+    {
+        cout << "\n\tEl archivo no se pudo abrir \n";
+    }
+
+    if (encontrado == false)
+    {
+        cout << "\n\tNo se encontro ningun registro con la clave: " << auxclave << "\n\n\t\t\t";
+    }
+
+    aux.close();
+    lectura.close();
+    remove("horarios.txt");
+    rename("auxiliar_horarios.txt", "horarios.txt");
 }

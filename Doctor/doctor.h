@@ -1,6 +1,5 @@
 #include <cstdlib>
 #include <iostream>
-#include <fstream>
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,4 +18,5 @@ public:
     Doctor(string nombr, string apellidoP, string apellidoM, Fecha fec, double peso, double estatura, char sex, string telef, string dire, string cod, int es);
     void crearDoctor();    //Con este metodo insertaremos un nuevo doctor y lo añadiremos al fichero
     void listarDoctores(); //Con este metodo listamos todos los doctores que tenemos en el fichero
+    void eliminarDoctor();
 };

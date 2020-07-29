@@ -15,4 +15,6 @@ class Horario
 		void mostrarDatos();//Mostramos todos los datos del horario
 		void crearHorario();//Con este metodo creamos un nuevo horario
 		void listarHorario(string codaux);
+		bool buscarHorario(int codaux ,int d ,int m ,int a);
+		void eliminarHorario();
 	};

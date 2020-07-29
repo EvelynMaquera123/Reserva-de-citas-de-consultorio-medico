@@ -21,7 +21,6 @@ public:
 	int setEdad(void);
 	string getApellidoPaterno(void);
 	string getApellidoMaterno(void);
-	
 	char getSexo(void);
 	string getTelefono(void);
 	string getDireccion(void);

@@ -6,7 +6,6 @@ public:
 	int mes;
 	int dia;
 public:
+	Fecha();
 	Fecha(int anio,int dia,int mes);
-	Fecha();// esto para q es???
-	// tienes dos constructores pero el segundo no lo implementas 
 };

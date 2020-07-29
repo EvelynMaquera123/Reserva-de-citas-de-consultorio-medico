@@ -29,4 +29,5 @@ public:
 	//Metodos para administrar la Cita
 	void mostrarCita();
 	void guardarCita();
+	void eliminarCita();
 };

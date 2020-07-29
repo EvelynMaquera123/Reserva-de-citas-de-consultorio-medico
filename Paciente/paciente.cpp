@@ -5,22 +5,19 @@
 using namespace std;
 
 //Le pasamos los valores de nuestros parametros  exculisivos de Paciente
-Paciente::Paciente(string nombr, string apellidoP, string apellidoM, Fecha fec, double peso, double estatura, char sex, string telef, string direccion, string pass, int cod)
+Paciente::Paciente(string nombr, string apellidoP, string apellidoM, Fecha fec, double peso, double estatura, char sex, string telef, string direccion, int cod)
 {
 	//pacientes los parametros estan mal
 	Persona(nombr, apellidoP, apellidoM, fec, peso, estatura, sex, telef, direccion);
-	//Le pasamos los valores de nuestros parametros  exculisivos de Paciente
-	password = pass;
-	usuario = nombr;
 	codigo = cod;
 }
 
 Paciente::Paciente()
 {
 }
+
 void Paciente::registrarPaciente()
 {
-
 	ofstream escritura;
 	ifstream consulta;
 	char auxentrada[10];
@@ -30,7 +27,6 @@ void Paciente::registrarPaciente()
 	//Verificamos si el archivo ha podido ser habierto con normalidad
 	if (escritura.is_open() && consulta.is_open())
 	{
-
 		bool repetido = false;
 		int codaux, codr;
 		string salto;
@@ -64,7 +60,6 @@ void Paciente::registrarPaciente()
 		//En caso que el paciente no se haya encontrado significa que no exite , asi que podemos proceder a insertarlo
 		if (repetido == false)
 		{
-
 			Paciente paciente;
 
 			paciente.codigo = codaux;
@@ -114,12 +109,91 @@ void Paciente::mostrarDatosPaciente()
 	cout << "Peso: " << direccion << endl;
 }
 
+void Paciente ::eliminarPaciente()
+{
+	ofstream aux;
+	ifstream lectura;
+
+	bool encontrado = false;
+	int auxclave, clave;
+	aux.open("auxiliar_pacientes.txt", ios::out);
+	lectura.open("pacientes.txt", ios::in);
+
+	if (aux.is_open() && lectura.is_open())
+	{
+		char nombre[25], paterno[25], materno[25], sexo[2], direccion[25];
+		int edad, telefono, peso;
+		cout << "\n";
+		cout << "\tIngresa el dni del paciente que deseas eliminar: ";
+		cin >> auxclave;
+
+		///De nuevo se aplica el tipo de lectura de archivos secuencial, esto quiere decir que lee campo por campo hasta
+		///hasta llegar al final del archivo gracias a la funciÃ³n .eof()
+		lectura >> clave;
+		while (!lectura.eof())
+		{
+			lectura >> nombre >> paterno >> materno >> peso >> edad >> sexo >> telefono >> direccion;
+			if (auxclave == clave)
+			{
+				char opca;
+				encontrado = true;
+				cout << "\n";
+				cout << "\tDNI:              " << clave << endl;
+				cout << "\tNombre:           " << nombre << endl;
+				cout << "\tPrimer apellido:  " << paterno << endl;
+				cout << "\tSegundo apellido: " << materno << endl;
+				cout << "\tPeso:             " << peso << "kg" << endl;
+				cout << "\tEdad:             " << edad << endl;
+				cout << "\tSexo:             " << sexo << endl;
+				cout << "\tTelefono:         " << telefono << endl;
+				cout << "\tDireccion:        " << direccion << endl;
+				cout << "\t________________________________\n\n";
+				cout << "\tRealmente deseas eliminar el registro actual (S/N)? ---> ";
+				cin >> opca;
+
+				if (opca == 'S' || opca == 's')
+				{
+					cout << "\n\n\t\t\tRegistro eliminado...\n\n\t\t\a";
+				}
+				else
+				{
+					aux << clave << " " << nombre << " " << paterno << " " << materno << " " << peso << " " << edad << " " << sexo << " " << telefono << " " << direccion << endl;
+				}
+			}
+			else
+			{
+				aux << clave << " " << nombre << " " << paterno << " " << materno << " " << peso << " " << edad << " " << sexo << " " << telefono << " " << direccion << endl;
+			}
+			lectura >> clave;
+		}
+	}
+	else
+	{
+		cout << "\n\tEl archivo no se pudo abrir \n";
+	}
+
+	if (encontrado == false)
+	{
+		cout << "\n\tNo se encontro ningun registro con la clave: " << auxclave << "\n\n\t\t\t";
+	}
+
+	aux.close();
+	lectura.close();
+	remove("pacientes.txt");
+	rename("auxiliar_pacientes.txt", "pacientes.txt");
+}
+
+bool Paciente::buscarPaciente(int dni){
+}
+
 void Paciente::solicitarCita()
 { //METODO EN EL CUAL EL USUARIO SOLICITA UNA CITA
 }
+
 void Paciente::cancelarCita()
 { //metodo para cancelar cita del paciente
 }
+
 void Paciente::operacion()
 { //metodo para gestionar las operaciones del paciente
 }
