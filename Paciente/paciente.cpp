@@ -32,7 +32,7 @@ void Paciente::registrarPaciente()
 		string salto;
 		cout << "\n";
 		cout << "\tIngresa el Dni del paciente:    ";
-
+		
 		do
 		{
 			cin >> auxentrada;
@@ -41,7 +41,7 @@ void Paciente::registrarPaciente()
 				cout << "\t Incorrecto ingrese de nuevo...! : ";
 
 		} while (codaux == 0);
-
+		
 		///A continuación se aplica el tipo de lectura de archivos secuencial
 		consulta >> codr;
 		while (!consulta.eof())

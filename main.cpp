@@ -35,8 +35,7 @@ int main()
 		cout << " 3. Registrar Paciente" << endl;
 		cout << " 4. Mostrar Especialidades" << endl;
 		cout << " 5. Mostrar Doctores " << endl;
-		cout << " 6. Mostrar Horarios" << endl;
-		cout << " 7. Salir" << endl;
+		cout << " 6. Salir" << endl;
 		cin >> opc;
 		switch (opc)
 		{
@@ -76,13 +75,6 @@ int main()
 
 		case 6:
 		{
-			string codeaux;
-			h->listarHorario(codeaux);
-			break;
-		}
-
-		case 7:
-		{
 			break;
 		}
 
@@ -90,6 +82,6 @@ int main()
 			cout << " Opcion Incorrecta!!! Try again..." << endl;
 			break;
 		}
-	} while (opc != 7); 
+	} while (opc != 6); 
 	return 0;
 }
