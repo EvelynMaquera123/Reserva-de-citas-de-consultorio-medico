@@ -31,7 +31,7 @@ void Paciente::registrarPaciente()
 		int codaux, codr;
 		string salto;
 		cout << "\n";
-		cout << "\tIngresa el Dni del paciente:    ";
+		cout << "\t Ingresa el DNI del paciente:    ";
 		
 		do
 		{

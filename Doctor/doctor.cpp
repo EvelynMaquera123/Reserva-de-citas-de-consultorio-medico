@@ -58,7 +58,7 @@ void Doctor::crearDoctor()
             cin >> nombre;
             cout << "\t Ingresa el apellido Paterno: ";
             cin >> apellidoPaterno;
-            cout << "\t Ingresa el apellido materno: ";
+            cout << "\t Ingresa el apellido Materno: ";
             cin >> apellidoMaterno;
             cout << "\t Ingresa la edad : ";
             cin >> edad;

@@ -1,3 +1,4 @@
 1 Medicina Medicina_General
 2 Pediatria Cuidado_de_ninios
 3 Otorrino Cuida_la_garganta
+4 Fisioterapia Trata_el_cuerpo_humano

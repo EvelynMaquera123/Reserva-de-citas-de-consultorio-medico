@@ -33,17 +33,15 @@ void Administrador::login()
     int opc;
     if (a->usuario == usu && a->contrasenia == contra)
     {
-        cout << "\t Ingreso Exitoso...!!!" << endl;
-
-        // getch();
+        cout << "\t Ingreso Exitoso...!!!(Enter)" << endl;
+        getch();
+        system("cls");
         do
         {
             cout << "\t *****************************" << endl;
             cout << "\t *   Welcome Administrator   *" << endl;
             cout << "\t *****************************" << endl;
-            cout << "\n";
-            // getch();
-            //  system("cls"); 
+            cout << "\n"; 
             cout << "\t Ingrese una opcion del menu(1-3)" << endl;
             cout << "\t 1. Agregar Nueva Especialidad" << endl;
             cout << "\t 2. Agregar Nuevo Doctor" << endl;

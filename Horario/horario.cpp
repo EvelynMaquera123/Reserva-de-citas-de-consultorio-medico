@@ -31,7 +31,7 @@ void Horario::crearHorario()
     cout << "\n\t Eliga un doctor : " << endl;
     int aux;
     ifstream consulta;
-    consulta.open("doctores.txt", ios::in); //solamente consulta o lee usando la variable sobre el archivo físico pacientes.txt
+    consulta.open("doctores.txt", ios::out | ios::in); //solamente consulta o lee usando la variable sobre el archivo físico pacientes.txt
     //Verificamos si el archivo ha podido ser habierto con normalidad
     cout << "\t"
          << "Codigo"
@@ -51,14 +51,9 @@ void Horario::crearHorario()
 
         while (!consulta.eof())
         {
-            consulta >> cod;
-            consulta >> Enombre;
-            consulta >> EapellM;
-            consulta >> EapellP;
-            consulta >> salto >> salto;
-            consulta >> codesp;
-
+            consulta >> cod >> Enombre >> EapellM >> EapellP >> codesp >> salto >> salto;
             cout << "\t" << cod << "\t" << Enombre << "\t" << EapellM << "\t" << EapellP << "  \t" << codesp << endl;
+            
         }
         cout << "\n\t Escoga un codigo de doctor: ";
         cin >> aux;
@@ -73,17 +68,17 @@ void Horario::crearHorario()
 
     Horario temp;
     Fecha fec;
-    cout << "\t Ingrese el dia: " << endl;
+    cout << "\t Ingrese el dia: ";
     cin >> fec.dia;
-    cout << "\t Ingrese el mes: " << endl;
+    cout << "\t Ingrese el mes: ";
     cin >> fec.mes;
-    cout << "\t Ingrese el año: " << endl;
+    cout << "\t Ingrese el anio: ";
     cin >> fec.anio;
-    cout << "\t Ingrese la hora: " << endl;
+    cout << "\t Ingrese la hora: ";
     cin >> hor;
-    cout << "\t Ingrese minutos: " << endl;
+    cout << "\t Ingrese minutos: ";
     cin >> min;
-    cout << "\t Ingrese cantidad de citas disponibles : " << endl;
+    cout << "\t Ingrese cantidad de citas disponibles : ";
     cin >> maximoCitas;
     temp.codigo_doctor = aux;
     temp.fecha = fec;

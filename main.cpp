@@ -22,20 +22,20 @@ int main()
 	do
 	{
 		//cin.ignore();
-		cout << "    *************************************************" << endl;
-		cout << "    *   Welcome to the Appointment Booking System   *" << endl;
-		cout << "    *************************************************" << endl;
+		cout << "\t    *************************************************" << endl;
+		cout << "\t    *   Welcome to the Appointment Booking System   *" << endl;
+		cout << "\t    *************************************************" << endl;
 		cout << "\n";
 		//getch();
 		cin.ignore();
 		system("cls");
-		cout << " Ingrese una opcion del menu(1-5)" << endl;
-		cout << " 1. Administrador" << endl;
-		cout << " 2. Reservar Cita" << endl; 
-		cout << " 3. Registrar Paciente" << endl;
-		cout << " 4. Mostrar Especialidades" << endl;
-		cout << " 5. Mostrar Doctores " << endl;
-		cout << " 6. Salir" << endl;
+		cout << "\t Ingrese una opcion del menu(1-5)" << endl;
+		cout << "\t 1. Administrador" << endl;
+		cout << "\t 2. Reservar Cita" << endl; 
+		cout << "\t 3. Registrar Paciente" << endl;
+		cout << "\t 4. Mostrar Especialidades" << endl;
+		cout << "\t 5. Mostrar Doctores " << endl;
+		cout << "\t 6. Salir" << endl;
 		cin >> opc;
 		switch (opc)
 		{

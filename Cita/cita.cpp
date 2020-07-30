@@ -7,6 +7,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <conio.h>
 #include <windows.h>
 using namespace std;
 
@@ -67,6 +68,11 @@ int Cita::elegirPaciente()
 				cout << "\t Nombre: " << nomPaciente << endl;
 				repetido = true;
 				break;
+			}
+			else
+			{
+				cout <<"\n\t El Paciente no se encuentra registrado en la Base de Datos...!!!"<< endl;
+				getch();
 			}
 			consulta >> salto >> salto >> salto >> salto >> salto >> salto >> salto >> salto;
 			consulta >> codigo;
@@ -184,7 +190,7 @@ int Cita::elegirDoctor()
 		 << "ApeMat"
 		 << "\t"
 		 << "ApePat"
-		 << "  \t"
+		 << "\t"
 		 << "CodEspecialidad" << endl;
 	if (consulta.is_open())
 	{
@@ -211,7 +217,7 @@ int Cita::elegirDoctor()
 			cin >> auxentrada;
 			aux = atoi(auxentrada);
 			if (aux == 0)
-				cout << "\t ¡Incorrecto ingrese de nuevo...! : ";
+				cout << "\t Incorrecto ingrese de nuevo...! : ";
 
 		} while (aux == 0);
 		//Si el archivo no se ha podido abrir enviamos un mensaje de error
@@ -234,7 +240,7 @@ int Cita::elegirDoctor()
 		 << "ApellMat"
 		 << "\t"
 		 << "ApellPat"
-		 << "  \t"
+		 << "\t"
 		 << "CodEspecialidad" << endl;
 	if (eleccion.is_open())
 	{
@@ -314,7 +320,7 @@ int Cita::elegirFecha()
 			cin >> auxentrada;
 			aux = atoi(auxentrada);
 			if (aux == 0)
-				cout << "\t ¡Incorrecto ingrese de nuevo...! : ";
+				cout << "\t Incorrecto ingrese de nuevo...! : ";
 
 		} while (aux == 0);
 	}
@@ -324,50 +330,6 @@ int Cita::elegirFecha()
 	}
 	//Cerramos la conceccion de escritura y de lectura con el archivo
 	consulta.close();
-	int a = 1, salto2;
-	ifstream consulta2;
-	consulta2.open("horarios.txt", ios::in); //solamente consulta o lee usando la variable sobre el archivo físico pacientes.txt
-	//Verificamos si el archivo ha podido ser habierto con normalidad
-	cout << "\t"
-		 << "No"
-		 << "\t"
-		 << "CodigoDoc"
-		 << "\t"
-		 << "Fecha"
-		 << "\t"
-		 << "Hora"
-		 << "\t"
-		 << "Citas" << endl;
-	if (consulta2.is_open())
-	{
-		int cod, num;
-
-		while (!consulta2.eof())
-		{
-			if (a == aux)
-			{
-				consulta2 >> cod;
-				consulta2 >> fechaE.anio;
-				consulta2 >> fechaE.mes;
-				consulta2 >> fechaE.dia;
-				consulta2 >> horaE.hora;
-				consulta2 >> horaE.minutos;
-				consulta2 >> num;
-
-				cout << "\n Fecha escogida : "
-					 << "\t" << cod << "\t" << fechaE.anio << "/" << fechaE.mes << "/" << fechaE.dia << "  \t" << horaE.hora << ":" << horaE.minutos << "  \t" << num << endl;
-				break;
-			}
-			consulta2 >> salto2 >> salto2 >> salto2 >> salto2 >> salto2 >> salto2 >> salto2;
-			a++;
-		}
-	}
-	else
-	{
-		cout << "El archivo no se pudo abrir \n";
-	}
-	//Cerramos la conceccion de escritura y de lectura con el archivo
-	consulta2.close();
 	return 1;
 }
 
@@ -380,6 +342,7 @@ void Cita::cambiarEstado(bool aux)
 //Se muestran los datos de la cita
 void Cita::mostrarCita()
 {
+	int i = 1;
 	cout << "\t |\tDatos del Paciente: " << endl;
 	cout << "\t |\t" << IDpaciente << " " << nomPaciente << endl;
 	cout << "\t |\tDatos del Doctor " << endl;
@@ -391,13 +354,13 @@ void Cita::mostrarCita()
 	cout << "\t |\tEstado: " << endl;
 	cout << "\t |\t" << estado << endl;
 	cout << "\t |\t Numero de Cita: " << endl;
-	cout << "\t |\t" << numCita << endl;
+	cout << "\t |\t" << i << endl;
+	i++;
 }
 
 //Metodo que guarda en un archivo los datos mas importantes de la cita
 void Cita::guardarCita()
 {
-
 	ofstream escritura;
 	ifstream consulta;
 
@@ -406,11 +369,12 @@ void Cita::guardarCita()
 
 	if (escritura.is_open() && consulta.is_open())
 	{
-
+		int i = 1;
 		escritura << IDpaciente << " " << nomPaciente << " " << IDdoctor << " ";
 		escritura << nomDoctor << " " << IDespecialidad << " " << nomEspecialidad << " " << fechaE.anio << " ";
 		escritura << fechaE.mes << " " << fechaE.dia << " " << horaE.hora << " ";
-		escritura << horaE.minutos << " " << estado << " " << numCita << endl;
+		escritura << horaE.minutos << " " << estado << " " << i << endl;
+		i++;
 		cout << "\n\tCita registrada...\n";
 	}
 	else
@@ -424,7 +388,7 @@ void Cita::guardarCita()
 void Cita::crearCita()
 {
 	cout << "\t -------------------------------------\n";
-	cout << "\t Eligiendo especialidad: \n";
+	//cout << "\t Eligiendo especialidad: \n";
 	elegirEspecialidad();
 	cout << "\t -------------------------------------\n";
 	cout << "\t Escoga un doctor de la lista que tienen la especialidad escogida: \n";
@@ -433,9 +397,8 @@ void Cita::crearCita()
 
 	cambiarEstado(true);
 	cout << "\t -------------------------------------\n";
-	mostrarCita();
-
 	guardarCita();
+	mostrarCita();
 }
 
 void Cita::eliminarCita()
