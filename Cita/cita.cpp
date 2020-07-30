@@ -342,7 +342,6 @@ void Cita::cambiarEstado(bool aux)
 //Se muestran los datos de la cita
 void Cita::mostrarCita()
 {
-	int i = 1;
 	cout << "\t |\tDatos del Paciente: " << endl;
 	cout << "\t |\t" << IDpaciente << " " << nomPaciente << endl;
 	cout << "\t |\tDatos del Doctor " << endl;
@@ -354,8 +353,7 @@ void Cita::mostrarCita()
 	cout << "\t |\tEstado: " << endl;
 	cout << "\t |\t" << estado << endl;
 	cout << "\t |\t Numero de Cita: " << endl;
-	cout << "\t |\t" << i << endl;
-	i++;
+	cout << "\t |\t" << 1 << endl;
 }
 
 //Metodo que guarda en un archivo los datos mas importantes de la cita
@@ -394,11 +392,12 @@ void Cita::crearCita()
 	cout << "\t Escoga un doctor de la lista que tienen la especialidad escogida: \n";
 	elegirDoctor();
 	elegirFecha();
-
 	cambiarEstado(true);
+	mostrarCita();
+	getch();
 	cout << "\t -------------------------------------\n";
 	guardarCita();
-	mostrarCita();
+	
 }
 
 void Cita::eliminarCita()
