@@ -19,4 +19,5 @@ public:
     void crearDoctor();    //Con este metodo insertaremos un nuevo doctor y lo añadiremos al fichero
     void listarDoctores(); //Con este metodo listamos todos los doctores que tenemos en el fichero
     void eliminarDoctor();
+    void modificarDoctor();
 };

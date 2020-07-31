@@ -22,4 +22,5 @@ public:
 	void actualizarPacientes(); //actualizar datos del paciente
 	bool buscarPaciente(int dni);
 	void eliminarPaciente();
+	void modificarPaciente();
 };

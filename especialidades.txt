@@ -1,4 +1,4 @@
-1 Medicina Medicina_General
-2 Pediatria Cuidado_de_ninios
+1 Medicina Medicina_General_para
+2 Pediatria Cuidado_personal_de_bebes
 3 Otorrino Cuida_la_garganta
-4 Fisioterapia Trata_el_cuerpo_humano
+4 Fisioterapia Cuidado_de_los_huesos

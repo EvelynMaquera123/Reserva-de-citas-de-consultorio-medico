@@ -4,7 +4,7 @@
 #include "especialidad.h"
 
 using namespace std;
-
+string auxdescripcion;
 Especialidad::Especialidad()
 {
 }
@@ -166,4 +166,66 @@ void Especialidad::eliminarEspecialidad()
     lectura.close();
     remove("especialidades.txt");
     rename("auxiliar_especialidades.txt", "especialidades.txt");
+}
+
+void Especialidad::modificarEspecialidad(){
+  ofstream aux;
+    ifstream lectura;
+
+    bool encontrado = false;
+    int auxclave, clave;
+    aux.open("auxiliar_especialidades.txt", ios::out);
+    lectura.open("especialidades.txt", ios::in);
+
+    if (aux.is_open() && lectura.is_open())
+    {
+        char nombre[25], descripcion[60];
+        cout << "\n";
+        cout << "\tIngresa la clave de la especialidad que deseas modificar: ";
+        cin >> auxclave;
+
+        ///De nuevo se aplica el tipo de lectura de archivos secuencial, esto quiere decir que lee campo por campo hasta
+        ///hasta llegar al final del archivo gracias a la funciÃ³n .eof()
+        lectura >> clave;
+        while (!lectura.eof())
+        {
+            lectura >> nombre >> descripcion;
+            if (auxclave == clave)
+            {
+                char opca;
+                encontrado = true;
+                cout << "\n";
+                cout << "\tCodigo:           " << clave << endl;
+                cout << "\tNombre:           " << nombre << endl;
+                cout << "\tDescripcion:      " << descripcion << endl;
+                cout << "\t________________________________\n\n";
+               
+                cout<<"\tIngresa la descripsion del la especialiadad a modificar : "<<auxclave<<"\n\n\t---> ";
+			    cin>>auxdescripcion;
+                aux<<clave<<" "<<nombre<<" "<<auxdescripcion<<endl;
+			    cout<<"\n\n\t\t\tRegistro modificado...\n\t\t\a";
+                    
+                }else{
+                    aux<<clave<<" "<<nombre<<" "<<descripcion<<endl;
+                    }
+              lectura>>clave;
+		}
+
+    }
+    else
+    {
+        cout << "\n\tEl archivo no se pudo abrir \n";
+    }
+
+    if (encontrado == false)
+    {
+        cout << "\n\tNo se encontro ningun registro con la clave: " << auxclave << "\n\n\t\t\t";
+    }
+
+    aux.close();
+    lectura.close();
+    remove("especialidades.txt");
+    rename("auxiliar_especialidades.txt", "especialidades.txt");
+
+
 }

@@ -3,7 +3,8 @@
 #include "../Paciente/paciente.h"
 
 using namespace std;
-
+string auxnombre;
+ //char auxnombre[25];
 //Le pasamos los valores de nuestros parametros  exculisivos de Paciente
 Paciente::Paciente(string nombr, string apellidoP, string apellidoM, Fecha fec, double peso, double estatura, char sex, string telef, string direccion, int cod)
 {
@@ -183,19 +184,71 @@ void Paciente ::eliminarPaciente()
 	rename("auxiliar_pacientes.txt", "pacientes.txt");
 }
 
-bool Paciente::buscarPaciente(int dni)
+
+
+void Paciente ::modificarPaciente()
 {
-	return true;
+
+    ofstream aux;
+    ifstream lectura;
+
+    bool encontrado = false;
+	int auxclave, clave;
+
+	aux.open("auxiliar_pacientes.txt", ios::out);
+	lectura.open("pacientes.txt", ios::in);
+   
+
+    if (aux.is_open() && lectura.is_open()){
+
+       char nombre[25], paterno[25], materno[25], sexo[2], direccion[25];
+		int edad, telefono, peso;
+		cout << "\n";
+		cout << "\t Ingresa el dni del paciente que deseas modificar: ";
+		cin >> auxclave;
+
+            lectura>>clave;
+            while (!lectura.eof())
+		{
+			lectura >> nombre >> paterno >> materno >> peso >> edad >> sexo >> telefono >> direccion;
+			if (auxclave == clave)
+			{
+				char opca;
+				encontrado = true;
+				cout << "\n";
+				cout << "\t DNI:              " << clave << endl;
+				cout << "\t Nombre:           " << nombre << endl;
+				cout << "\t Primer apellido:  " << paterno << endl;
+				cout << "\t Segundo apellido: " << materno << endl;
+				cout << "\t Peso:             " << peso << "kg" << endl;
+				cout << "\t Edad:             " << edad << endl;
+				cout << "\t Sexo:             " << sexo << endl;
+				cout << "\t Telefono:         " << telefono << endl;
+				cout << "\t Direccion:        " << direccion << endl;
+				cout << "\t________________________________\n\n";
+				cout<<"\tIngresa el nuevo nombre del paciente : "<<auxclave<<"\n\n\t---> ";
+				cin>>auxnombre;
+                aux<<clave<<" "<<auxnombre<<" "<<paterno<<" "<<materno<<" "<<peso<<edad<<sexo<<telefono<<direccion<<endl;
+				cout<<"\n\n\t\t\tRegistro modificado...\n\t\t\a";
+				
+				}else{
+                    aux<<clave<<" "<<nombre<<" "<<paterno<<" "<<materno<<" "<<peso<<edad<<sexo<<telefono<<direccion<<endl;
+                    }
+              lectura>>clave;
+		}
+
+    }else{
+        cout<<"\n\tEl archivo no se pudo abrir \n";
+    }
+
+    if (encontrado==false){
+                cout<<"\n\tNo se encontro ningun registro con la clave: "<<auxclave<<"\n\n\t\t\t";
+            }
+
+    aux.close();
+	lectura.close();
+	remove("pacientes.txt");
+	rename("auxiliar_pacientes.txt", "pacientes.txt");
 }
 
-void Paciente::solicitarCita()
-{ //METODO EN EL CUAL EL USUARIO SOLICITA UNA CITA
-}
 
-void Paciente::cancelarCita()
-{ //metodo para cancelar cita del paciente
-}
-
-void Paciente::operacion()
-{ //metodo para gestionar las operaciones del paciente
-}

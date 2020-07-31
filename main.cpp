@@ -35,7 +35,11 @@ int main()
 		cout << "\t 3. Registrar Paciente" << endl;
 		cout << "\t 4. Mostrar Especialidades" << endl;
 		cout << "\t 5. Mostrar Doctores " << endl;
-		cout << "\t 6. Salir" << endl;
+		cout << "\t 6. Eliminar Paciente " << endl;
+		cout << "\t 7. Modificar Paciente " << endl;
+		cout << "\t 8. Modificar Doctor " << endl;
+		cout << "\t 9. Modificar Especialidad " << endl;
+		cout << "\t 10. Salir" << endl;
 		cin >> opc;
 		switch (opc)
 		{
@@ -74,6 +78,28 @@ int main()
 		}
 
 		case 6:
+		{    
+			p->eliminarPaciente();
+			break;
+		}
+		case 7:
+		{    
+			p->modificarPaciente();
+			break;
+		}
+		case 8:
+		{    
+			d->modificarDoctor();
+			break;
+		}
+		
+		case 9:
+		{    
+			e->modificarEspecialidad();
+			
+			break;
+		}
+		case 10:
 		{
 			break;
 		}
@@ -82,6 +108,6 @@ int main()
 			cout << " Opcion Incorrecta!!! Try again..." << endl;
 			break;
 		}
-	} while (opc != 6); 
+	} while (opc != 10); 
 	return 0;
 }

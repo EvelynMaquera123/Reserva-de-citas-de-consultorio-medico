@@ -11,6 +11,7 @@
 #include <windows.h>
 using namespace std;
 
+string auxnombrepaciente,auxnombredoctor;
 Cita::Cita()
 {
 }
@@ -476,3 +477,4 @@ void Cita::eliminarCita()
 	remove("citas.txt");
 	rename("auxiliar_citas.txt", "citas.txt");
 }
+

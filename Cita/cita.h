@@ -31,4 +31,5 @@ public:
 	void guardarCita();
 	void crearCita();
 	void eliminarCita();
+	void modificarCita();
 };

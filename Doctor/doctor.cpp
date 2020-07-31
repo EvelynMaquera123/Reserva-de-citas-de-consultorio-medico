@@ -2,7 +2,9 @@
 #include "../Especialidad/especialidad.h"
 #include <fstream>
 #include <iostream>
+using namespace std;
 
+string nombredoctor;
 //creamos el constructor teniendo como parametros todos los atributos de persona y de doctor
 Doctor::Doctor(string nombr, string apellidoP, string apellidoM, Fecha fec, double peso, double estatura, char sex, string telef, string dire, int cod, int codES)
 {
@@ -173,6 +175,71 @@ void Doctor::eliminarDoctor()
 
     aux.close();
     lectura.close();
+    remove ("doctores.txt");
+    rename("auxiliar_doctores.txt", "doctores.txt");
+}
+
+void Doctor ::modificarDoctor()
+{
+
+    ofstream aux;
+    ifstream lectura;
+
+    bool encontrado = false;
+	int auxclave, clave;
+
+    aux.open("auxiliar_doctores.txt", ios::out);
+    lectura.open("doctores.txt", ios::in);
+   
+
+    if (aux.is_open() && lectura.is_open()){
+
+       char nombre[25],paterno[25],materno[25];
+	   int edad,telefono,especialidad;
+
+        cout<<"\n";
+        cout<<"\t Ingresa el codigo del doctor que deseas modificar: ";
+        cin>>auxclave;
+	
+         lectura>>codigo;
+          
+            while (!lectura.eof())
+		{ 
+            lectura>>nombre>>paterno>>materno>>edad>>telefono>>especialidad;
+		
+			if (auxclave == codigo)
+			{
+				char opca;
+                encontrado=true;
+				cout<<"\n";
+				cout<<"\t Codigo:           "<<codigo<<endl;
+				cout<<"\t Nombre:           "<<nombre<<endl;
+				cout<<"\t Primer apellido:  "<<paterno<<endl;
+				cout<<"\t Segundo apellido: "<<materno<<endl;
+				cout<<"\t Edad:             "<<edad<<endl;
+				cout<<"\t Telefono:         "<<telefono<<endl;
+				cout<<"\t Especialidad:     "<<especialidad<<endl;
+				cout<<"\t________________________________\n\n";
+				cout<<"\tIngresa el nuevo nombre del doctor : "<<auxclave<<"\n\n\t---> ";
+				cin>>nombredoctor;
+                aux<<codigo<<" "<<nombredoctor<<" "<<paterno<<" "<<materno<<" "<<edad<<telefono<<especialidad<<endl;
+				cout<<"\n\n\t\t\tRegistro modificado...\n\t\t\a";
+                    
+                 }else{
+                    aux<<clave<<" "<<nombre<<" "<<paterno<<" "<<materno<<" "<<peso<<edad<<sexo<<telefono<<direccion<<endl;
+                    }
+                lectura>>clave;
+		}
+    }else{
+        cout<<"\n\tEl archivo no se pudo abrir \n";
+    }
+
+    if (encontrado==false){
+                cout<<"\n\tNo se encontro ningun registro con la clave: "<<auxclave<<"\n\n\t\t\t";
+            }
+
+    aux.close();
+	lectura.close();
     remove ("doctores.txt");
     rename("auxiliar_doctores.txt", "doctores.txt");
 }
