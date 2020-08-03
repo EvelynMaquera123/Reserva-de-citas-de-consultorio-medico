@@ -3,8 +3,7 @@
 #include <conio.h>
 #include "administrador.h"
 #include <iostream>
-#include <chrono>
-#include <ctime>
+
 #include "../Especialidad/especialidad.h"
 #include "../Doctor/doctor.h"// dos puntos significa q salga de su directorio
 #include "../Horario/horario.h"
