@@ -222,11 +222,11 @@ void Doctor ::modificarDoctor()
 				cout<<"\t________________________________\n\n";
 				cout<<"\tIngresa el nuevo nombre del doctor : "<<auxclave<<"\n\n\t---> ";
 				cin>>nombredoctor;
-                aux<<codigo<<" "<<nombredoctor<<" "<<paterno<<" "<<materno<<" "<<edad<<telefono<<especialidad<<endl;
+                aux<<codigo<<" "<<nombredoctor<<" "<<paterno<<" "<<materno<<" "<<edad<<" "<<telefono<<" "<<especialidad<<endl;
 				cout<<"\n\n\t\t\tRegistro modificado...\n\t\t\a";
                     
                  }else{
-                    aux<<clave<<" "<<nombre<<" "<<paterno<<" "<<materno<<" "<<peso<<edad<<sexo<<telefono<<direccion<<endl;
+                    aux<<clave<<" "<<nombre<<" "<<paterno<<" "<<materno<<" "<<peso<<" "<<edad<<" "<<sexo<<" "<<telefono<<" "<<direccion<<endl;
                     }
                 lectura>>clave;
 		}
