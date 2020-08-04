@@ -88,7 +88,7 @@ void Doctor::listarDoctores()
 {
     ifstream lectura;
     char nombre[25], paterno[25], materno[25];
-    int edad, telefono;
+    int edad, telefono,cod;
     lectura.open("doctores.txt", ios::out | ios::in); //solamente consulta o lee usando la variable sobre el archivo físico alumnos.txt
     //Preguntamos si la conexion esta abierta
     if (lectura.is_open())
@@ -96,7 +96,7 @@ void Doctor::listarDoctores()
         lectura >> codigo;
         while (!lectura.eof())
         { //Mientras haya maas filas en el fichero
-            lectura >> nombre >> paterno >> materno >> edad >> telefono;
+            lectura >> nombre >> paterno >> materno >> edad >> telefono>>cod;
             cout << "\n";
             cout << "\t Codigo:           " << codigo << endl;
             cout << "\t Nombre:           " << nombre << endl;
@@ -104,6 +104,7 @@ void Doctor::listarDoctores()
             cout << "\t Segundo apellido: " << materno << endl;
             cout << "\t Edad:             " << edad << endl;
             cout << "\t Telefono:         " << telefono << endl;
+            
             lectura >> codigo;
             cout << "\t________________________________\n";
             cin.ignore();
