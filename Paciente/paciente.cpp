@@ -228,11 +228,11 @@ void Paciente ::modificarPaciente()
 				cout << "\t________________________________\n\n";
 				cout<<"\tIngresa el nuevo nombre del paciente : "<<auxclave<<"\n\n\t---> ";
 				cin>>auxnombre;
-                aux<<clave<<" "<<auxnombre<<" "<<paterno<<" "<<materno<<" "<<peso<<edad<<sexo<<telefono<<direccion<<endl;
+                aux<<clave<<" "<<auxnombre<<" "<<paterno<<" "<<materno<<" "<<peso<<" "<<edad<<" "<<sexo<<" "<<telefono<<" "<<direccion<<endl;
 				cout<<"\n\n\t\t\tRegistro modificado...\n\t\t\a";
 				
 				}else{
-                    aux<<clave<<" "<<nombre<<" "<<paterno<<" "<<materno<<" "<<peso<<edad<<sexo<<telefono<<direccion<<endl;
+                    aux<<clave<<" "<<nombre<<" "<<paterno<<" "<<materno<<" "<<peso<<" "<<edad<<" "<<sexo<<" "<<telefono<<" "<<direccion<<endl;
                     }
               lectura>>clave;
 		}
