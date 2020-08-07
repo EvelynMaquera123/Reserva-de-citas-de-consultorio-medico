@@ -2,7 +2,7 @@
 #include <string>
 #include <fstream>
 #include "especialidad.h"
-
+#include <exception>
 using namespace std;
 string auxdescripcion;
 Especialidad::Especialidad()
@@ -29,6 +29,8 @@ void Especialidad::crearEspecialidad()
         cin >> codaux;
         ///A continuación se aplica el tipo de lectura de archivos secuencial
         consulta >> codr;
+
+
         while (!consulta.eof())
         {
             //Si encontramos el codigo del paciente , significa que ya esta registrado , asi que no podemos volverlo a insertar
@@ -70,28 +72,37 @@ void Especialidad::crearEspecialidad()
 void Especialidad::listarEspecialidad()
 {
     ifstream lectura;
-    lectura.open("especialidades.txt", ios::out | ios::in); //solamente consulta o lee usando la variable sobre el archivo físico alumnos.txt
+    lectura.open("especialidadesss.txt", ios::out | ios::in); //solamente consulta o lee usando la variable sobre el archivo físico alumnos.txt
     //Preguntamos si la conexion esta abierta
-    if (lectura.is_open())
-    {
-        lectura >> idEspecialidad;
-        while (!lectura.eof())
-        { //Mientras haya mas filas en el fichero
-            lectura >> nombre >> descripcion;
-            cout << "\n";
-            cout << "\t Codigo:           " << idEspecialidad << endl;
-            cout << "\t Nombre:           " << nombre << endl;
-            cout << "\t Descripcion:  " << descripcion << endl;
-            lectura >> idEspecialidad;
-            cout << "\t________________________________\n";
-            cin.ignore();
-        }
-    }
-    else
-    {
-        cout << "No se ha podido abrir el fichero de manera correcta\n"
-             << endl;
-    }
+	//Agregamos la excepción
+	try {
+		if (lectura.is_open())
+		{
+			
+			lectura >> idEspecialidad;
+			while (!lectura.eof())
+			{ //Mientras haya mas filas en el fichero
+				lectura >> nombre >> descripcion;
+				cout << "\n";
+				cout << "\t Codigo:           " << idEspecialidad << endl;
+				cout << "\t Nombre:           " << nombre << endl;
+				cout << "\t Descripcion:  " << descripcion << endl;
+				lectura >> idEspecialidad;
+				cout << "\t________________________________\n";
+				cin.ignore();
+			}
+			
+		}
+
+		if (!lectura.is_open()) {
+			throw;
+		}
+		
+		
+    }catch (exception& e) {
+	cout << "No se ha podido abrir el fichero de manera correcta\n"<< endl;
+		//cout << e.what();
+	}
     lectura.close();
 }
 
@@ -169,58 +180,75 @@ void Especialidad::eliminarEspecialidad()
 }
 
 void Especialidad::modificarEspecialidad(){
-  ofstream aux;
+    ofstream aux;
     ifstream lectura;
 
     bool encontrado = false;
     int auxclave, clave;
+
     aux.open("auxiliar_especialidades.txt", ios::out);
     lectura.open("especialidades.txt", ios::in);
 
-    if (aux.is_open() && lectura.is_open())
-    {
-        char nombre[25], descripcion[60];
-        cout << "\n";
-        cout << "\tIngresa la clave de la especialidad que deseas modificar: ";
-        cin >> auxclave;
+	try {
+		if (aux.is_open() && lectura.is_open())
+		{
+			char nombre[25], descripcion[60];
+			cout << "\n";
+			cout << "\tIngresa la clave de la especialidad que deseas modificar: ";
+			cin >> auxclave;
 
-        ///De nuevo se aplica el tipo de lectura de archivos secuencial, esto quiere decir que lee campo por campo hasta
-        ///hasta llegar al final del archivo gracias a la funciÃ³n .eof()
-        lectura >> clave;
-        while (!lectura.eof())
-        {
-            lectura >> nombre >> descripcion;
-            if (auxclave == clave)
-            {
-                char opca;
-                encontrado = true;
-                cout << "\n";
-                cout << "\tCodigo:           " << clave << endl;
-                cout << "\tNombre:           " << nombre << endl;
-                cout << "\tDescripcion:      " << descripcion << endl;
-                cout << "\t________________________________\n\n";
-               
-                cout<<"\tIngresa la descripsion del la especialiadad a modificar : "<<auxclave<<"\n\n\t---> ";
-			    cin>>auxdescripcion;
-                aux<<clave<<" "<<nombre<<" "<<auxdescripcion<<endl;
-			    cout<<"\n\n\t\t\tRegistro modificado...\n\t\t\a";
-                    
-                }else{
-                    aux<<clave<<" "<<nombre<<" "<<descripcion<<endl;
-                    }
-              lectura>>clave;
+			///De nuevo se aplica el tipo de lectura de archivos secuencial, esto quiere decir que lee campo por campo hasta
+			///hasta llegar al final del archivo gracias a la funciÃ³n .eof()
+			lectura >> clave;
+			while (!lectura.eof())
+			{
+				lectura >> nombre >> descripcion;
+				try {
+					if (auxclave == clave)
+					{
+						char opca;
+						encontrado = true;
+						cout << "\n";
+						cout << "\tCodigo:           " << clave << endl;
+						cout << "\tNombre:           " << nombre << endl;
+						cout << "\tDescripcion:      " << descripcion << endl;
+						cout << "\t________________________________\n\n";
+
+						cout << "\tIngresa la descripsion del la especialiadad a modificar : " << auxclave << "\n\n\t---> ";
+						cin >> auxdescripcion;
+						aux << clave << " " << nombre << " " << auxdescripcion << endl;
+						cout << "\n\n\t\t\tRegistro modificado...\n\t\t\a";
+
+					}
+					/*
+					else {
+						aux << clave << " " << nombre << " " << descripcion << endl;
+					}
+					*/
+					lectura >> clave;
+				}
+				catch (exception& e) {
+					aux << clave << " " << nombre << " " << descripcion << endl;
+				}
+				
+			}
+
 		}
+		//throw encontrado;
+	}
+	catch (exception& e) {
+		/* 
+		if (encontrado == false)
+		{
+			cout << "\n\tNo se encontro ningun registro con la clave: " << auxclave << "\n\n\t\t\t";
+		}
+		*/
+		cout << "No se ha podido abrir el fichero de manera correcta\n"
+			<< endl;
+	}
+  
 
-    }
-    else
-    {
-        cout << "\n\tEl archivo no se pudo abrir \n";
-    }
-
-    if (encontrado == false)
-    {
-        cout << "\n\tNo se encontro ningun registro con la clave: " << auxclave << "\n\n\t\t\t";
-    }
+   
 
     aux.close();
     lectura.close();

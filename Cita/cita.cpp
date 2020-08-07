@@ -73,7 +73,7 @@ int Cita::elegirPaciente()
 			else
 			{
 				cout <<"\n\t El Paciente no se encuentra registrado en la Base de Datos...!!!"<< endl;
-				getch();
+			//	getch();
 			}
 			consulta >> salto >> salto >> salto >> salto >> salto >> salto >> salto >> salto;
 			consulta >> codigo;
@@ -395,7 +395,7 @@ void Cita::crearCita()
 	elegirFecha();
 	cambiarEstado(true);
 	mostrarCita();
-	getch();
+//	getch();
 	cout << "\t -------------------------------------\n";
 	guardarCita();
 	

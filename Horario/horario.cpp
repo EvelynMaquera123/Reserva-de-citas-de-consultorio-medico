@@ -1,6 +1,6 @@
 #include <iostream>
 #include "horario.h"
-
+#include <string>
 Horario::Horario()
 {
 }
@@ -102,7 +102,7 @@ void Horario::listarHorario(string codaux)
         string codigo;
         int anio, mes, dia;
         bool repetido = false;
-        consulta >> codigo;
+     //   consulta >> codigo;
         while (!consulta.eof()) //Mientras haya maas filas en el fichero
         {
             if (codigo.compare(codaux) == 0)

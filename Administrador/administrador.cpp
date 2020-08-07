@@ -33,7 +33,7 @@ void Administrador::login()
     if (a->usuario == usu && a->contrasenia == contra)
     {
         cout << "\t Ingreso Exitoso...!!!(Enter)" << endl;
-        getch();
+//        getch();
         system("cls");
         do
         {
