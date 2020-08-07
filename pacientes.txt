@@ -1,1 +1,3 @@
 12121212 rosa meltro zolano 45 23 F 323232324 lima
+75691437 Juan Lozano Pantigoso 56 26 M 123456723 Av.Peru
+34567890 Jean Huaman Arapa 67 32 M 342345675 Av.Arequipa

@@ -12,6 +12,7 @@
 using namespace std;
 
 string auxnombrepaciente, auxnombredoctor;
+
 Cita::Cita()
 {
 }
@@ -366,6 +367,7 @@ void Cita::cambiarEstado(bool aux)
 //Se muestran los datos de la cita
 void Cita::mostrarCita()
 {
+	
 	cout << "\t |\tDatos del Paciente: " << endl;
 	cout << "\t |\t" << IDpaciente << " " << nomPaciente << endl;
 	cout << "\t |\tDatos del Doctor " << endl;
@@ -377,7 +379,8 @@ void Cita::mostrarCita()
 	cout << "\t |\tEstado: " << endl;
 	cout << "\t |\t" << estado << endl;
 	cout << "\t |\t Numero de Cita: " << endl;
-	cout << "\t |\t" << 1 << endl;
+	cout << "\t |\t" << h << endl;
+	h++;
 }
 
 //Metodo que guarda en un archivo los datos mas importantes de la cita
@@ -393,12 +396,10 @@ void Cita::guardarCita()
 
 		if (escritura.is_open() && consulta.is_open())
 		{
-			int i = 1;
 			escritura << IDpaciente << " " << nomPaciente << " " << IDdoctor << " ";
 			escritura << nomDoctor << " " << IDespecialidad << " " << nomEspecialidad << " " << fechaE.anio << " ";
 			escritura << fechaE.mes << " " << fechaE.dia << " " << horaE.hora << " ";
-			escritura << horaE.minutos << " " << estado << " " << i << endl;
-			i++;
+			escritura << horaE.minutos << " " << estado << " " << h << endl;
 			cout << "\n\tCita registrada...\n";
 		}
 		else
@@ -425,7 +426,7 @@ void Cita::crearCita()
 	elegirFecha();
 	cambiarEstado(true);
 	mostrarCita();
-	//	getch();
+	getch();
 	cout << "\t -------------------------------------\n";
 	guardarCita();
 }
@@ -458,7 +459,7 @@ void Cita::eliminarCita()
 			lectura >> IDpaciente;
 			while (!lectura.eof())
 			{
-				lectura >> nomPaciente >> IDdoctor >> nomDoctor >> IDespecialidad >> nomEspecialidad >> fechaE.dia >> fechaE.mes >> fechaE.anio >> horaE.hora >> horaE.minutos >> estado >> numCita;
+				lectura >> nomPaciente >> IDdoctor >> nomDoctor >> IDespecialidad >> nomEspecialidad >> fechaE.dia >> fechaE.mes >> fechaE.anio >> horaE.hora >> horaE.minutos >> estado >> h;
 				if (dni == IDpaciente && codigo == IDdoctor && fechaE.dia == dia && fechaE.mes == mes && fechaE.anio == anio)
 				{
 					char opca;
@@ -480,7 +481,7 @@ void Cita::eliminarCita()
 						aux << IDpaciente << " " << nomPaciente << " " << IDdoctor << " ";
 						aux << nomDoctor << " " << IDespecialidad << " " << nomEspecialidad << " " << fechaE.anio << " ";
 						aux << fechaE.mes << " " << fechaE.dia << " " << horaE.hora << " ";
-						aux << horaE.minutos << " " << estado << " " << numCita << endl;
+						aux << horaE.minutos << " " << estado << " " << h << endl;
 					}
 				}
 				else
@@ -488,7 +489,7 @@ void Cita::eliminarCita()
 					aux << IDpaciente << " " << nomPaciente << " " << IDdoctor << " ";
 					aux << nomDoctor << " " << IDespecialidad << " " << nomEspecialidad << " " << fechaE.anio << " ";
 					aux << fechaE.mes << " " << fechaE.dia << " " << horaE.hora << " ";
-					aux << horaE.minutos << " " << estado << " " << numCita << endl;
+					aux << horaE.minutos << " " << estado << " " << h << endl;
 				}
 				lectura >> IDpaciente;
 			}

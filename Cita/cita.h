@@ -15,6 +15,7 @@ class Cita
 	Fecha fechaE;
 	Hora horaE;
 	int numCita;
+	int h=1;
 	bool estado;
 
 public:

@@ -10,7 +10,7 @@
 class Paciente : public Persona
 {
 public:
-	int codigo;
+	long codigo;
 
 public:
 	Paciente(); //constructor donde tenemos que pasar los atributos

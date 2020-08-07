@@ -35,32 +35,35 @@ void Paciente::registrarPaciente()
 		if (escritura.is_open() && consulta.is_open())
 		{
 			bool repetido = false;
-			long codaux, codr;
+			long  codaux, codr,copyCodAux;
 			int cifras = 1;
 			string salto;
 			cout << "\n";
 			cout << "\t Ingresa el DNI del paciente:    ";
 
 			do
+
 			{
 				cin >> auxentrada;
-				codaux = atoi(auxentrada);
+				//fgets(auxentrada,100,stdin);
+				codaux = atol(auxentrada);
 				if (codaux == 0)
 				{
 					cout << "\t Incorrecto ingrese de nuevo...! : ";
 				}
 			} while (codaux == 0);
-			/*
-			while (codaux >= 10)
+			copyCodAux = codaux;
+
+			while (copyCodAux >= 10)
 			{
-				codaux /= 10;
+				copyCodAux /= 10;
 				cifras++;
 			}
 			if (cifras != 8)
 			{
 				throw invalid_argument("el DNI debe ser de 8 dígitos");
 			}
-			*/
+
 			///A continuación se aplica el tipo de lectura de archivos secuencial
 			consulta >> codr;
 			while (!consulta.eof())
