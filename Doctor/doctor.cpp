@@ -2,6 +2,8 @@
 #include "../Especialidad/especialidad.h"
 #include <fstream>
 #include <iostream>
+#include <exception>
+
 using namespace std;
 
 string nombredoctor;

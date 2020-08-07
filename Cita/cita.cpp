@@ -28,70 +28,77 @@ int Cita::elegirPaciente()
 	escritura.open("pacientes.txt", ios::out | ios::app); //crea y escribe, si ya tiene texto une al final del archivo
 	consulta.open("pacientes.txt", ios::in);			  //solamente consulta o lee usando la variable sobre el archivo físico pacientes.txt
 	//Verificamos si el archivo ha podido ser habierto con normalidad
-	if (escritura.is_open() && consulta.is_open())
-	{
+	try {
 
-		bool repetido = false;
-		int codaux;
-		cout << "\n";
-		cout << "\t Ingresa el DNI del paciente a buscar:    ";
 
-		do
+		if (escritura.is_open() && consulta.is_open())
 		{
-			cin >> auxentrada;
-			codaux = atoi(auxentrada);
-			if (codaux == 0)
-				cout << "\t ¡Incorrecto ingrese de nuevo...! ";
 
-		} while (codaux == 0);
+			bool repetido = false;
+			int codaux;
+			cout << "\n";
+			cout << "\t Ingresa el DNI del paciente a buscar:    ";
 
-		///A continuación se aplica el tipo de lectura de archivos secuencial
-		consulta >> codigo;
-
-		while (!consulta.eof())
-		{
-			//Si encontramos el codigo del paciente , significa que ya esta registrado , asi que no podemos volverlo a insertar
-			// compara dos string  no int
-			if (codaux == codigo)
+			do
 			{
-				cout << "\t Paciente Encontrado " << endl;
-				consulta >> aux.nombre;
-				consulta >> aux.apellidoPaterno;
-				consulta >> aux.apellidoMaterno;
-				consulta >> aux.peso;
-				consulta >> aux.edad;
-				consulta >> aux.sexo;
-				consulta >> aux.telefono;
-				consulta >> aux.direccion;
-				IDpaciente = codigo;
-				cout << "\t Dni: " << IDpaciente << endl;
-				nomPaciente = aux.nombre + " " + aux.apellidoPaterno + " " + aux.apellidoMaterno;
-				cout << "\t Nombre: " << nomPaciente << endl;
-				repetido = true;
-				break;
-			}
-			else
-			{
-				cout <<"\n\t El Paciente no se encuentra registrado en la Base de Datos...!!!"<< endl;
-			//	getch();
-			}
-			consulta >> salto >> salto >> salto >> salto >> salto >> salto >> salto >> salto;
+				cin >> auxentrada;
+				codaux = atoi(auxentrada);
+				if (codaux == 0)
+					cout << "\t ¡Incorrecto ingrese de nuevo...! ";
+
+			} while (codaux == 0);
+
+			///A continuación se aplica el tipo de lectura de archivos secuencial
 			consulta >> codigo;
+
+			while (!consulta.eof())
+			{
+				//Si encontramos el codigo del paciente , significa que ya esta registrado , asi que no podemos volverlo a insertar
+				// compara dos string  no int
+				if (codaux == codigo)
+				{
+					cout << "\t Paciente Encontrado " << endl;
+					consulta >> aux.nombre;
+					consulta >> aux.apellidoPaterno;
+					consulta >> aux.apellidoMaterno;
+					consulta >> aux.peso;
+					consulta >> aux.edad;
+					consulta >> aux.sexo;
+					consulta >> aux.telefono;
+					consulta >> aux.direccion;
+					IDpaciente = codigo;
+					cout << "\t Dni: " << IDpaciente << endl;
+					nomPaciente = aux.nombre + " " + aux.apellidoPaterno + " " + aux.apellidoMaterno;
+					cout << "\t Nombre: " << nomPaciente << endl;
+					repetido = true;
+					break;
+				}
+				else
+				{
+					cout << "\n\t El Paciente no se encuentra registrado en la Base de Datos...!!!" << endl;
+					//	getch();
+				}
+				consulta >> salto >> salto >> salto >> salto >> salto >> salto >> salto >> salto;
+				consulta >> codigo;
+			}
+			//En caso que el paciente no se haya encontrado significa que no exite , asi que podemos proceder a insertarlo
+			if (repetido == false)
+			{
+				cout << "\t Paciente no encontrado " << endl;
+				escritura.close();
+				consulta.close();
+				return 0;
+			}
+			//Preguntamos al usuario si desea ingresar otro
+			//Si el archivo no se ha podido abrir enviamos un mensaje de error
 		}
-		//En caso que el paciente no se haya encontrado significa que no exite , asi que podemos proceder a insertarlo
-		if (repetido == false)
+		else
 		{
-			cout << "\t Paciente no encontrado " << endl;
-			escritura.close();
-			consulta.close();
-			return 0;
+			cout << "El archivo no se pudo abrir \n";
 		}
-		//Preguntamos al usuario si desea ingresar otro
-		//Si el archivo no se ha podido abrir enviamos un mensaje de error
 	}
-	else
-	{
-		cout << "El archivo no se pudo abrir \n";
+	catch (exception& e) {
+		cout << e.what();
 	}
 	//Cerramos la conceccion de escritura y de lectura con el archivo
 	escritura.close();
@@ -108,40 +115,47 @@ int Cita::elegirEspecialidad()
 	ifstream consulta;
 	consulta.open("especialidades.txt", ios::in); //solamente consulta o lee usando la variable sobre el archivo físico pacientes.txt
 	//Verificamos si el archivo ha podido ser habierto con normalidad
-	if (consulta.is_open())
-	{
-		int cod;
-		string Enombre, Edes;
-		///A continuación se aplica el tipo de lectura de archivos secuencial
-		cout << "\t"
-			 << "Codigo"
-			 << "\t"
-			 << "Nombre"
-			 << "\t"
-			 << "Descripcion" << endl;
+	try {
 
-		while (!consulta.eof())
+
+		if (consulta.is_open())
 		{
-			consulta >> cod;
-			consulta >> Enombre;
-			consulta >> Edes;
+			int cod;
+			string Enombre, Edes;
+			///A continuación se aplica el tipo de lectura de archivos secuencial
+			cout << "\t"
+				<< "Codigo"
+				<< "\t"
+				<< "Nombre"
+				<< "\t"
+				<< "Descripcion" << endl;
 
-			cout << "\t" << cod << "\t" << Enombre << "  \t" << Edes << endl;
+			while (!consulta.eof())
+			{
+				consulta >> cod;
+				consulta >> Enombre;
+				consulta >> Edes;
+
+				cout << "\t" << cod << "\t" << Enombre << "  \t" << Edes << endl;
+			}
+			cout << "\n\t Escoga un codigo de especialidad : ";
+			do
+			{
+				cin >> auxentrada;
+				aux = atoi(auxentrada);
+				if (aux == 0)
+					cout << "\t Incorrecto ingrese de nuevo...! : ";
+
+			} while (aux == 0);
+			//Si el archivo no se ha podido abrir enviamos un mensaje de error
 		}
-		cout << "\n\t Escoga un codigo de especialidad : ";
-		do
+		else
 		{
-			cin >> auxentrada;
-			aux = atoi(auxentrada);
-			if (aux == 0)
-				cout << "\t Incorrecto ingrese de nuevo...! : ";
-
-		} while (aux == 0);
-		//Si el archivo no se ha podido abrir enviamos un mensaje de error
+			cout << "El archivo no se pudo abrir \n";
+		}
 	}
-	else
-	{
-		cout << "El archivo no se pudo abrir \n";
+	catch (exception& e) {
+		cout << e.what();
 	}
 	//Cerramos la conceccion de escritura y de lectura con el archivo
 	consulta.close();
@@ -294,40 +308,48 @@ int Cita::elegirFecha()
 		 << "Hora"
 		 << "\t"
 		 << "Citas" << endl;
-	if (consulta.is_open())
-	{
-		int cod, num;
+	try {
 
-		while (!consulta.eof())
+
+		if (consulta.is_open())
 		{
-			consulta >> cod;
-			if (cod == IDdoctor)
+			int cod, num;
+
+			while (!consulta.eof())
 			{
-				consulta >> fechaE.anio;
-				consulta >> fechaE.mes;
-				consulta >> fechaE.dia;
-				consulta >> horaE.hora;
-				consulta >> horaE.minutos;
-				consulta >> num;
+				consulta >> cod;
+				if (cod == IDdoctor)
+				{
+					consulta >> fechaE.anio;
+					consulta >> fechaE.mes;
+					consulta >> fechaE.dia;
+					consulta >> horaE.hora;
+					consulta >> horaE.minutos;
+					consulta >> num;
 
-				cout << "\t" << i << "\t" << cod << "\t" << fechaE.anio << "/" << fechaE.mes << "/" << fechaE.dia << "  \t" << horaE.hora << ":" << horaE.minutos << "  \t" << num << endl;
-				i++;
+					cout << "\t" << i << "\t" << cod << "\t" << fechaE.anio << "/" << fechaE.mes << "/" << fechaE.dia << "  \t" << horaE.hora << ":" << horaE.minutos << "  \t" << num << endl;
+					i++;
+				}
 			}
+			cout << "\n\t Escoga un numero de la lista : ";
+
+			do
+			{
+				cin >> auxentrada;
+
+				aux = atoi(auxentrada);
+				if (aux == 0)
+					cout << "\t Incorrecto ingrese de nuevo...! : ";
+
+			} while (aux == 0);
 		}
-		cout << "\n\t Escoga un numero de la lista : ";
-
-		do
+		else
 		{
-			cin >> auxentrada;
-			aux = atoi(auxentrada);
-			if (aux == 0)
-				cout << "\t Incorrecto ingrese de nuevo...! : ";
-
-		} while (aux == 0);
+			cout << "El archivo no se pudo abrir \n";
+		}
 	}
-	else
-	{
-		cout << "El archivo no se pudo abrir \n";
+	catch (exception& e) {
+		cout << e.what();
 	}
 	//Cerramos la conceccion de escritura y de lectura con el archivo
 	consulta.close();
@@ -365,20 +387,26 @@ void Cita::guardarCita()
 
 	escritura.open("citas.txt", ios::out | ios::app); //crea y escribe, si ya tiene texto une al final del archivo
 	consulta.open("citas.txt", ios::in);			  //solamente consulta o lee usando la variable sobre el archivo físico alumnos.txt
+	try {
 
-	if (escritura.is_open() && consulta.is_open())
-	{
-		int i = 1;
-		escritura << IDpaciente << " " << nomPaciente << " " << IDdoctor << " ";
-		escritura << nomDoctor << " " << IDespecialidad << " " << nomEspecialidad << " " << fechaE.anio << " ";
-		escritura << fechaE.mes << " " << fechaE.dia << " " << horaE.hora << " ";
-		escritura << horaE.minutos << " " << estado << " " << i << endl;
-		i++;
-		cout << "\n\tCita registrada...\n";
+
+		if (escritura.is_open() && consulta.is_open())
+		{
+			int i = 1;
+			escritura << IDpaciente << " " << nomPaciente << " " << IDdoctor << " ";
+			escritura << nomDoctor << " " << IDespecialidad << " " << nomEspecialidad << " " << fechaE.anio << " ";
+			escritura << fechaE.mes << " " << fechaE.dia << " " << horaE.hora << " ";
+			escritura << horaE.minutos << " " << estado << " " << i << endl;
+			i++;
+			cout << "\n\tCita registrada...\n";
+		}
+		else
+		{
+			cout << "El archivo no se pudo abrir \n";
+		}
 	}
-	else
-	{
-		cout << "El archivo no se pudo abrir \n";
+	catch (exception& e) {
+		cout << e.what();
 	}
 	escritura.close();
 	consulta.close();
@@ -409,40 +437,50 @@ void Cita::eliminarCita()
 	bool encontrado = false;
 	aux.open("auxiliar_citas.txt", ios::out);
 	lectura.open("citas.txt", ios::in);
+	try {
 
-	if (aux.is_open() && lectura.is_open())
-	{
-		int dni, codigo, dia, mes, anio;
-		char separador = '/';
-		cout << "\n";
-		cout << "\t Ingresa el DNI del paciente de la cita que deseas eliminar que deseas eliminar: ";
-		cin >> dni;
-		cout << "\t Ingresa el codigo del doctor de la cita deseas eliminar que deseas eliminar: ";
-		cin >> codigo;
-		cout << "\t Ingresa la fecha de la cita deseas eliminar que deseas eliminar  d/m/a: ";
-		cin >> dia >> separador >> mes >> separador >> anio;
 
-		///De nuevo se aplica el tipo de lectura de archivos secuencial, esto quiere decir que lee campo por campo hasta
-		///hasta llegar al final del archivo gracias a la funciÃ³n .eof()
-		lectura >> IDpaciente;
-		while (!lectura.eof())
+		if (aux.is_open() && lectura.is_open())
 		{
-			lectura >> nomPaciente >> IDdoctor >> nomDoctor >> IDespecialidad >> nomEspecialidad >> fechaE.dia >> fechaE.mes >> fechaE.anio >> horaE.hora >> horaE.minutos >> estado >> numCita;
-			if (dni == IDpaciente && codigo == IDdoctor && fechaE.dia == dia && fechaE.mes == mes && fechaE.anio == anio)
-			{
-				char opca;
-				encontrado = true;
-				cout << "\n";
-				cout << "\t DNI Paciente         :  " << dni << endl;
-				cout << "\t Codigo Doctor        :  " << codigo << endl;
-				cout << "\t Fecha                :  " << dia << "/" << mes << "/" << anio << endl;
-				cout << "\t________________________________\n\n";
-				cout << "\t Realmente deseas eliminar el registro actual (S/N)? ---> ";
-				cin >> opca;
+			int dni, codigo, dia, mes, anio;
+			char separador = '/';
+			cout << "\n";
+			cout << "\t Ingresa el DNI del paciente de la cita que deseas eliminar que deseas eliminar: ";
+			cin >> dni;
+			cout << "\t Ingresa el codigo del doctor de la cita deseas eliminar que deseas eliminar: ";
+			cin >> codigo;
+			cout << "\t Ingresa la fecha de la cita deseas eliminar que deseas eliminar  d/m/a: ";
+			cin >> dia >> separador >> mes >> separador >> anio;
 
-				if (opca == 'S' || opca == 's')
+			///De nuevo se aplica el tipo de lectura de archivos secuencial, esto quiere decir que lee campo por campo hasta
+			///hasta llegar al final del archivo gracias a la funciÃ³n .eof()
+			lectura >> IDpaciente;
+			while (!lectura.eof())
+			{
+				lectura >> nomPaciente >> IDdoctor >> nomDoctor >> IDespecialidad >> nomEspecialidad >> fechaE.dia >> fechaE.mes >> fechaE.anio >> horaE.hora >> horaE.minutos >> estado >> numCita;
+				if (dni == IDpaciente && codigo == IDdoctor && fechaE.dia == dia && fechaE.mes == mes && fechaE.anio == anio)
 				{
-					cout << "\n\n\t\t\tRegistro eliminado...\n\n\t\t\a";
+					char opca;
+					encontrado = true;
+					cout << "\n";
+					cout << "\t DNI Paciente         :  " << dni << endl;
+					cout << "\t Codigo Doctor        :  " << codigo << endl;
+					cout << "\t Fecha                :  " << dia << "/" << mes << "/" << anio << endl;
+					cout << "\t________________________________\n\n";
+					cout << "\t Realmente deseas eliminar el registro actual (S/N)? ---> ";
+					cin >> opca;
+
+					if (opca == 'S' || opca == 's')
+					{
+						cout << "\n\n\t\t\tRegistro eliminado...\n\n\t\t\a";
+					}
+					else
+					{
+						aux << IDpaciente << " " << nomPaciente << " " << IDdoctor << " ";
+						aux << nomDoctor << " " << IDespecialidad << " " << nomEspecialidad << " " << fechaE.anio << " ";
+						aux << fechaE.mes << " " << fechaE.dia << " " << horaE.hora << " ";
+						aux << horaE.minutos << " " << estado << " " << numCita << endl;
+					}
 				}
 				else
 				{
@@ -451,20 +489,16 @@ void Cita::eliminarCita()
 					aux << fechaE.mes << " " << fechaE.dia << " " << horaE.hora << " ";
 					aux << horaE.minutos << " " << estado << " " << numCita << endl;
 				}
+				lectura >> IDpaciente;
 			}
-			else
-			{
-				aux << IDpaciente << " " << nomPaciente << " " << IDdoctor << " ";
-				aux << nomDoctor << " " << IDespecialidad << " " << nomEspecialidad << " " << fechaE.anio << " ";
-				aux << fechaE.mes << " " << fechaE.dia << " " << horaE.hora << " ";
-				aux << horaE.minutos << " " << estado << " " << numCita << endl;
-			}
-			lectura >> IDpaciente;
+		}
+		else
+		{
+			cout << "\n\tEl archivo no se pudo abrir \n";
 		}
 	}
-	else
-	{
-		cout << "\n\tEl archivo no se pudo abrir \n";
+	catch (exception& e) {
+		cout << e.what();
 	}
 
 	if (encontrado == false)
