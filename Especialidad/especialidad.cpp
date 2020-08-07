@@ -94,9 +94,9 @@ void Especialidad::listarEspecialidad()
 			
 		}
 
-		if (!lectura.is_open()) {
+		
 			throw;
-		}
+		
 		
 		
     }catch (exception& e) {
