@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <conio.h>
 #include "../Paciente/paciente.h"
 
 using namespace std;
@@ -38,9 +39,9 @@ void Paciente::registrarPaciente()
 		{
 			cin >> auxentrada;
 			codaux = atoi(auxentrada);
-			if (codaux == 0)
+			if (codaux == 0){
 				cout << "\t Incorrecto ingrese de nuevo...! : ";
-
+			}
 		} while (codaux == 0);
 		
 		///A continuación se aplica el tipo de lectura de archivos secuencial

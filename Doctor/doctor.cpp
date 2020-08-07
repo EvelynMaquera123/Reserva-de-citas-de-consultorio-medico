@@ -226,10 +226,10 @@ void Doctor ::modificarDoctor()
                 aux<<codigo<<" "<<nombredoctor<<" "<<paterno<<" "<<materno<<" "<<edad<<" "<<telefono<<" "<<especialidad<<endl;
 				cout<<"\n\n\t\t\tRegistro modificado...\n\t\t\a";
                     
-                 }else{
-                    aux<<clave<<" "<<nombre<<" "<<paterno<<" "<<materno<<" "<<peso<<" "<<edad<<" "<<sexo<<" "<<telefono<<" "<<direccion<<endl;
+                }else{
+                    aux<<codigo<<" "<<nombre<<" "<<paterno<<" "<<materno<<" "<<peso<<" "<<edad<<" "<<sexo<<" "<<telefono<<" "<<direccion<<endl;
                     }
-                lectura>>clave;
+                lectura>>codigo;
 		}
     }else{
         cout<<"\n\tEl archivo no se pudo abrir \n";

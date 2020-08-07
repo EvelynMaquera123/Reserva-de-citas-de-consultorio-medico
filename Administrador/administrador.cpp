@@ -7,6 +7,7 @@
 #include "../Especialidad/especialidad.h"
 #include "../Doctor/doctor.h"// dos puntos significa q salga de su directorio
 #include "../Horario/horario.h"
+#include "../Paciente/paciente.h"
 
 using namespace std;
 
@@ -14,6 +15,7 @@ Administrador *a = new Administrador();
 Especialidad *e = new Especialidad();
 Doctor *d = new Doctor();
 Horario *h = new Horario();
+Paciente *p = new Paciente();
 
 Administrador::Administrador()
 {
@@ -45,13 +47,15 @@ void Administrador::login()
             cout << "\t 1. Agregar Nueva Especialidad" << endl;
             cout << "\t 2. Agregar Nuevo Doctor" << endl;
             cout << "\t 3. Agregar Nuevo Horario" <<endl;
-            cout << "\t 4. Modificar Especialidad" << endl;
-            cout << "\t 5. Modificar Doctor" << endl;
-            cout << "\t 6. Modificar Horario" << endl;
-            cout << "\t 7. Eliminar Especialidad" << endl;
-            cout << "\t 8. Eliminar Doctor" << endl;
-            cout << "\t 9. Eliminar Horario" << endl;
-            cout << "\t 10. Salir" <<endl;
+            cout << "\t 4. Modificar Paciente" <<endl;
+            cout << "\t 5. Modificar Especialidad" << endl;
+            cout << "\t 6. Modificar Doctor" << endl;
+            cout << "\t 7. Modificar Horario" << endl;
+            cout << "\t 8. Eliminar Paciente" << endl;
+            cout << "\t 9. Eliminar Especialidad" << endl;
+            cout << "\t 10. Eliminar Doctor" << endl;
+            cout << "\t 11. Eliminar Horario" << endl;
+            cout << "\t 12. Salir" <<endl;
             cin >> opc;
             
             switch (opc)
@@ -73,35 +77,45 @@ void Administrador::login()
             }
             case 4:
             {
-                e->modificarEspecialidad();
+                p->modificarPaciente();
                 break;
             }
             case 5:
             {
-                d->modificarDoctor();
+                e->modificarEspecialidad();
                 break;
             }
             case 6:
             {
-                h->modificar();
+                d->modificarDoctor();
                 break;
             }
             case 7:
             {
-                e->eliminarEspecialidad();
+                h->modificar();
                 break;
             }
             case 8:
             {
-                d->eliminarDoctor();
+                p->eliminarPaciente();
                 break;
             }
             case 9:
             {
-                h->eliminarHorario();
+                e->eliminarEspecialidad();
                 break;
             }
             case 10:
+            {
+                d->eliminarDoctor();
+                break;
+            }
+            case 11:
+            {
+                h->eliminarHorario();
+                break;
+            }
+            case 12:
             {
                 break;
             }
@@ -109,6 +123,6 @@ void Administrador::login()
                 cout << "\t Opcion Incorrecta...!!! Try Again..." << endl;
                 break;
             }
-        } while (opc != 10);
+        } while (opc != 12);
     }
 }
