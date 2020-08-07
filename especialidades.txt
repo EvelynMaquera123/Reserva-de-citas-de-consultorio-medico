@@ -1,2 +1,2 @@
-1111 Medicina Medicina
+1111 Medicina Medicina_General
 2222 Pediatria Trata_con_ninios

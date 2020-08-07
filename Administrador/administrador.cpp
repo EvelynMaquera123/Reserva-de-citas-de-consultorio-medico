@@ -50,11 +50,11 @@ void Administrador::login()
             cout << "\t 4. Modificar Paciente" <<endl;
             cout << "\t 5. Modificar Especialidad" << endl;
             cout << "\t 6. Modificar Doctor" << endl;
-            cout << "\t 7. Modificar Horario" << endl;
-            cout << "\t 8. Eliminar Paciente" << endl;
-            cout << "\t 9. Eliminar Especialidad" << endl;
-            cout << "\t 10. Eliminar Doctor" << endl;
-            cout << "\t 11. Eliminar Horario" << endl;
+            cout << "\t 7. Eliminar Paciente" << endl;
+            cout << "\t 8. Eliminar Especialidad" << endl;
+            cout << "\t 9. Eliminar Doctor" << endl;
+            cout << "\t 10. Eliminar Horario" << endl;
+            cout << "\t 11. Listar Pacientes" << endl;
             cout << "\t 12. Salir" <<endl;
             cin >> opc;
             
@@ -90,29 +90,30 @@ void Administrador::login()
                 d->modificarDoctor();
                 break;
             }
+
             case 7:
-            {
-                h->modificar();
-                break;
-            }
-            case 8:
             {
                 p->eliminarPaciente();
                 break;
             }
-            case 9:
+            case 8:
             {
                 e->eliminarEspecialidad();
                 break;
             }
-            case 10:
+            case 9:
             {
                 d->eliminarDoctor();
                 break;
             }
-            case 11:
+            case 10:
             {
                 h->eliminarHorario();
+                break;
+            }
+            case 11:
+            {
+                p->mostrarDatosPaciente();
                 break;
             }
             case 12:

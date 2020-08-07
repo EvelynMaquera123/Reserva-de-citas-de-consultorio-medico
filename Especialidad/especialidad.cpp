@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <conio.h>
 #include "especialidad.h"
 #include <exception>
 using namespace std;
@@ -77,15 +78,12 @@ void Especialidad::crearEspecialidad()
 void Especialidad::listarEspecialidad()
 {
     ifstream lectura;
-    lectura.open("especialidadesss.txt", ios::out | ios::in); //solamente consulta o lee usando la variable sobre el archivo físico alumnos.txt
+	char nombre[25],descripcion[35];
+    lectura.open("especialidades.txt", ios::out | ios::in); //solamente consulta o lee usando la variable sobre el archivo físico alumnos.txt
     //Preguntamos si la conexion esta abierta
 	//Agregamos la excepción
 	try {
-		/*
-		if (!lectura.is_open()) {
-			throw;
-		}
-		*/
+	
 		if (lectura.is_open())
 		{			
 			lectura >> idEspecialidad;
@@ -211,7 +209,7 @@ void Especialidad::modificarEspecialidad(){
 			while (!lectura.eof())
 			{
 				lectura >> nombre >> descripcion;
-			//	try {
+
 					if (auxclave == clave)
 					{
 						char opca;
@@ -222,9 +220,13 @@ void Especialidad::modificarEspecialidad(){
 						cout << "\tDescripcion:      " << descripcion << endl;
 						cout << "\t________________________________\n\n";
 
-						cout << "\tIngresa la descripsion del la especialiadad a modificar : " << auxclave << "\n\n\t---> ";
-						cin >> auxdescripcion;
-						aux << clave << " " << nombre << " " << auxdescripcion << endl;
+						cout << "\tIngresa el nuevo codigo de la especialidad a modificar : " << clave << "\n\n\t---> ";
+						cin >> clave;
+						cout << "\tIngresa el nuevo nombre de la especialidad a modificar : " << nombre << "\n\n\t---> ";
+						cin >> nombre;
+						cout << "\tIngresa la nueva descripcion de la especialidad a modificar : " << descripcion << "\n\n\t---> ";
+						cin >> descripcion;
+						aux << clave << " " << nombre << " " << descripcion << endl;
 						cout << "\n\n\t\t\tRegistro modificado...\n\t\t\a";
 
 					}
@@ -234,11 +236,7 @@ void Especialidad::modificarEspecialidad(){
 					}
 					
 					lectura >> clave;
-			}
-			//	catch (exception& e) {
-					//aux << clave << " " << nombre << " " << descripcion << endl;
-			//	}				
-			
+			}			
 		}		//throw encontrado;
 		else {
 			cout << "No se ha podido abrir el fichero de manera correcta\n"
@@ -249,14 +247,9 @@ void Especialidad::modificarEspecialidad(){
 		cout << e.what();
 		
 	}
-  
-
-   
 
     aux.close();
     lectura.close();
     remove("especialidades.txt");
     rename("auxiliar_especialidades.txt", "especialidades.txt");
-
-
 }

@@ -90,7 +90,7 @@ void Doctor::listarDoctores()
 {
     ifstream lectura;
     char nombre[25], paterno[25], materno[25];
-    int edad, telefono,cod;
+    int edad, telefono, cod;
     lectura.open("doctores.txt", ios::out | ios::in); //solamente consulta o lee usando la variable sobre el archivo físico alumnos.txt
     //Preguntamos si la conexion esta abierta
     if (lectura.is_open())
@@ -98,7 +98,7 @@ void Doctor::listarDoctores()
         lectura >> codigo;
         while (!lectura.eof())
         { //Mientras haya maas filas en el fichero
-            lectura >> nombre >> paterno >> materno >> edad >> telefono>>cod;
+            lectura >> nombre >> paterno >> materno >> edad >> telefono >> cod;
             cout << "\n";
             cout << "\t Codigo:           " << codigo << endl;
             cout << "\t Nombre:           " << nombre << endl;
@@ -106,7 +106,7 @@ void Doctor::listarDoctores()
             cout << "\t Segundo apellido: " << materno << endl;
             cout << "\t Edad:             " << edad << endl;
             cout << "\t Telefono:         " << telefono << endl;
-            
+            cout << "\t Especialidad:     " << cod << endl;
             lectura >> codigo;
             cout << "\t________________________________\n";
             cin.ignore();
@@ -123,126 +123,160 @@ void Doctor::listarDoctores()
 
 void Doctor::eliminarDoctor()
 {
-	ofstream aux;
+    ofstream aux;
     ifstream lectura;
 
-   	bool encontrado=false;
+    bool encontrado = false;
     int auxclave;
     aux.open("auxiliar_doctores.txt", ios::out);
     lectura.open("doctores.txt", ios::in);
 
-    if (aux.is_open() && lectura.is_open()){
-		char nombre[25],paterno[25],materno[25];
-		int edad,telefono,especialidad;
-        cout<<"\n";
-        cout<<"\t Ingresa la clave del doctor que deseas eliminar: ";
-        cin>>auxclave;
-            ///De nuevo se aplica el tipo de lectura de archivos secuencial, esto quiere decir que lee campo por campo hasta
-            ///hasta llegar al final del archivo gracias a la funcion .eof()
-            lectura>>codigo;
-            while (!lectura.eof()){
-                lectura>>nombre>>paterno>>materno>>edad>>telefono>>especialidad;
-                if (auxclave == codigo){
-					    char opca;
-                        encontrado=true;
-						cout<<"\n";
-						cout<<"\t Codigo:           "<<codigo<<endl;
-						cout<<"\t Nombre:           "<<nombre<<endl;
-						cout<<"\t Primer apellido:  "<<paterno<<endl;
-						cout<<"\t Segundo apellido: "<<materno<<endl;
-						cout<<"\t Edad:             "<<edad<<endl;
-						cout<<"\t Telefono:         "<<telefono<<endl;
-						cout<<"\t Especialidad:     "<<especialidad<<endl;
-						cout<<"\t________________________________\n\n";
-						cout<<"\t Realmente deseas eliminar el registro actual (S/N)? ---> ";
-                        cin>>opca;
+    if (aux.is_open() && lectura.is_open())
+    {
+        char nombre[25], paterno[25], materno[25];
+        int edad, telefono, especialidad;
+        cout << "\n";
+        cout << "\t Ingresa la clave del doctor que deseas eliminar: ";
+        cin >> auxclave;
+        ///De nuevo se aplica el tipo de lectura de archivos secuencial, esto quiere decir que lee campo por campo hasta
+        ///hasta llegar al final del archivo gracias a la funcion .eof()
+        lectura >> codigo;
+        while (!lectura.eof())
+        {
+            lectura >> nombre >> paterno >> materno >> edad >> telefono >> especialidad;
+            if (auxclave == codigo)
+            {
+                char opca;
+                encontrado = true;
+                cout << "\n";
+                cout << "\t Codigo:           " << codigo << endl;
+                cout << "\t Nombre:           " << nombre << endl;
+                cout << "\t Primer apellido:  " << paterno << endl;
+                cout << "\t Segundo apellido: " << materno << endl;
+                cout << "\t Edad:             " << edad << endl;
+                cout << "\t Telefono:         " << telefono << endl;
+                cout << "\t Especialidad:     " << especialidad << endl;
+                cout << "\t________________________________\n\n";
+                cout << "\t Realmente deseas eliminar el registro actual (S/N)? ---> ";
+                cin >> opca;
 
-                        if (opca=='S' || opca=='s'){
-                            cout<<"\n\n\t\t\tRegistro eliminado...\n\n\t\t\a";
-                        }else{
-                            aux<<codigo<<" "<<nombre<<" "<<paterno<<" "<<materno<<" "<<edad<<" "<<telefono<<" "<<especialidad<<endl;
-                        }
-
-                    }else{
-                       aux<<codigo<<" "<<nombre<<" "<<paterno<<" "<<materno<<" "<<edad<<" "<<telefono<<" "<<especialidad<<endl;
-                    }
-                lectura>>codigo;
+                if (opca == 'S' || opca == 's')
+                {
+                    cout << "\n\n\t\t\tRegistro eliminado...\n\n\t\t\a";
+                }
+                else
+                {
+                    aux << codigo << " " << nombre << " " << paterno << " " << materno << " " << edad << " " << telefono << " " << especialidad << endl;
+                }
             }
-    }else{
-        cout<<"\n\tEl archivo no se pudo abrir \n";
+            else
+            {
+                aux << codigo << " " << nombre << " " << paterno << " " << materno << " " << edad << " " << telefono << " " << especialidad << endl;
+            }
+            lectura >> codigo;
+        }
+    }
+    else
+    {
+        cout << "\n\tEl archivo no se pudo abrir \n";
     }
 
-    if (encontrado==false){
-                cout<<"\n\tNo se encontro ningun registro con la clave: "<<auxclave<<"\n\n\t\t\t";
-            }
+    if (encontrado == false)
+    {
+        cout << "\n\tNo se encontro ningun registro con la clave: " << auxclave << "\n\n\t\t\t";
+    }
 
     aux.close();
     lectura.close();
-    remove ("doctores.txt");
+    remove("doctores.txt");
     rename("auxiliar_doctores.txt", "doctores.txt");
 }
 
 void Doctor ::modificarDoctor()
 {
-
     ofstream aux;
     ifstream lectura;
 
     bool encontrado = false;
-	int auxclave, clave;
+    int auxclave, clave;
 
     aux.open("auxiliar_doctores.txt", ios::out);
     lectura.open("doctores.txt", ios::in);
-   
 
-    if (aux.is_open() && lectura.is_open()){
+    try
+    {
 
-       char nombre[25],paterno[25],materno[25];
-	   int edad,telefono,especialidad;
+        if (aux.is_open() && lectura.is_open())
+        {
 
-        cout<<"\n";
-        cout<<"\t Ingresa el codigo del doctor que deseas modificar: ";
-        cin>>auxclave;
-	
-         lectura>>codigo;
-          
+            char nombre[25], paterno[25], materno[25];
+            int edad, telefono, especialidad;
+
+            cout << "\n";
+            cout << "\t Ingresa el codigo del doctor que deseas modificar: ";
+            cin >> auxclave;
+
+            lectura >> codigo;
+
             while (!lectura.eof())
-		{ 
-            lectura>>nombre>>paterno>>materno>>edad>>telefono>>especialidad;
-		
-			if (auxclave == codigo)
-			{
-				char opca;
-                encontrado=true;
-				cout<<"\n";
-				cout<<"\t Codigo:           "<<codigo<<endl;
-				cout<<"\t Nombre:           "<<nombre<<endl;
-				cout<<"\t Primer apellido:  "<<paterno<<endl;
-				cout<<"\t Segundo apellido: "<<materno<<endl;
-				cout<<"\t Edad:             "<<edad<<endl;
-				cout<<"\t Telefono:         "<<telefono<<endl;
-				cout<<"\t Especialidad:     "<<especialidad<<endl;
-				cout<<"\t________________________________\n\n";
-				cout<<"\tIngresa el nuevo nombre del doctor : "<<auxclave<<"\n\n\t---> ";
-				cin>>nombredoctor;
-                aux<<codigo<<" "<<nombredoctor<<" "<<paterno<<" "<<materno<<" "<<edad<<" "<<telefono<<" "<<especialidad<<endl;
-				cout<<"\n\n\t\t\tRegistro modificado...\n\t\t\a";
-                    
-                }else{
-                    aux<<codigo<<" "<<nombre<<" "<<paterno<<" "<<materno<<" "<<peso<<" "<<edad<<" "<<sexo<<" "<<telefono<<" "<<direccion<<endl;
-                    }
-                lectura>>codigo;
-		}
-    }else{
-        cout<<"\n\tEl archivo no se pudo abrir \n";
+            {
+                lectura >> nombre >> paterno >> materno >> edad >> telefono >> especialidad;
+
+                if (auxclave == codigo)
+                {
+                    char opca;
+                    encontrado = true;
+                    cout << "\n";
+                    cout << "\t Codigo:           " << codigo << endl;
+                    cout << "\t Nombre:           " << nombre << endl;
+                    cout << "\t Apellido Paterno: " << paterno << endl;
+                    cout << "\t Apellido Materno: " << materno << endl;
+                    cout << "\t Edad:             " << edad << endl;
+                    cout << "\t Telefono:         " << telefono << endl;
+                    cout << "\t Especialidad:     " << especialidad << endl;
+                    cout << "\t________________________________\n\n";
+                    cout << "\tIngresa el nuevo codigo del doctor : " << codigo << "\n\n\t---> ";
+                    cin >> codigo;
+                    cout << "\tIngresa el nuevo nombre del doctor : " << nombre << "\n\n\t---> ";
+                    cin >> nombre;
+                    cout << "\tIngresa el nuevo apellido paterno del doctor : " << paterno << "\n\n\t---> ";
+                    cin >> paterno;
+                    cout << "\tIngresa el nuevo apellido materno del doctor : " << materno << "\n\n\t---> ";
+                    cin >> materno;
+                    cout << "\tIngresa la nueva edad del doctor : " << edad << "\n\n\t---> ";
+                    cin >> edad;
+                    cout << "\tIngresa el nuevo telefono del doctor : " << telefono << "\n\n\t---> ";
+                    cin >> telefono;
+                    cout << "\tIngresa la nueva especialidad del doctor : " << especialidad << "\n\n\t---> ";
+                    cin >> especialidad;
+
+                    aux << codigo << " " << nombre << " " << paterno << " " << materno << " " << edad << " " << telefono << " " << especialidad << endl;
+                    cout << "\n\n\t\t\tRegistro modificado...\n\a";
+                }
+                else
+                {
+                    aux << codigo << " " << nombre << " " << paterno << " " << materno << " " << " " << edad << " " << " " << telefono << " " << especialidad << endl;
+                }
+                lectura >> codigo;
+            }
+        }
+        else
+        {
+            cout << "\n\tEl archivo no se pudo abrir \n";
+        }
+    }
+    catch (exception &e)
+    {
+        cout << e.what();
     }
 
-    if (encontrado==false){
-                cout<<"\n\tNo se encontro ningun registro con la clave: "<<auxclave<<"\n\n\t\t\t";
-            }
+    if (encontrado == false)
+    {
+        cout << "\n\tNo se encontro ningun registro con la clave: " << auxclave << "\n\n\t\t\t";
+    }
 
     aux.close();
-	lectura.close();
-    remove ("doctores.txt");
+    lectura.close();
+    remove("doctores.txt");
     rename("auxiliar_doctores.txt", "doctores.txt");
 }

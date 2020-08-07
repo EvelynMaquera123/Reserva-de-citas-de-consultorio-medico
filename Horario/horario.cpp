@@ -34,18 +34,16 @@ void Horario::crearHorario()
     consulta.open("doctores.txt", ios::out | ios::in); //solamente consulta o lee usando la variable sobre el archivo físico pacientes.txt
     //Verificamos si el archivo ha podido ser habierto con normalidad
     cout << "\t"
-         << "Codigo\n"
+         << "Codigo"
          << "\t"
-         << "Nombre\n"
+         << "Nombre"
          << "\t"
-         << "ApeMat\n"
+         << "ApeMat"
          << "\t"
-         << "ApePat\n"
+         << "ApePat"
          << "  \t"
-         << "CodEspecialidad\n" << endl;
+         << "CodEspecialidad" << endl;
 	try {
-
-
 
 		if (consulta.is_open())
 		{
@@ -56,7 +54,7 @@ void Horario::crearHorario()
 			while (!consulta.eof())
 			{
 				consulta >> cod >> Enombre >> EapellM >> EapellP >> codesp >> salto >> salto;
-				cout << "\t" << cod << "\t" << Enombre << "\t" << EapellM << "\t" << EapellP << "  \t" << codesp << endl;
+				cout << "\t" << cod << "\t " << Enombre << "\t " << EapellM << "\t " << EapellP << "  \t" << codesp << endl;
 
 			}
 			cout << "\n\t Escoga un codigo de doctor: ";
@@ -215,11 +213,12 @@ bool Horario::buscarHorario(int codaux, int d, int m, int a)
 		{
 			cout << "No se ha podido abrir el fichero de manera correcta" << endl;
 		}
-		return repetido;
+		//return repetido;
 	}
 	catch (exception& e) {
 		cout << "No se ha podido abrir el fichero de manera correcta" << endl;
 	}
+	return repetido;
 }
 
 void Horario::eliminarHorario()

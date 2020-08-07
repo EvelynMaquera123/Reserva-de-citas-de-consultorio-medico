@@ -29,95 +29,102 @@ void Paciente::registrarPaciente()
 	consulta.open("pacientes.txt", ios::in);			  //solamente consulta o lee usando la variable sobre el archivo físico pacientes.txt
 	//Verificamos si el archivo ha podido ser habierto con normalidad
 
-	try {
-
-	if (escritura.is_open() && consulta.is_open())
+	try
 	{
-		bool repetido = false;
-		long codaux, codr;
-		int cifras=1;
-		string salto;
-		cout << "\n";
-		cout << "\t Ingresa el DNI del paciente:    ";
-		
-		do
+
+		if (escritura.is_open() && consulta.is_open())
 		{
-			cin >> auxentrada;
-			codaux = atoi(auxentrada);
-			if (codaux == 0){
-				cout << "\t Incorrecto ingrese de nuevo...! : ";
-			}
-		} while (codaux == 0);
-		
-		while (codaux>=10) {
-			codaux /= 10;
-			cifras++;
-		}
-		if (cifras!=8) {
-			throw invalid_argument("el DNI debe ser de 8 dígitos");
-		}
-		
-		///A continuación se aplica el tipo de lectura de archivos secuencial
-		consulta >> codr;
-		while (!consulta.eof())
-		{
-			//Si encontramos el codigo del paciente , significa que ya esta registrado , asi que no podemos volverlo a insertar
-			// compara dos string  no int
-			if (codaux == codr)
+			bool repetido = false;
+			long codaux, codr;
+			int cifras = 1;
+			string salto;
+			cout << "\n";
+			cout << "\t Ingresa el DNI del paciente:    ";
+
+			do
 			{
-				cout << "\t\tYa tenemos el paciente registrado con ese codigo...\n";
-				repetido = true;
-				break;
+				cin >> auxentrada;
+				codaux = atoi(auxentrada);
+				if (codaux == 0)
+				{
+					cout << "\t Incorrecto ingrese de nuevo...! : ";
+				}
+			} while (codaux == 0);
+
+			while (codaux >= 10)
+			{
+				codaux /= 10;
+				cifras++;
 			}
-			consulta >> salto >> salto >> salto >> salto >> salto >> salto >> salto >> salto;
+			if (cifras != 8)
+			{
+				throw invalid_argument("el DNI debe ser de 8 dígitos");
+			}
+
+			///A continuación se aplica el tipo de lectura de archivos secuencial
 			consulta >> codr;
+			while (!consulta.eof())
+			{
+				//Si encontramos el codigo del paciente , significa que ya esta registrado , asi que no podemos volverlo a insertar
+				// compara dos string  no int
+				if (codaux == codr)
+				{
+					cout << "\t\tYa tenemos el paciente registrado con ese codigo...\n";
+					repetido = true;
+					break;
+				}
+				consulta >> salto >> salto >> salto >> salto >> salto >> salto >> salto >> salto;
+				consulta >> codr;
+			}
+			//En caso que el paciente no se haya encontrado significa que no exite , asi que podemos proceder a insertarlo
+			if (repetido == false)
+			{
+				Paciente paciente;
+
+				paciente.codigo = codaux;
+				cout << "\t Ingresa el nombre del paciente: ";
+				cin >> paciente.nombre;
+				cout << "\t Ingresa el apellido Paterno: ";
+				cin >> paciente.apellidoPaterno;
+				cout << "\t Ingresa el apellido Materno: ";
+				cin >> paciente.apellidoMaterno;
+				cout << "\t Ingresa el su peso: ";
+				cin >> paciente.peso;
+				if (!(paciente.getPeso() < 120 && paciente.getPeso() > 6))
+				{
+					throw invalid_argument("Ingrese peso correcto");
+				}
+				cout << "\t Ingresa el su edad: ";
+				cin >> paciente.edad;
+				cout << "\t Ingresa el su sexo: ";
+				cin >> paciente.sexo;
+
+				cout << "\t Ingresa el telefono: ";
+				cin >> paciente.telefono;
+
+				if (paciente.telefono.size() != 9)
+				{
+					throw invalid_argument("el telefono debe ser de 9 dígitos");
+				}
+
+				cout << "\t Ingresa el direccion: ";
+				cin >> paciente.direccion;
+
+				escritura << paciente.codigo << " " << paciente.nombre << " " << paciente.apellidoPaterno << " " << paciente.apellidoMaterno
+						  << " " << paciente.peso << " " << paciente.edad << " " << paciente.sexo << " " << paciente.telefono << " " << paciente.direccion << endl;
+
+				cout << "\n\tRegistro agregado...\n";
+			}
+			//Preguntamos al usuario si desea ingresar otro
+			//Si el archivo no se ha podido abrir enviamos un mensaje de error
 		}
-		//En caso que el paciente no se haya encontrado significa que no exite , asi que podemos proceder a insertarlo
-		if (repetido == false)
+		else
 		{
-			Paciente paciente;
-
-			paciente.codigo = codaux;
-			cout << "\t Ingresa el nombre del paciente: ";
-			cin >> paciente.nombre;
-			cout << "\t Ingresa el apellido Paterno: ";
-			cin >> paciente.apellidoPaterno;
-			cout << "\t Ingresa el apellido Materno: ";
-			cin >> paciente.apellidoMaterno;
-			cout << "\t Ingresa el su peso: ";
-			cin >> paciente.peso;
-			if (!(paciente.getPeso()<120 && paciente.getPeso()>6)) {
-				throw invalid_argument("Ingrese peso correcto");
-			}
-			cout << "\t Ingresa el su edad: ";
-			cin >> paciente.edad;
-			cout << "\t Ingresa el su sexo: ";
-			cin >> paciente.sexo;
-
-			cout << "\t Ingresa el telefono: ";
-			cin >> paciente.telefono;
-
-			if (paciente.telefono.size()!=9) {
-				throw invalid_argument("el telefono debe ser de 9 dígitos");
-			}
-
-			cout << "\t Ingresa el direccion: ";
-			cin >> paciente.direccion;
-
-			escritura << paciente.codigo << " " << paciente.nombre << " " << paciente.apellidoPaterno << " " << paciente.apellidoMaterno 
-			<< " " << paciente.peso << " " << paciente.edad << " " << paciente.sexo << " " << paciente.telefono << " " << paciente.direccion << endl;
-			
-			cout << "\n\tRegistro agregado...\n";
+			cout << "El archivo no se pudo abrir \n";
 		}
-		//Preguntamos al usuario si desea ingresar otro
-		//Si el archivo no se ha podido abrir enviamos un mensaje de error
 	}
-	else{
-		cout << "El archivo no se pudo abrir \n";
-	}
-
-	}
-	catch (exception& e) {
+	catch (exception &e)
+	{
 		cout << e.what();
 	}
 	//Cerramos la conceccion de escritura y de lectura con el archivo
@@ -128,16 +135,37 @@ void Paciente::registrarPaciente()
 
 void Paciente::mostrarDatosPaciente()
 {
-	//Datos personales
-
-	cout << "\t Nombre: " << nombre << "Apellido Paterno: " << apellidoPaterno << "Apellido Materno: " << apellidoMaterno << endl;
-	cout << "\t Fecha Nacimiento: " << fechaNacimiento.anio << "/" << fechaNacimiento.mes << "/" << fechaNacimiento.dia << endl;
-	cout << "\t Peso: " << peso << endl;
-	cout << "\t Edad: " << edad << endl;
-	cout << "\t Estatura: " << estatura << endl;
-	cout << "\t Sexo: " << sexo << endl;
-	cout << "\t Telefono: " << telefono << endl;
-	cout << "\t Direccion: " << direccion << endl;
+	ifstream lectura;
+	lectura.open("pacientes.txt", ios::out | ios::in); //solamente consulta o lee usando la variable sobre el archivo físico alumnos.txt
+	//Preguntamos si la conexion esta abierta
+	if (lectura.is_open())
+	{
+		lectura >> codigo;
+		while (!lectura.eof())
+		{ //Mientras haya maas filas en el fichero
+			lectura >> nombre >> apellidoPaterno >> apellidoMaterno >> fechaNacimiento.anio >> fechaNacimiento.mes >> fechaNacimiento.dia >>
+			peso >> edad >> estatura >> sexo >> telefono >> direccion;
+			cout << "\n";
+			cout << "\t Nombre: " << nombre << "Apellido Paterno: " << apellidoPaterno << "Apellido Materno: " << apellidoMaterno << endl;
+			cout << "\t Fecha Nacimiento: " << fechaNacimiento.anio << "/" << fechaNacimiento.mes << "/" << fechaNacimiento.dia << endl;
+			cout << "\t Peso: " << peso << endl;
+			cout << "\t Edad: " << edad << endl;
+			cout << "\t Estatura: " << estatura << endl;
+			cout << "\t Sexo: " << sexo << endl;
+			cout << "\t Telefono: " << telefono << endl;
+			cout << "\t Direccion: " << direccion << endl;
+			lectura >> codigo;
+			cout << "\t________________________________\n";
+			cin.ignore();
+			/* code */
+		}
+	}
+	else
+	{
+		cout << "No se ha podido abrir el fichero de manera correcta\n"
+			 << endl;
+	}
+	lectura.close();
 }
 
 void Paciente ::eliminarPaciente()
@@ -150,8 +178,8 @@ void Paciente ::eliminarPaciente()
 	aux.open("auxiliar_pacientes.txt", ios::out);
 	lectura.open("pacientes.txt", ios::in);
 
-	try {
-
+	try
+	{
 
 		if (aux.is_open() && lectura.is_open())
 		{
@@ -201,12 +229,13 @@ void Paciente ::eliminarPaciente()
 				lectura >> clave;
 			}
 		}
-		else {
+		else
+		{
 			cout << "\n\tEl archivo no se pudo abrir \n";
 		}
-
-
-	}catch (exception& e) {
+	}
+	catch (exception &e)
+	{
 		//
 		cout << e.what();
 	}
@@ -222,21 +251,22 @@ void Paciente ::eliminarPaciente()
 	rename("auxiliar_pacientes.txt", "pacientes.txt");
 }
 
-
 void Paciente ::modificarPaciente()
 {
 
-    ofstream aux;
-    ifstream lectura;
+	ofstream aux;
+	ifstream lectura;
 
-    bool encontrado = false;
+	bool encontrado = false;
 	int auxclave, clave;
 
 	aux.open("auxiliar_pacientes.txt", ios::out);
 	lectura.open("pacientes.txt", ios::in);
-   
-	try {
-		if (aux.is_open() && lectura.is_open()) {
+
+	try
+	{
+		if (aux.is_open() && lectura.is_open())
+		{
 
 			char nombre[25], paterno[25], materno[25], sexo[2], direccion[25];
 			int edad, telefono, peso;
@@ -263,33 +293,51 @@ void Paciente ::modificarPaciente()
 					cout << "\t Telefono:         " << telefono << endl;
 					cout << "\t Direccion:        " << direccion << endl;
 					cout << "\t________________________________\n\n";
-					cout << "\tIngresa el nuevo nombre del paciente : " << auxclave << "\n\n\t---> ";
-					cin >> auxnombre;
-					aux << clave << " " << auxnombre << " " << paterno << " " << materno << " " << peso << " " << edad << " " << sexo << " " << telefono << " " << direccion << endl;
-					cout << "\n\n\t\t\tRegistro modificado...\n\t\t\a";
-
+					cout << "\tIngresa el nuevo DNI del paciente : " << clave << "\n\n\t---> ";
+					cin >> clave;
+					cout << "\tIngresa el nuevo nombre del paciente : " << nombre << "\n\n\t---> ";
+					cin >> nombre;
+					cout << "\tIngresa el nuevo apellido paterno del paciente : " << paterno << "\n\n\t---> ";
+					cin >> paterno;
+					cout << "\tIngresa el nuevo apellido materno del paciente : " << materno << "\n\n\t---> ";
+					cin >> materno;
+					cout << "\tIngresa el nuevo peso del paciente : " << peso << "\n\n\t---> ";
+					cin >> peso;
+					cout << "\tIngresa la nueva edad del paciente : " << edad << "\n\n\t---> ";
+					cin >> edad;
+					cout << "\tIngresa el nuevo sexo del paciente : " << sexo << "\n\n\t---> ";
+					cin >> sexo;
+					cout << "\tIngresa el nuevo telefono del paciente : " << telefono << "\n\n\t---> ";
+					cin >> telefono;
+					cout << "\tIngresa la nueva direccion del paciente : " << direccion << "\n\n\t---> ";
+					cin >> direccion;
+					aux << clave << " " << nombre << " " << paterno << " " << materno << " " << peso << " " << edad << " " << sexo << " " << telefono << " " << direccion << endl;
+					cout << "\n\n\t\t\tRegistro modificado...\n\a";
 				}
-				else {
+				else
+				{
 					aux << clave << " " << nombre << " " << paterno << " " << materno << " " << peso << " " << edad << " " << sexo << " " << telefono << " " << direccion << endl;
 				}
 				lectura >> clave;
 			}
-
 		}
-		else {
+		else
+		{
 			cout << "\n\tEl archivo no se pudo abrir \n";
 		}
 	}
-	catch (exception& e) {
+	catch (exception &e)
+	{
 		cout << e.what();
 	}
-    if (encontrado==false){
-                cout<<"\n\tNo se encontro ningun registro con la clave: "<<auxclave<<"\n\n\t\t\t";
-    }
+	if (encontrado == false)
+	{
+		cout << "\n\tNo se encontro ningun registro con la clave: " << auxclave << "\n\n";
+		getch();
+	}
 
-    aux.close();
+	aux.close();
 	lectura.close();
 	remove("pacientes.txt");
 	rename("auxiliar_pacientes.txt", "pacientes.txt");
 }
-
