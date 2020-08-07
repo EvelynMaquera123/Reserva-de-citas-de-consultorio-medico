@@ -251,4 +251,3 @@ void Paciente ::modificarPaciente()
 	rename("auxiliar_pacientes.txt", "pacientes.txt");
 }
 
-
