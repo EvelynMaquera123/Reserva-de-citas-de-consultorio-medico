@@ -50,7 +50,7 @@ void Paciente::registrarPaciente()
 					cout << "\t Incorrecto ingrese de nuevo...! : ";
 				}
 			} while (codaux == 0);
-
+			/*
 			while (codaux >= 10)
 			{
 				codaux /= 10;
@@ -60,7 +60,7 @@ void Paciente::registrarPaciente()
 			{
 				throw invalid_argument("el DNI debe ser de 8 dígitos");
 			}
-
+			*/
 			///A continuación se aplica el tipo de lectura de archivos secuencial
 			consulta >> codr;
 			while (!consulta.eof())
@@ -90,7 +90,7 @@ void Paciente::registrarPaciente()
 				cin >> paciente.apellidoMaterno;
 				cout << "\t Ingresa el su peso: ";
 				cin >> paciente.peso;
-				if (!(paciente.getPeso() < 120 && paciente.getPeso() > 6))
+				if (!(paciente.getPeso() < 500 && paciente.getPeso() > 2))
 				{
 					throw invalid_argument("Ingrese peso correcto");
 				}
@@ -144,7 +144,7 @@ void Paciente::mostrarDatosPaciente()
 		while (!lectura.eof())
 		{ //Mientras haya maas filas en el fichero
 			lectura >> nombre >> apellidoPaterno >> apellidoMaterno >> fechaNacimiento.anio >> fechaNacimiento.mes >> fechaNacimiento.dia >>
-			peso >> edad >> estatura >> sexo >> telefono >> direccion;
+				peso >> edad >> estatura >> sexo >> telefono >> direccion;
 			cout << "\n";
 			cout << "\t Nombre: " << nombre << "Apellido Paterno: " << apellidoPaterno << "Apellido Materno: " << apellidoMaterno << endl;
 			cout << "\t Fecha Nacimiento: " << fechaNacimiento.anio << "/" << fechaNacimiento.mes << "/" << fechaNacimiento.dia << endl;

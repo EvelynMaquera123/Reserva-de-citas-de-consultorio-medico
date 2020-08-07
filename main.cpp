@@ -31,7 +31,7 @@ int main()
 		system("cls");
 		cout << "\t Ingrese una opcion del menu(1-5)" << endl;
 		cout << "\t 1. Administrador" << endl;
-		cout << "\t 2. Reservar Cita" << endl; 
+		cout << "\t 2. Reservar Cita" << endl;
 		cout << "\t 3. Registrar Paciente" << endl;
 		cout << "\t 4. Mostrar Especialidades" << endl;
 		cout << "\t 5. Mostrar Doctores " << endl;
@@ -47,7 +47,7 @@ int main()
 
 		case 2:
 		{
-			if(c->elegirPaciente()==0)
+			if (c->elegirPaciente() == 0)
 			{
 				break;
 			}
@@ -81,6 +81,6 @@ int main()
 			cout << " Opcion Incorrecta!!! Try again..." << endl;
 			break;
 		}
-	} while (opc != 6); 
+	} while (opc != 6);
 	return 0;
 }

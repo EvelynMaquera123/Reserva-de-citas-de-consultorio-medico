@@ -2,7 +2,8 @@
 #include "../Fecha/Fecha.h"
 #include <string>
 using namespace std;
-class Persona {
+class Persona
+{
 public:
 	string nombre;
 	string apellidoPaterno;
@@ -14,8 +15,9 @@ public:
 	char sexo;
 	string telefono;
 	string direccion;
+
 public:
-	Persona(string nombre,string apellidoP, string apellidoM, Fecha fec,double peso,double estatura,  char sexo, string telefono, string direccion);
+	Persona(string nombre, string apellidoP, string apellidoM, Fecha fec, double peso, double estatura, char sexo, string telefono, string direccion);
 	Persona();
 	string getNombre(void);
 	int setEdad(void);

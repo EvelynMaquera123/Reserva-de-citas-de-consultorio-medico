@@ -255,7 +255,9 @@ void Doctor ::modificarDoctor()
                 }
                 else
                 {
-                    aux << codigo << " " << nombre << " " << paterno << " " << materno << " " << " " << edad << " " << " " << telefono << " " << especialidad << endl;
+                    aux << codigo << " " << nombre << " " << paterno << " " << materno << " "
+                        << " " << edad << " "
+                        << " " << telefono << " " << especialidad << endl;
                 }
                 lectura >> codigo;
             }

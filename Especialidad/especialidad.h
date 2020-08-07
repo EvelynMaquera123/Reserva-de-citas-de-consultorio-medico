@@ -6,18 +6,19 @@
 #include <string>
 #pragma once
 using namespace std;
-class Especialidad{
+class Especialidad
+{
 private:
 	int idEspecialidad;
 	string nombre;
 	string descripcion;
+
 public:
-	Especialidad();				 //Constructor
-	void crearEspecialidad();	 //Crear una nueva especialidad
-	void eliminarEspecialidad(); //Eliminar una especialidad
+	Especialidad();				  //Constructor
+	void crearEspecialidad();	  //Crear una nueva especialidad
+	void eliminarEspecialidad();  //Eliminar una especialidad
 	void modificarEspecialidad(); //Modificar una especialidad
-	void listarEspecialidad(); //Listar una especialidad
+	void listarEspecialidad();	  //Listar una especialidad
 	//~Especialidad();			 //Destructor
 	string getEspecialidad();
-
 };

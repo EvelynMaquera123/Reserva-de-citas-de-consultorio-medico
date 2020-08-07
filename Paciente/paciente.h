@@ -7,19 +7,21 @@
 #include <stdlib.h>
 #include "../Persona/Persona.h"
 
-class Paciente: public Persona{
+class Paciente : public Persona
+{
 public:
 	int codigo;
+
 public:
 	Paciente(); //constructor donde tenemos que pasar los atributos
-	Paciente(string nombr,string apellidoP, string apellidoM, Fecha fec,double peso,double estatura, char sex, string telef,string direccion,int cod);
-	
-	void registrarPaciente(); //Registrar datos del paciente
+	Paciente(string nombr, string apellidoP, string apellidoM, Fecha fec, double peso, double estatura, char sex, string telef, string direccion, int cod);
+
+	void registrarPaciente();	 //Registrar datos del paciente
 	void mostrarDatosPaciente(); //mostrar los datos del paciente
-	void solicitarCita();  //solicitar datos del paciente
-	void cancelarCita();   //cancelar cita del paciente
-	void operacion();    //Operaciones 
-	void actualizarPacientes(); //actualizar datos del paciente
+	void solicitarCita();		 //solicitar datos del paciente
+	void cancelarCita();		 //cancelar cita del paciente
+	void operacion();			 //Operaciones
+	void actualizarPacientes();	 //actualizar datos del paciente
 	bool buscarPaciente(int dni);
 	void eliminarPaciente();
 	void modificarPaciente();

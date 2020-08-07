@@ -1,11 +1,13 @@
 #pragma once
 
-class Fecha {
+class Fecha
+{
 public:
 	int anio;
 	int mes;
 	int dia;
+
 public:
 	Fecha();
-	Fecha(int anio,int dia,int mes);
+	Fecha(int anio, int dia, int mes);
 };

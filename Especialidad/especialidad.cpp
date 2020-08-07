@@ -13,13 +13,14 @@ Especialidad::Especialidad()
 //Creamos especialidad con su nombre y descripción
 void Especialidad::crearEspecialidad()
 {
-    ofstream escritura;
-    ifstream consulta;
+	ofstream escritura;
+	ifstream consulta;
 
-    escritura.open("especialidades.txt", ios::out | ios::app); //crea y escribe, si ya tiene texto une al final del archivo
-    consulta.open("especialidades.txt", ios::in);              //solamente consulta o lee usando la variable sobre el archivo físico pacientes.txt
-    //Verificamos si el archivo ha podido ser habierto con normalidad
-	try {
+	escritura.open("especialidades.txt", ios::out | ios::app); //crea y escribe, si ya tiene texto une al final del archivo
+	consulta.open("especialidades.txt", ios::in);			   //solamente consulta o lee usando la variable sobre el archivo físico pacientes.txt
+															   //Verificamos si el archivo ha podido ser habierto con normalidad
+	try
+	{
 		if (escritura.is_open() && consulta.is_open())
 		{
 			bool creado = false;
@@ -31,7 +32,6 @@ void Especialidad::crearEspecialidad()
 			cin >> codaux;
 			///A continuación se aplica el tipo de lectura de archivos secuencial
 			consulta >> codr;
-
 
 			while (!consulta.eof())
 			{
@@ -46,8 +46,8 @@ void Especialidad::crearEspecialidad()
 				consulta >> codr;
 			}
 			//En caso que el paciente no se haya encontrado significa que no exite , asi que podemos proceder a insertarlo
-		    	if (creado == false)
-			    {
+			if (creado == false)
+			{
 				idEspecialidad = codaux;
 				cout << "\tIngresa el nombre de especialidad : ";
 				cin >> nombre;
@@ -56,8 +56,8 @@ void Especialidad::crearEspecialidad()
 
 				escritura << idEspecialidad << " " << nombre << " " << descripcion << endl;
 				cout << "\n\tEspecialidad agregada...\n"
-					<< endl;
-			    }
+					 << endl;
+			}
 
 			//Si el archivo no se ha podido abrir enviamos un mensaje de error
 		}
@@ -70,22 +70,24 @@ void Especialidad::crearEspecialidad()
 		consulta.close();
 		//Esta accion se repetira siempre que el usuario  presione s o S cuando se le pregunte si quiere ingresar otro paciente
 	}
-	catch (exception& e) {
+	catch (exception &e)
+	{
 		cout << e.what();
 	}
 }
 
 void Especialidad::listarEspecialidad()
 {
-    ifstream lectura;
-	char nombre[25],descripcion[35];
-    lectura.open("especialidades.txt", ios::out | ios::in); //solamente consulta o lee usando la variable sobre el archivo físico alumnos.txt
-    //Preguntamos si la conexion esta abierta
+	ifstream lectura;
+	char nombre[25], descripcion[35];
+	lectura.open("especialidades.txt", ios::out | ios::in); //solamente consulta o lee usando la variable sobre el archivo físico alumnos.txt
+															//Preguntamos si la conexion esta abierta
 	//Agregamos la excepción
-	try {
-	
+	try
+	{
+
 		if (lectura.is_open())
-		{			
+		{
 			lectura >> idEspecialidad;
 			while (!lectura.eof())
 			{ //Mientras haya mas filas en el fichero
@@ -98,34 +100,38 @@ void Especialidad::listarEspecialidad()
 				cout << "\t________________________________\n";
 				cin.ignore();
 			}
-			
-		}else{
-			cout << "No se ha podido abrir el fichero de manera correcta\n" << endl;
 		}
-		
-    }catch (exception& e) {
-	//cout << "No se ha podido abrir el fichero de manera correcta\n"<< endl;
+		else
+		{
+			cout << "No se ha podido abrir el fichero de manera correcta\n"
+				 << endl;
+		}
+	}
+	catch (exception &e)
+	{
+		//cout << "No se ha podido abrir el fichero de manera correcta\n"<< endl;
 		cout << e.what();
 	}
-    lectura.close();
+	lectura.close();
 }
 
 string Especialidad::getEspecialidad()
 {
-    return nombre;
+	return nombre;
 }
 
 //Eliminamos especialidad segun su ID
 void Especialidad::eliminarEspecialidad()
 {
-    ofstream aux;
-    ifstream lectura;
+	ofstream aux;
+	ifstream lectura;
 
-    bool encontrado = false;
-    int auxclave, clave;
-    aux.open("auxiliar_especialidades.txt", ios::out);
-    lectura.open("especialidades.txt", ios::in);
-	try {
+	bool encontrado = false;
+	int auxclave, clave;
+	aux.open("auxiliar_especialidades.txt", ios::out);
+	lectura.open("especialidades.txt", ios::in);
+	try
+	{
 		if (aux.is_open() && lectura.is_open())
 		{
 			char nombre[25], descrpcion[60];
@@ -172,31 +178,34 @@ void Especialidad::eliminarEspecialidad()
 			cout << "\n\tEl archivo no se pudo abrir \n";
 		}
 	}
-	catch (exception& e) {
+	catch (exception &e)
+	{
 		cout << e.what();
 	}
-    if (encontrado == false)
-    {
-        cout << "\n\tNo se encontro ningun registro con la clave: " << auxclave << "\n\n\t\t\t";
-    }
+	if (encontrado == false)
+	{
+		cout << "\n\tNo se encontro ningun registro con la clave: " << auxclave << "\n\n\t\t\t";
+	}
 
-    aux.close();
-    lectura.close();
-    remove("especialidades.txt");
-    rename("auxiliar_especialidades.txt", "especialidades.txt");
+	aux.close();
+	lectura.close();
+	remove("especialidades.txt");
+	rename("auxiliar_especialidades.txt", "especialidades.txt");
 }
 
-void Especialidad::modificarEspecialidad(){
-    ofstream aux;
-    ifstream lectura;
+void Especialidad::modificarEspecialidad()
+{
+	ofstream aux;
+	ifstream lectura;
 
-    bool encontrado = false;
-    int auxclave, clave;
+	bool encontrado = false;
+	int auxclave, clave;
 
-    aux.open("auxiliar_especialidades.txt", ios::out);
-    lectura.open("especialidades.txt", ios::in);
+	aux.open("auxiliar_especialidades.txt", ios::out);
+	lectura.open("especialidades.txt", ios::in);
 
-	try {
+	try
+	{
 		if (aux.is_open() && lectura.is_open())
 		{
 			char nombre[25], descripcion[60];
@@ -210,46 +219,47 @@ void Especialidad::modificarEspecialidad(){
 			{
 				lectura >> nombre >> descripcion;
 
-					if (auxclave == clave)
-					{
-						char opca;
-						encontrado = true;
-						cout << "\n";
-						cout << "\tCodigo:           " << clave << endl;
-						cout << "\tNombre:           " << nombre << endl;
-						cout << "\tDescripcion:      " << descripcion << endl;
-						cout << "\t________________________________\n\n";
+				if (auxclave == clave)
+				{
+					char opca;
+					encontrado = true;
+					cout << "\n";
+					cout << "\tCodigo:           " << clave << endl;
+					cout << "\tNombre:           " << nombre << endl;
+					cout << "\tDescripcion:      " << descripcion << endl;
+					cout << "\t________________________________\n\n";
 
-						cout << "\tIngresa el nuevo codigo de la especialidad a modificar : " << clave << "\n\n\t---> ";
-						cin >> clave;
-						cout << "\tIngresa el nuevo nombre de la especialidad a modificar : " << nombre << "\n\n\t---> ";
-						cin >> nombre;
-						cout << "\tIngresa la nueva descripcion de la especialidad a modificar : " << descripcion << "\n\n\t---> ";
-						cin >> descripcion;
-						aux << clave << " " << nombre << " " << descripcion << endl;
-						cout << "\n\n\t\t\tRegistro modificado...\n\t\t\a";
+					cout << "\tIngresa el nuevo codigo de la especialidad a modificar : " << clave << "\n\n\t---> ";
+					cin >> clave;
+					cout << "\tIngresa el nuevo nombre de la especialidad a modificar : " << nombre << "\n\n\t---> ";
+					cin >> nombre;
+					cout << "\tIngresa la nueva descripcion de la especialidad a modificar : " << descripcion << "\n\n\t---> ";
+					cin >> descripcion;
+					aux << clave << " " << nombre << " " << descripcion << endl;
+					cout << "\n\n\t\t\tRegistro modificado...\n\t\t\a";
+				}
 
-					}
-				
-					else {
-						aux << clave << " " << nombre << " " << descripcion << endl;
-					}
-					
-					lectura >> clave;
-			}			
-		}		//throw encontrado;
-		else {
+				else
+				{
+					aux << clave << " " << nombre << " " << descripcion << endl;
+				}
+
+				lectura >> clave;
+			}
+		} //throw encontrado;
+		else
+		{
 			cout << "No se ha podido abrir el fichero de manera correcta\n"
-				<< endl;
+				 << endl;
 		}
 	}
-	catch (exception& e) {
+	catch (exception &e)
+	{
 		cout << e.what();
-		
 	}
 
-    aux.close();
-    lectura.close();
-    remove("especialidades.txt");
-    rename("auxiliar_especialidades.txt", "especialidades.txt");
+	aux.close();
+	lectura.close();
+	remove("especialidades.txt");
+	rename("auxiliar_especialidades.txt", "especialidades.txt");
 }

@@ -11,7 +11,7 @@
 #include <windows.h>
 using namespace std;
 
-string auxnombrepaciente,auxnombredoctor;
+string auxnombrepaciente, auxnombredoctor;
 Cita::Cita()
 {
 }
@@ -28,12 +28,11 @@ int Cita::elegirPaciente()
 	escritura.open("pacientes.txt", ios::out | ios::app); //crea y escribe, si ya tiene texto une al final del archivo
 	consulta.open("pacientes.txt", ios::in);			  //solamente consulta o lee usando la variable sobre el archivo físico pacientes.txt
 	//Verificamos si el archivo ha podido ser habierto con normalidad
-	try {
-
+	try
+	{
 
 		if (escritura.is_open() && consulta.is_open())
 		{
-
 			bool repetido = false;
 			int codaux;
 			cout << "\n";
@@ -97,7 +96,8 @@ int Cita::elegirPaciente()
 			cout << "El archivo no se pudo abrir \n";
 		}
 	}
-	catch (exception& e) {
+	catch (exception &e)
+	{
 		cout << e.what();
 	}
 	//Cerramos la conceccion de escritura y de lectura con el archivo
@@ -115,20 +115,19 @@ int Cita::elegirEspecialidad()
 	ifstream consulta;
 	consulta.open("especialidades.txt", ios::in); //solamente consulta o lee usando la variable sobre el archivo físico pacientes.txt
 	//Verificamos si el archivo ha podido ser habierto con normalidad
-	try {
-
-
+	try
+	{
 		if (consulta.is_open())
 		{
 			int cod;
 			string Enombre, Edes;
 			///A continuación se aplica el tipo de lectura de archivos secuencial
 			cout << "\t"
-				<< "Codigo"
-				<< "\t"
-				<< "Nombre"
-				<< "\t"
-				<< "Descripcion" << endl;
+				 << "Codigo"
+				 << "\t"
+				 << "Nombre"
+				 << "\t"
+				 << "Descripcion" << endl;
 
 			while (!consulta.eof())
 			{
@@ -154,7 +153,8 @@ int Cita::elegirEspecialidad()
 			cout << "El archivo no se pudo abrir \n";
 		}
 	}
-	catch (exception& e) {
+	catch (exception &e)
+	{
 		cout << e.what();
 	}
 	//Cerramos la conceccion de escritura y de lectura con el archivo
@@ -308,8 +308,8 @@ int Cita::elegirFecha()
 		 << "Hora"
 		 << "\t"
 		 << "Citas" << endl;
-	try {
-
+	try
+	{
 
 		if (consulta.is_open())
 		{
@@ -348,7 +348,8 @@ int Cita::elegirFecha()
 			cout << "El archivo no se pudo abrir \n";
 		}
 	}
-	catch (exception& e) {
+	catch (exception &e)
+	{
 		cout << e.what();
 	}
 	//Cerramos la conceccion de escritura y de lectura con el archivo
@@ -387,8 +388,8 @@ void Cita::guardarCita()
 
 	escritura.open("citas.txt", ios::out | ios::app); //crea y escribe, si ya tiene texto une al final del archivo
 	consulta.open("citas.txt", ios::in);			  //solamente consulta o lee usando la variable sobre el archivo físico alumnos.txt
-	try {
-
+	try
+	{
 
 		if (escritura.is_open() && consulta.is_open())
 		{
@@ -405,7 +406,8 @@ void Cita::guardarCita()
 			cout << "El archivo no se pudo abrir \n";
 		}
 	}
-	catch (exception& e) {
+	catch (exception &e)
+	{
 		cout << e.what();
 	}
 	escritura.close();
@@ -423,10 +425,9 @@ void Cita::crearCita()
 	elegirFecha();
 	cambiarEstado(true);
 	mostrarCita();
-//	getch();
+	//	getch();
 	cout << "\t -------------------------------------\n";
 	guardarCita();
-	
 }
 
 void Cita::eliminarCita()
@@ -437,8 +438,8 @@ void Cita::eliminarCita()
 	bool encontrado = false;
 	aux.open("auxiliar_citas.txt", ios::out);
 	lectura.open("citas.txt", ios::in);
-	try {
-
+	try
+	{
 
 		if (aux.is_open() && lectura.is_open())
 		{
@@ -497,7 +498,8 @@ void Cita::eliminarCita()
 			cout << "\n\tEl archivo no se pudo abrir \n";
 		}
 	}
-	catch (exception& e) {
+	catch (exception &e)
+	{
 		cout << e.what();
 	}
 
@@ -511,4 +513,3 @@ void Cita::eliminarCita()
 	remove("citas.txt");
 	rename("auxiliar_citas.txt", "citas.txt");
 }
-
