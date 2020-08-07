@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <conio.h>
 #include "../Paciente/paciente.h"
 
 using namespace std;
@@ -22,9 +23,13 @@ void Paciente::registrarPaciente()
 	ofstream escritura;
 	ifstream consulta;
 	char auxentrada[10];
+<<<<<<< HEAD
 	char sexoF = 'F';
 	char sexoM = 'M';
 
+=======
+	string auxGenero;
+>>>>>>> 069a4ca2f7dbb6b6ad480c059289b1b6fec4fae8
 	escritura.open("pacientes.txt", ios::out | ios::app); //crea y escribe, si ya tiene texto une al final del archivo
 	consulta.open("pacientes.txt", ios::in);			  //solamente consulta o lee usando la variable sobre el archivo físico pacientes.txt
 	//Verificamos si el archivo ha podido ser habierto con normalidad
@@ -47,9 +52,9 @@ void Paciente::registrarPaciente()
 		{
 			cin >> auxentrada;
 			codaux = atoi(auxentrada);
-			if (codaux == 0)
+			if (codaux == 0){
 				cout << "\t Incorrecto ingrese de nuevo...! : ";
-
+			}
 		} while (codaux == 0);
 		
 		while (codaux>=10) {
@@ -95,6 +100,7 @@ void Paciente::registrarPaciente()
 			cout << "\t Ingresa el su edad: ";
 			cin >> paciente.edad;
 			cout << "\t Ingresa el su sexo: ";
+<<<<<<< HEAD
 			cin >> paciente.sexo;
 			/*
 			if (( (strcmp(&(paciente.sexo), &sexoF) == 0) || (strcmp(&(paciente.sexo), &sexoM) == 0)) ) {
@@ -106,6 +112,16 @@ void Paciente::registrarPaciente()
 			}
 			*/
 
+=======
+			while(TRUE){
+			cout << "\t Ingresa el sexo:(m/f) ";
+
+ 			cin>>auxGenero;
+					if(auxGenero.compare("m")==0||auxGenero.compare("f")==0)
+							break;
+				cout << "\t Incorrecto.... ";
+			}
+>>>>>>> 069a4ca2f7dbb6b6ad480c059289b1b6fec4fae8
 			cout << "\t Ingresa el telefono: ";
 			cin >> paciente.telefono;
 
