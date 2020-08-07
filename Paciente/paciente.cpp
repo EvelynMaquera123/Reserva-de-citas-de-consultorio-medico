@@ -23,7 +23,7 @@ void Paciente::registrarPaciente()
 	ofstream escritura;
 	ifstream consulta;
 	char auxentrada[10];
-
+	string auxGenero;
 	escritura.open("pacientes.txt", ios::out | ios::app); //crea y escribe, si ya tiene texto une al final del archivo
 	consulta.open("pacientes.txt", ios::in);			  //solamente consulta o lee usando la variable sobre el archivo físico pacientes.txt
 	//Verificamos si el archivo ha podido ser habierto con normalidad
@@ -76,7 +76,14 @@ void Paciente::registrarPaciente()
 			cout << "\t Ingresa el su edad: ";
 			cin >> paciente.edad;
 			cout << "\t Ingresa el su sexo: ";
-			cin >> paciente.sexo;
+			while(TRUE){
+			cout << "\t Ingresa el sexo:(m/f) ";
+
+ 			cin>>auxGenero;
+					if(auxGenero.compare("m")==0||auxGenero.compare("f")==0)
+							break;
+				cout << "\t Incorrecto.... ";
+			}
 			cout << "\t Ingresa el telefono: ";
 			cin >> paciente.telefono;
 			cout << "\t Ingresa el direccion: ";
