@@ -1,4 +1,0 @@
-1 Medicina Medicina_General_para
-2 Pediatria Cuidado_personal_de_bebes
-3 Otorrino Cuida_la_garganta
-4 Fisioterapia Cuidado_de_los_huesos
