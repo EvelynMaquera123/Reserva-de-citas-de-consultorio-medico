@@ -12,7 +12,6 @@ private:
 
 public:
 	Horario();			 //Constructor basico
-	void modificar();	 //Con este metodo modifica la fecha del horario
 	void mostrarDatos(); //Mostramos todos los datos del horario
 	void crearHorario(); //Con este metodo creamos un nuevo horario
 	void listarHorario(string codaux);

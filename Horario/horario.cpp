@@ -6,11 +6,6 @@ Horario::Horario()
 }
 //Contrcutor que llama al contructor de la clase padre.
 
-void Horario::modificar() //Con este metodo modifica la fecha del horario
-{
-	//¡CUIDADO ZONA EN CONSTRUCCION!
-}
-
 void Horario::mostrarDatos() //Mostramos todos los datos del horario
 {
 	cout << "\t Codigo del doctor:" << codigo_doctor << endl;
