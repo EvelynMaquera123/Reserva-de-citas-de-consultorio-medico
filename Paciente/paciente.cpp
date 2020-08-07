@@ -5,7 +5,6 @@
 
 using namespace std;
 string auxnombre;
- //char auxnombre[25];
 //Le pasamos los valores de nuestros parametros  exculisivos de Paciente
 Paciente::Paciente(string nombr, string apellidoP, string apellidoM, Fecha fec, double peso, double estatura, char sex, string telef, string direccion, int cod)
 {
@@ -23,22 +22,15 @@ void Paciente::registrarPaciente()
 	ofstream escritura;
 	ifstream consulta;
 	char auxentrada[10];
-<<<<<<< HEAD
 	char sexoF = 'F';
 	char sexoM = 'M';
 
-=======
-	string auxGenero;
->>>>>>> 069a4ca2f7dbb6b6ad480c059289b1b6fec4fae8
 	escritura.open("pacientes.txt", ios::out | ios::app); //crea y escribe, si ya tiene texto une al final del archivo
 	consulta.open("pacientes.txt", ios::in);			  //solamente consulta o lee usando la variable sobre el archivo físico pacientes.txt
 	//Verificamos si el archivo ha podido ser habierto con normalidad
 
-
-
 	try {
 
-	
 	if (escritura.is_open() && consulta.is_open())
 	{
 		bool repetido = false;
@@ -100,28 +92,8 @@ void Paciente::registrarPaciente()
 			cout << "\t Ingresa el su edad: ";
 			cin >> paciente.edad;
 			cout << "\t Ingresa el su sexo: ";
-<<<<<<< HEAD
 			cin >> paciente.sexo;
-			/*
-			if (( (strcmp(&(paciente.sexo), &sexoF) == 0) || (strcmp(&(paciente.sexo), &sexoM) == 0)) ) {
-				//throw invalid_argument("el sexo debe ser F o M");
-				//cin >> paciente.sexo;
-			}
-			else {
-				throw invalid_argument("el sexo debe ser F o M");
-			}
-			*/
 
-=======
-			while(TRUE){
-			cout << "\t Ingresa el sexo:(m/f) ";
-
- 			cin>>auxGenero;
-					if(auxGenero.compare("m")==0||auxGenero.compare("f")==0)
-							break;
-				cout << "\t Incorrecto.... ";
-			}
->>>>>>> 069a4ca2f7dbb6b6ad480c059289b1b6fec4fae8
 			cout << "\t Ingresa el telefono: ";
 			cin >> paciente.telefono;
 
@@ -132,13 +104,8 @@ void Paciente::registrarPaciente()
 			cout << "\t Ingresa el direccion: ";
 			cin >> paciente.direccion;
 
-		//	if ((strcmp(&(paciente.sexo), &sexoF) == 0) || (strcmp(&(paciente.sexo), &sexoM) == 0)) {
-				escritura << paciente.codigo << " " << paciente.nombre << " " << paciente.apellidoPaterno << " " << paciente.apellidoMaterno << " " << paciente.peso << " " << paciente.edad << " " << paciente.sexo << " " << paciente.telefono << " " << paciente.direccion << endl;
-
-		//	}
-		//	else {
-		//		throw invalid_argument("El sexo debe ser F ó M ");
-		//	}
+			escritura << paciente.codigo << " " << paciente.nombre << " " << paciente.apellidoPaterno << " " << paciente.apellidoMaterno 
+			<< " " << paciente.peso << " " << paciente.edad << " " << paciente.sexo << " " << paciente.telefono << " " << paciente.direccion << endl;
 			
 			cout << "\n\tRegistro agregado...\n";
 		}
@@ -157,8 +124,6 @@ void Paciente::registrarPaciente()
 	escritura.close();
 	consulta.close();
 	//Esta accion se repetira siempre que el usuario  presione s o S cuando se le pregunte si quiere ingresar otro paciente
-
-
 }
 
 void Paciente::mostrarDatosPaciente()
@@ -256,7 +221,6 @@ void Paciente ::eliminarPaciente()
 	remove("pacientes.txt");
 	rename("auxiliar_pacientes.txt", "pacientes.txt");
 }
-
 
 
 void Paciente ::modificarPaciente()
